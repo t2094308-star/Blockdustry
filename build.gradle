@@ -105,6 +105,9 @@ dependencies {
     // For all intends and purposes: You can treat this dependency as if it is a normal library you would use.
     implementation "net.neoforged:neoforge:${neo_version}"
 
+    // 前置库模组 BlockHealth (方块血量) 的 jar 依赖，需先构建该工程喵
+    implementation files("D:/Blockdustry/子仓库(方块血量)/build/libs/blockhealth-1.0.0.jar")
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
