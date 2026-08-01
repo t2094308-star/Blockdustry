@@ -44,7 +44,7 @@ Blockdustry 是一个 Minecraft 模组，受经典工厂塔防游戏 Mindustry �
 
 ## 下载
 
-正式发布版本请到 Releases 页面下载。
+（短时间内不会有打包完成的版本）
 
 ---
 
