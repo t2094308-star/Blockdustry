@@ -1,6 +1,8 @@
 {
   "block.blockdustry.drill": "Drill",
   "block.blockdustry.turret": "Turret",
+  "block.blockdustry.conveyor": "Conveyor",
+  "block.blockdustry.router": "Router",
   "item.blockdustry.debug_stick": "Team Debug Stick",
   "itemGroup.blockdustry": "Blockdustry"
 }

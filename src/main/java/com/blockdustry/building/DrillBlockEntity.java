@@ -15,14 +15,19 @@ public class DrillBlockEntity extends BlockdustryBuildingEntity {
         super(BlockdustryBlocks.DRILL_ENTITY.get(), pos, state);
     }
 
-    // 每模组 tick：库存满则停止；未满则累积进度，满阈值存入一个粗铁喵
+    // 每模组 tick：先卸库存给相邻传送带/容器，再产出（优先 offload，无人收才入库存）喵
     @Override
     protected void tickAnchor() {
+        if (getStoredCount() > 0 && getStoredItem() != null && dumpItem(getStoredItem())) {
+            removeOne();
+        }
         if (isFull()) return;
         progress += 1;
         if (progress >= PROGRESS_THRESHOLD) {
             progress = 0;
-            acceptItem(Items.RAW_IRON);
+            if (!dumpItem(Items.RAW_IRON)) {
+                storeItem(Items.RAW_IRON);
+            }
         }
     }
 }

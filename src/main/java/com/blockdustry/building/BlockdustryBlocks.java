@@ -54,6 +54,20 @@ public final class BlockdustryBlocks {
             BLOCK_ENTITY_TYPES.register("turret",
                     () -> BlockEntityType.Builder.of(TurretBlockEntity::new, TURRET.get()).build(null));
 
+    // 物流：传送带 + Router（方法间接引用避免前向引用）喵
+    public static final DeferredBlock<Block> CONVEYOR = BLOCKS.register("conveyor", BlockdustryBlocks::conveyorBlock);
+    public static final DeferredBlock<Block> ROUTER = BLOCKS.register("router", BlockdustryBlocks::routerBlock);
+    public static final DeferredItem<BlockdustryBuildingItem> CONVEYOR_ITEM =
+            ITEMS.register("conveyor", () -> new BlockdustryBuildingItem(CONVEYOR.get(), new Item.Properties(), 1));
+    public static final DeferredItem<BlockdustryBuildingItem> ROUTER_ITEM =
+            ITEMS.register("router", () -> new BlockdustryBuildingItem(ROUTER.get(), new Item.Properties(), 1));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ConveyorBlockEntity>> CONVEYOR_ENTITY =
+            BLOCK_ENTITY_TYPES.register("conveyor",
+                    () -> BlockEntityType.Builder.of(ConveyorBlockEntity::new, CONVEYOR.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RouterBlockEntity>> ROUTER_ENTITY =
+            BLOCK_ENTITY_TYPES.register("router",
+                    () -> BlockEntityType.Builder.of(RouterBlockEntity::new, ROUTER.get()).build(null));
+
     // 独立「方块工业」创造栏 tab 喵
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB =
             CREATIVE_TABS.register("blockdustry",
@@ -63,6 +77,8 @@ public final class BlockdustryBlocks {
                             .displayItems((params, output) -> {
                                 output.accept(DRILL_ITEM);
                                 output.accept(TURRET_ITEM);
+                                output.accept(CONVEYOR_ITEM);
+                                output.accept(ROUTER_ITEM);
                             })
                             .build());
 
@@ -78,6 +94,19 @@ public final class BlockdustryBlocks {
         return new BlockdustryBuildingBlock(
                 BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(4f),
                 () -> TURRET_ENTITY.get(),
+                1);
+    }
+
+    private static BlockdustryBuildingBlock conveyorBlock() {
+        return new ConveyorBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(2f),
+                () -> CONVEYOR_ENTITY.get());
+    }
+
+    private static BlockdustryBuildingBlock routerBlock() {
+        return new BlockdustryBuildingBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(2f),
+                () -> ROUTER_ENTITY.get(),
                 1);
     }
 

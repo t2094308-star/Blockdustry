@@ -2,6 +2,7 @@ package com.blockdustry;
 
 import com.blockdustry.building.BlockdustryBlocks;
 import com.blockdustry.client.BlockdustryBulletRenderer;
+import com.blockdustry.client.ConveyorBlockEntityRenderer;
 import com.blockdustry.client.DrillBlockEntityRenderer;
 import com.blockdustry.entities.BlockdustryEntities;
 
@@ -26,6 +27,7 @@ public class BlockdustryClient {
     @SubscribeEvent
     static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(BlockdustryBlocks.DRILL_ENTITY.get(), DrillBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BlockdustryBlocks.CONVEYOR_ENTITY.get(), ConveyorBlockEntityRenderer::new);
         event.registerEntityRenderer(BlockdustryEntities.BULLET.get(), BlockdustryBulletRenderer::new);
     }
 }
