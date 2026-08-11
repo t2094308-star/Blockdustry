@@ -4,6 +4,9 @@
   "block.blockdustry.conveyor": "传送带",
   "block.blockdustry.router": "路由器",
   "block.blockdustry.graphite_press": "石墨压缩机",
+  "block.blockdustry.power_node": "电力节点",
+  "block.blockdustry.combustion_generator": "燃烧发电机",
+  "block.blockdustry.battery": "电池",
   "item.blockdustry.graphite": "石墨",
   "item.blockdustry.debug_stick": "队伍调试棒",
   "itemGroup.blockdustry": "方块工业"

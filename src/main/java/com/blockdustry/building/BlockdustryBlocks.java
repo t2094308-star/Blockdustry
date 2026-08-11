@@ -1,6 +1,9 @@
 package com.blockdustry.building;
 
 import com.blockdustry.Blockdustry;
+import com.blockdustry.power.BatteryBlockEntity;
+import com.blockdustry.power.CombustionGeneratorBlockEntity;
+import com.blockdustry.power.PowerNodeBlockEntity;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -79,6 +82,26 @@ public final class BlockdustryBlocks {
             BLOCK_ENTITY_TYPES.register("graphite_press",
                     () -> BlockEntityType.Builder.of(GraphitePressBlockEntity::new, GRAPHITE_PRESS.get()).build(null));
 
+    // 电力：电力节点 + 燃烧发电机 + 电池（方法间接引用避免前向引用）喵
+    public static final DeferredBlock<Block> POWER_NODE = BLOCKS.register("power_node", BlockdustryBlocks::powerNodeBlock);
+    public static final DeferredBlock<Block> COMBUSTION_GENERATOR = BLOCKS.register("combustion_generator", BlockdustryBlocks::combustionGeneratorBlock);
+    public static final DeferredBlock<Block> BATTERY = BLOCKS.register("battery", BlockdustryBlocks::batteryBlock);
+    public static final DeferredItem<BlockdustryBuildingItem> POWER_NODE_ITEM =
+            ITEMS.register("power_node", () -> new BlockdustryBuildingItem(POWER_NODE.get(), new Item.Properties(), 1));
+    public static final DeferredItem<BlockdustryBuildingItem> COMBUSTION_GENERATOR_ITEM =
+            ITEMS.register("combustion_generator", () -> new BlockdustryBuildingItem(COMBUSTION_GENERATOR.get(), new Item.Properties(), 1));
+    public static final DeferredItem<BlockdustryBuildingItem> BATTERY_ITEM =
+            ITEMS.register("battery", () -> new BlockdustryBuildingItem(BATTERY.get(), new Item.Properties(), 1));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PowerNodeBlockEntity>> POWER_NODE_ENTITY =
+            BLOCK_ENTITY_TYPES.register("power_node",
+                    () -> BlockEntityType.Builder.of((pos, state) -> new PowerNodeBlockEntity(pos, state), POWER_NODE.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CombustionGeneratorBlockEntity>> COMBUSTION_GENERATOR_ENTITY =
+            BLOCK_ENTITY_TYPES.register("combustion_generator",
+                    () -> BlockEntityType.Builder.of((pos, state) -> new CombustionGeneratorBlockEntity(pos, state), COMBUSTION_GENERATOR.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BatteryBlockEntity>> BATTERY_ENTITY =
+            BLOCK_ENTITY_TYPES.register("battery",
+                    () -> BlockEntityType.Builder.of((pos, state) -> new BatteryBlockEntity(pos, state), BATTERY.get()).build(null));
+
     // 独立「方块工业」创造栏 tab 喵
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB =
             CREATIVE_TABS.register("blockdustry",
@@ -92,6 +115,9 @@ public final class BlockdustryBlocks {
                                 output.accept(ROUTER_ITEM);
                                 output.accept(GRAPHITE_PRESS_ITEM);
                                 output.accept(GRAPHITE);
+                                output.accept(POWER_NODE_ITEM);
+                                output.accept(COMBUSTION_GENERATOR_ITEM);
+                                output.accept(BATTERY_ITEM);
                             })
                             .build());
 
@@ -128,6 +154,27 @@ public final class BlockdustryBlocks {
                 BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(4f),
                 () -> GRAPHITE_PRESS_ENTITY.get(),
                 2);
+    }
+
+    private static BlockdustryBuildingBlock powerNodeBlock() {
+        return new BlockdustryBuildingBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(2f),
+                () -> POWER_NODE_ENTITY.get(),
+                1);
+    }
+
+    private static BlockdustryBuildingBlock combustionGeneratorBlock() {
+        return new BlockdustryBuildingBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(3f),
+                () -> COMBUSTION_GENERATOR_ENTITY.get(),
+                1);
+    }
+
+    private static BlockdustryBuildingBlock batteryBlock() {
+        return new BlockdustryBuildingBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(3f),
+                () -> BATTERY_ENTITY.get(),
+                1);
     }
 
     // 注册到 mod 事件总线喵

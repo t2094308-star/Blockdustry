@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/battery"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/battery"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/battery"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/battery"
+    }
+  }
+}

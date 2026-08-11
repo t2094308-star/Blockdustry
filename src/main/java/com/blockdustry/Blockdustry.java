@@ -17,6 +17,7 @@ import com.blockdustry.building.BlockdustryBlocks;
 import com.blockdustry.building.BlockdustryBuildings;
 import com.blockdustry.config.BlockdustryConfig;
 import com.blockdustry.entities.BlockdustryEntities;
+import com.blockdustry.power.PowerGridManager;
 
 // 方块工业 (Blockdustry) 主类，modId 需与 neoforge.mods.toml 中一致喵
 @Mod(Blockdustry.MODID)
@@ -40,6 +41,8 @@ public class Blockdustry {
         BlockdustryEntities.register(modEventBus);
         // 建筑管理器挂模组新 tick 喵
         BlockdustryBuildings.hook();
+        // 电网管理器挂模组新 tick 喵
+        PowerGridManager.hook();
         // 注册本类响应游戏事件（服务端启动等）喵
         NeoForge.EVENT_BUS.register(this);
     }

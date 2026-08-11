@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/combustion_generator"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/combustion_generator"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/combustion_generator"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/combustion_generator"
+    }
+  }
+}

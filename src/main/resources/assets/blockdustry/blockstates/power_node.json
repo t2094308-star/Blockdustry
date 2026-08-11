@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/power_node"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/power_node"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/power_node"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/power_node"
+    }
+  }
+}

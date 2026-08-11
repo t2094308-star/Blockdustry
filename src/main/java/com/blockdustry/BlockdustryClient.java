@@ -4,6 +4,7 @@ import com.blockdustry.building.BlockdustryBlocks;
 import com.blockdustry.client.BlockdustryBulletRenderer;
 import com.blockdustry.client.ConveyorBlockEntityRenderer;
 import com.blockdustry.client.DrillBlockEntityRenderer;
+import com.blockdustry.client.PowerNodeBlockEntityRenderer;
 import com.blockdustry.entities.BlockdustryEntities;
 
 import net.neoforged.api.distmarker.Dist;
@@ -28,6 +29,7 @@ public class BlockdustryClient {
     static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(BlockdustryBlocks.DRILL_ENTITY.get(), DrillBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockdustryBlocks.CONVEYOR_ENTITY.get(), ConveyorBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BlockdustryBlocks.POWER_NODE_ENTITY.get(), PowerNodeBlockEntityRenderer::new);
         event.registerEntityRenderer(BlockdustryEntities.BULLET.get(), BlockdustryBulletRenderer::new);
     }
 }

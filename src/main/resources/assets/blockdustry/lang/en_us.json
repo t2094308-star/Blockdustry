@@ -4,6 +4,9 @@
   "block.blockdustry.conveyor": "Conveyor",
   "block.blockdustry.router": "Router",
   "block.blockdustry.graphite_press": "Graphite Press",
+  "block.blockdustry.power_node": "Power Node",
+  "block.blockdustry.combustion_generator": "Combustion Generator",
+  "block.blockdustry.battery": "Battery",
   "item.blockdustry.graphite": "Graphite",
   "item.blockdustry.debug_stick": "Team Debug Stick",
   "itemGroup.blockdustry": "Blockdustry"
