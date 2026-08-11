@@ -1,8 +1,10 @@
 {
-  "block.blockdustry.drill": "采集机",
-  "block.blockdustry.turret": "炮塔",
+  "block.blockdustry.drill": "机械钻头",
+  "block.blockdustry.turret": "双管",
   "block.blockdustry.conveyor": "传送带",
   "block.blockdustry.router": "路由器",
+  "block.blockdustry.graphite_press": "石墨压缩机",
+  "item.blockdustry.graphite": "石墨",
   "item.blockdustry.debug_stick": "队伍调试棒",
   "itemGroup.blockdustry": "方块工业"
 }

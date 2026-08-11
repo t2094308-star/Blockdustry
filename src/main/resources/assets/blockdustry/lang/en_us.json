@@ -3,6 +3,8 @@
   "block.blockdustry.turret": "Turret",
   "block.blockdustry.conveyor": "Conveyor",
   "block.blockdustry.router": "Router",
+  "block.blockdustry.graphite_press": "Graphite Press",
+  "item.blockdustry.graphite": "Graphite",
   "item.blockdustry.debug_stick": "Team Debug Stick",
   "itemGroup.blockdustry": "Blockdustry"
 }

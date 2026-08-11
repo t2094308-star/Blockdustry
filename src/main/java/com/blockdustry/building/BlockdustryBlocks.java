@@ -68,6 +68,17 @@ public final class BlockdustryBlocks {
             BLOCK_ENTITY_TYPES.register("router",
                     () -> BlockEntityType.Builder.of(RouterBlockEntity::new, ROUTER.get()).build(null));
 
+    // 石墨物品（Mindustry 原料，MC 无此物品）喵
+    public static final DeferredItem<Item> GRAPHITE = ITEMS.register("graphite", () -> new Item(new Item.Properties()));
+
+    // 加工工厂：石墨压缩机（2×2，吃 2 煤产 1 石墨）喵
+    public static final DeferredBlock<Block> GRAPHITE_PRESS = BLOCKS.register("graphite_press", BlockdustryBlocks::graphitePressBlock);
+    public static final DeferredItem<BlockdustryBuildingItem> GRAPHITE_PRESS_ITEM =
+            ITEMS.register("graphite_press", () -> new BlockdustryBuildingItem(GRAPHITE_PRESS.get(), new Item.Properties(), 2));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GraphitePressBlockEntity>> GRAPHITE_PRESS_ENTITY =
+            BLOCK_ENTITY_TYPES.register("graphite_press",
+                    () -> BlockEntityType.Builder.of(GraphitePressBlockEntity::new, GRAPHITE_PRESS.get()).build(null));
+
     // 独立「方块工业」创造栏 tab 喵
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB =
             CREATIVE_TABS.register("blockdustry",
@@ -79,6 +90,8 @@ public final class BlockdustryBlocks {
                                 output.accept(TURRET_ITEM);
                                 output.accept(CONVEYOR_ITEM);
                                 output.accept(ROUTER_ITEM);
+                                output.accept(GRAPHITE_PRESS_ITEM);
+                                output.accept(GRAPHITE);
                             })
                             .build());
 
@@ -108,6 +121,13 @@ public final class BlockdustryBlocks {
                 BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(2f),
                 () -> ROUTER_ENTITY.get(),
                 1);
+    }
+
+    private static BlockdustryBuildingBlock graphitePressBlock() {
+        return new BlockdustryBuildingBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(4f),
+                () -> GRAPHITE_PRESS_ENTITY.get(),
+                2);
     }
 
     // 注册到 mod 事件总线喵

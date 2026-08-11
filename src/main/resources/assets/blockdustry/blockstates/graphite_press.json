@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/graphite_press_nw"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/graphite_press_ne"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/graphite_press_sw"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/graphite_press_se"
+    }
+  }
+}

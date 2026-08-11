@@ -122,32 +122,47 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
     }
 
     // 把 item 卸给「全占地四邻域」第一个可接收的 sink（轮询起点，成功前移指针）。
-    // 契约：只给货不扣库存，调用方成功后自行 storedCount-- 喵
+    // 关键：用「靠近该 sink 的建筑格」作为 source，保证传送带方向判断正确（否则多格建筑从格旁传送带判错）喵
     protected boolean dumpItem(Item item) {
         if (level == null || item == null) return false;
-        List<BlockPos> candidates = new ArrayList<>();
         BlockPos base = hasAnchor() ? anchor : worldPosition;
+        List<BlockPos> cells = new ArrayList<>();
         for (int dx = 0; dx < getSize(); dx++) {
             for (int dz = 0; dz < getSize(); dz++) {
-                BlockPos cell = base.offset(dx, 0, dz);
-                for (Direction dir : Direction.Plane.HORIZONTAL) {
-                    BlockPos p = cell.relative(dir);
-                    if (!candidates.contains(p)) candidates.add(p);
+                cells.add(base.offset(dx, 0, dz));
+            }
+        }
+        List<BlockPos> candidates = new ArrayList<>();
+        java.util.Map<BlockPos, BlockPos> candidateToCell = new java.util.HashMap<>();
+        for (BlockPos cell : cells) {
+            for (Direction dir : Direction.Plane.HORIZONTAL) {
+                BlockPos p = cell.relative(dir);
+                if (!candidates.contains(p)) {
+                    candidates.add(p);
+                    candidateToCell.put(p, cell);
                 }
             }
         }
         for (int i = 0; i < candidates.size(); i++) {
             int idx = (dumpPointer + i) % candidates.size();
-            BlockEntity be = level.getBlockEntity(candidates.get(idx));
-            if (be instanceof BlockdustryItemSink sink
-                    && sink.acceptItem(this, item)
-                    && sink.handleItem(this, item)) {
-                dumpPointer = (idx + 1) % candidates.size();
-                setChanged();
-                return true;
+            BlockPos p = candidates.get(idx);
+            BlockEntity be = level.getBlockEntity(p);
+            if (be instanceof BlockdustryItemSink sink) {
+                BlockdustryItemSource source = sourceAt(candidateToCell.get(p));
+                if (sink.acceptItem(source, item) && sink.handleItem(source, item)) {
+                    dumpPointer = (idx + 1) % candidates.size();
+                    setChanged();
+                    return true;
+                }
             }
         }
         return false;
+    }
+
+    // 取指定格对应的物品源（该格 BE 或本格兜底）喵
+    private BlockdustryItemSource sourceAt(BlockPos cell) {
+        BlockEntity be = level.getBlockEntity(cell);
+        return be instanceof BlockdustryItemSource s ? s : this;
     }
 
     // 锚点相关喵

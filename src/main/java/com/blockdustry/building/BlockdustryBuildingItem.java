@@ -35,6 +35,20 @@ public class BlockdustryBuildingItem extends BlockItem {
                 }
             }
         }
+        // 钻头必须放在有矿石的地面上（Mindustry 钻机要有矿可采）喵
+        if (getBlock() == BlockdustryBlocks.DRILL.get()) {
+            boolean hasOre = false;
+            for (int dx = 0; dx < size; dx++) {
+                for (int dz = 0; dz < size; dz++) {
+                    if (DrillBlockEntity.oreResult(ctx.getLevel().getBlockState(base.offset(dx, -1, dz))) != null) {
+                        hasOre = true;
+                        break;
+                    }
+                }
+                if (hasOre) break;
+            }
+            if (!hasOre) return InteractionResult.FAIL;
+        }
         InteractionResult result = super.place(ctx);
         // 服务端：填充其余格 + 统一锚点 + 继承放置者队伍喵
         if (result.consumesAction() && !ctx.getLevel().isClientSide && size > 1) {
