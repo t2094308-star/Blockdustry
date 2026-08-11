@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "corner=nw": { "model": "blockdustry:block/drill_nw" },
+    "corner=ne": { "model": "blockdustry:block/drill_ne" },
+    "corner=sw": { "model": "blockdustry:block/drill_sw" },
+    "corner=se": { "model": "blockdustry:block/drill_se" }
+  }
+}

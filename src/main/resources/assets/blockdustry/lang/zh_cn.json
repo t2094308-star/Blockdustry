@@ -1,0 +1,6 @@
+{
+  "block.blockdustry.drill": "采集机",
+  "block.blockdustry.turret": "炮塔",
+  "item.blockdustry.debug_stick": "队伍调试棒",
+  "itemGroup.blockdustry": "方块工业"
+}

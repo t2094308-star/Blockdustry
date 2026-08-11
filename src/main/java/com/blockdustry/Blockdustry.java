@@ -13,7 +13,10 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
+import com.blockdustry.building.BlockdustryBlocks;
+import com.blockdustry.building.BlockdustryBuildings;
 import com.blockdustry.config.BlockdustryConfig;
+import com.blockdustry.entities.BlockdustryEntities;
 
 // 方块工业 (Blockdustry) 主类，modId 需与 neoforge.mods.toml 中一致喵
 @Mod(Blockdustry.MODID)
@@ -31,6 +34,12 @@ public class Blockdustry {
         container.registerConfig(ModConfig.Type.COMMON, BlockdustryConfig.SPEC);
         // 注册队伍附件类型喵
         BlockdustryAttachments.ATTACHMENT_TYPES.register(modEventBus);
+        // 注册建筑方块与方块实体喵
+        BlockdustryBlocks.register(modEventBus);
+        // 注册炮弹等实体类型喵
+        BlockdustryEntities.register(modEventBus);
+        // 建筑管理器挂模组新 tick 喵
+        BlockdustryBuildings.hook();
         // 注册本类响应游戏事件（服务端启动等）喵
         NeoForge.EVENT_BUS.register(this);
     }

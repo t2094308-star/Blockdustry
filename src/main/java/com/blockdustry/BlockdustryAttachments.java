@@ -29,7 +29,7 @@ public class BlockdustryAttachments {
     // 实体/玩家队伍：Entity attachment，持久化（随实体 NBT 保存）喵
     public static final DeferredHolder<AttachmentType<?>, AttachmentType<BlockdustryTeam>> ENTITY_TEAM =
             ATTACHMENT_TYPES.register("entity_team",
-                    () -> AttachmentType.<BlockdustryTeam>builder(() -> BlockdustryTeam.NEUTRAL)
+                    () -> AttachmentType.<BlockdustryTeam>builder(() -> BlockdustryTeam.DERELICT)
                             .serialize(getEntityTeamSerializer())
                             .build());
 
@@ -41,7 +41,7 @@ public class BlockdustryAttachments {
                 for (String key : tag.getAllKeys()) {
                     String[] p = key.split(",");
                     map.put(new BlockPos(Integer.parseInt(p[0]), Integer.parseInt(p[1]), Integer.parseInt(p[2])),
-                            BlockdustryTeam.valueOf(tag.getString(key)));
+                            BlockdustryTeam.byName(tag.getString(key)));
                 }
                 return map;
             }
@@ -60,7 +60,7 @@ public class BlockdustryAttachments {
         return new IAttachmentSerializer<>() {
             @Override
             public BlockdustryTeam read(IAttachmentHolder holder, CompoundTag tag, HolderLookup.Provider provider) {
-                return BlockdustryTeam.valueOf(tag.getString("team"));
+                return BlockdustryTeam.byName(tag.getString("team"));
             }
 
             @Override

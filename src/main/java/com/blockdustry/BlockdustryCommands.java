@@ -1,5 +1,6 @@
 package com.blockdustry;
 
+import com.blockdustry.building.BlockdustryBuildingEntity;
 import com.blockdustry.lib.BlockHealthApi;
 import com.blockdustry.team.BlockdustryTeam;
 import com.blockdustry.tick.BlockdustryTicks;
@@ -13,6 +14,7 @@ import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -53,7 +55,11 @@ public class BlockdustryCommands {
                                 .then(Commands.argument("team", StringArgumentType.word())
                                         .executes(ctx -> teamPlayer(ctx.getSource(), StringArgumentType.getString(ctx, "team"))))))
                 .then(Commands.literal("tick")
-                        .executes(ctx -> tickStatus(ctx.getSource()))));
+                        .executes(ctx -> tickStatus(ctx.getSource())))
+                .then(Commands.literal("building")
+                        .then(Commands.literal("get")
+                                .then(Commands.argument("pos", BlockPosArgument.blockPos())
+                                        .executes(ctx -> buildingGet(ctx.getSource(), BlockPosArgument.getLoadedBlockPos(ctx, "pos")))))));
     }
 
     private static ServerLevel serverLevel(CommandSourceStack source) {
@@ -101,7 +107,7 @@ public class BlockdustryCommands {
         ServerLevel level = serverLevel(source);
         if (level == null) return 0;
         BlockdustryTeam team = BlockdustryTeams.getTeam(level, pos);
-        BlockdustryTeam mine = source.getEntity() != null ? BlockdustryTeams.getTeam(source.getEntity()) : BlockdustryTeam.NEUTRAL;
+        BlockdustryTeam mine = source.getEntity() != null ? BlockdustryTeams.getTeam(source.getEntity()) : BlockdustryTeam.DERELICT;
         source.sendSuccess(() -> Component.literal(
                 String.format("%s 的队伍：%s（%s）", pos.toShortString(), team, BlockdustryTeams.isEnemy(mine, team) ? "敌对" : "非敌对")), false);
         return 1;
@@ -138,6 +144,24 @@ public class BlockdustryCommands {
                 String.format("模组 tick 间隔：%d 游戏 tick（每秒 %.1f 次），模组 tick 计数：%d（游戏 tick：%d）",
                         interval, 20.0 / interval, BlockdustryTicks.tickCount(),
                         source.getServer().getTickCount())), false);
+        return 1;
+    }
+
+    private static int buildingGet(CommandSourceStack source, BlockPos pos) {
+        ServerLevel level = serverLevel(source);
+        if (level == null) return 0;
+        BlockEntity be = level.getBlockEntity(pos);
+        if (!(be instanceof BlockdustryBuildingEntity b)) {
+            source.sendFailure(Component.literal(pos.toShortString() + " 不是方块工业建筑"));
+            return 0;
+        }
+        String inv = b.getStoredItem() == null
+                ? "空"
+                : b.getStoredItem().getDescription().getString() + " " + b.getStoredCount() + "/" + b.getCapacity();
+        source.sendSuccess(() -> Component.literal(
+                String.format("建筑：%s @ %s%n队伍：%s%n库存：%s%n模组 tick：%d",
+                        be.getBlockState().getBlock().getName().getString(), pos.toShortString(),
+                        b.getTeam(), inv, BlockdustryTicks.tickCount())), false);
         return 1;
     }
 }

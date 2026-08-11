@@ -1,2 +1,6 @@
 {
+  "block.blockdustry.drill": "Drill",
+  "block.blockdustry.turret": "Turret",
+  "item.blockdustry.debug_stick": "Team Debug Stick",
+  "itemGroup.blockdustry": "Blockdustry"
 }

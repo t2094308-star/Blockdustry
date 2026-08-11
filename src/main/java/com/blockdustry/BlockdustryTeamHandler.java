@@ -8,7 +8,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
-// 放置方块时继承放置者队伍（NEUTRAL 放置者 → 方块仍中立）喵
+// 放置方块继承放置者队伍；刷怪蛋生成的生物由 EntityTypeMixin 继承使用者队伍喵
 @EventBusSubscriber(modid = Blockdustry.MODID)
 public class BlockdustryTeamHandler {
     @SubscribeEvent
