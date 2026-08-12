@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/unit_factory_nw"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/unit_factory_n"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/unit_factory_ne"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/unit_factory_w"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/unit_factory_c"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/unit_factory_e"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/unit_factory_sw"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/unit_factory_s"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/unit_factory_se"
+    }
+  }
+}

@@ -3,10 +3,25 @@
     "corner=nw": {
       "model": "blockdustry:block/power_node"
     },
+    "corner=n": {
+      "model": "blockdustry:block/power_node"
+    },
     "corner=ne": {
       "model": "blockdustry:block/power_node"
     },
+    "corner=w": {
+      "model": "blockdustry:block/power_node"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/power_node"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/power_node"
+    },
     "corner=sw": {
+      "model": "blockdustry:block/power_node"
+    },
+    "corner=s": {
       "model": "blockdustry:block/power_node"
     },
     "corner=se": {

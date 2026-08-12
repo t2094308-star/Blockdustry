@@ -75,6 +75,81 @@
       "model": "blockdustry:block/conveyor_cross",
       "y": 180
     },
+    "corner=n,facing=north,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 270
+    },
+    "corner=n,facing=north,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 270
+    },
+    "corner=n,facing=north,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 270
+    },
+    "corner=n,facing=north,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 270
+    },
+    "corner=n,facing=north,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 270
+    },
+    "corner=n,facing=east,conn=none": {
+      "model": "blockdustry:block/conveyor_none"
+    },
+    "corner=n,facing=east,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight"
+    },
+    "corner=n,facing=east,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner"
+    },
+    "corner=n,facing=east,conn=t": {
+      "model": "blockdustry:block/conveyor_t"
+    },
+    "corner=n,facing=east,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross"
+    },
+    "corner=n,facing=south,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 90
+    },
+    "corner=n,facing=south,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 90
+    },
+    "corner=n,facing=south,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 90
+    },
+    "corner=n,facing=south,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 90
+    },
+    "corner=n,facing=south,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 90
+    },
+    "corner=n,facing=west,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 180
+    },
+    "corner=n,facing=west,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 180
+    },
+    "corner=n,facing=west,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 180
+    },
+    "corner=n,facing=west,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 180
+    },
+    "corner=n,facing=west,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 180
+    },
     "corner=ne,facing=north,conn=none": {
       "model": "blockdustry:block/conveyor_none",
       "y": 270
@@ -150,6 +225,231 @@
       "model": "blockdustry:block/conveyor_cross",
       "y": 180
     },
+    "corner=w,facing=north,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 270
+    },
+    "corner=w,facing=north,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 270
+    },
+    "corner=w,facing=north,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 270
+    },
+    "corner=w,facing=north,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 270
+    },
+    "corner=w,facing=north,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 270
+    },
+    "corner=w,facing=east,conn=none": {
+      "model": "blockdustry:block/conveyor_none"
+    },
+    "corner=w,facing=east,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight"
+    },
+    "corner=w,facing=east,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner"
+    },
+    "corner=w,facing=east,conn=t": {
+      "model": "blockdustry:block/conveyor_t"
+    },
+    "corner=w,facing=east,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross"
+    },
+    "corner=w,facing=south,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 90
+    },
+    "corner=w,facing=south,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 90
+    },
+    "corner=w,facing=south,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 90
+    },
+    "corner=w,facing=south,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 90
+    },
+    "corner=w,facing=south,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 90
+    },
+    "corner=w,facing=west,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 180
+    },
+    "corner=w,facing=west,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 180
+    },
+    "corner=w,facing=west,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 180
+    },
+    "corner=w,facing=west,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 180
+    },
+    "corner=w,facing=west,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 180
+    },
+    "corner=c,facing=north,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 270
+    },
+    "corner=c,facing=north,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 270
+    },
+    "corner=c,facing=north,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 270
+    },
+    "corner=c,facing=north,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 270
+    },
+    "corner=c,facing=north,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 270
+    },
+    "corner=c,facing=east,conn=none": {
+      "model": "blockdustry:block/conveyor_none"
+    },
+    "corner=c,facing=east,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight"
+    },
+    "corner=c,facing=east,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner"
+    },
+    "corner=c,facing=east,conn=t": {
+      "model": "blockdustry:block/conveyor_t"
+    },
+    "corner=c,facing=east,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross"
+    },
+    "corner=c,facing=south,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 90
+    },
+    "corner=c,facing=south,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 90
+    },
+    "corner=c,facing=south,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 90
+    },
+    "corner=c,facing=south,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 90
+    },
+    "corner=c,facing=south,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 90
+    },
+    "corner=c,facing=west,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 180
+    },
+    "corner=c,facing=west,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 180
+    },
+    "corner=c,facing=west,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 180
+    },
+    "corner=c,facing=west,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 180
+    },
+    "corner=c,facing=west,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 180
+    },
+    "corner=e,facing=north,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 270
+    },
+    "corner=e,facing=north,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 270
+    },
+    "corner=e,facing=north,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 270
+    },
+    "corner=e,facing=north,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 270
+    },
+    "corner=e,facing=north,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 270
+    },
+    "corner=e,facing=east,conn=none": {
+      "model": "blockdustry:block/conveyor_none"
+    },
+    "corner=e,facing=east,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight"
+    },
+    "corner=e,facing=east,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner"
+    },
+    "corner=e,facing=east,conn=t": {
+      "model": "blockdustry:block/conveyor_t"
+    },
+    "corner=e,facing=east,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross"
+    },
+    "corner=e,facing=south,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 90
+    },
+    "corner=e,facing=south,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 90
+    },
+    "corner=e,facing=south,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 90
+    },
+    "corner=e,facing=south,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 90
+    },
+    "corner=e,facing=south,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 90
+    },
+    "corner=e,facing=west,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 180
+    },
+    "corner=e,facing=west,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 180
+    },
+    "corner=e,facing=west,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 180
+    },
+    "corner=e,facing=west,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 180
+    },
+    "corner=e,facing=west,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 180
+    },
     "corner=sw,facing=north,conn=none": {
       "model": "blockdustry:block/conveyor_none",
       "y": 270
@@ -222,6 +522,81 @@
       "y": 180
     },
     "corner=sw,facing=west,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 180
+    },
+    "corner=s,facing=north,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 270
+    },
+    "corner=s,facing=north,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 270
+    },
+    "corner=s,facing=north,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 270
+    },
+    "corner=s,facing=north,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 270
+    },
+    "corner=s,facing=north,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 270
+    },
+    "corner=s,facing=east,conn=none": {
+      "model": "blockdustry:block/conveyor_none"
+    },
+    "corner=s,facing=east,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight"
+    },
+    "corner=s,facing=east,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner"
+    },
+    "corner=s,facing=east,conn=t": {
+      "model": "blockdustry:block/conveyor_t"
+    },
+    "corner=s,facing=east,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross"
+    },
+    "corner=s,facing=south,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 90
+    },
+    "corner=s,facing=south,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 90
+    },
+    "corner=s,facing=south,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 90
+    },
+    "corner=s,facing=south,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 90
+    },
+    "corner=s,facing=south,conn=cross": {
+      "model": "blockdustry:block/conveyor_cross",
+      "y": 90
+    },
+    "corner=s,facing=west,conn=none": {
+      "model": "blockdustry:block/conveyor_none",
+      "y": 180
+    },
+    "corner=s,facing=west,conn=straight": {
+      "model": "blockdustry:block/conveyor_straight",
+      "y": 180
+    },
+    "corner=s,facing=west,conn=corner": {
+      "model": "blockdustry:block/conveyor_corner",
+      "y": 180
+    },
+    "corner=s,facing=west,conn=t": {
+      "model": "blockdustry:block/conveyor_t",
+      "y": 180
+    },
+    "corner=s,facing=west,conn=cross": {
       "model": "blockdustry:block/conveyor_cross",
       "y": 180
     },

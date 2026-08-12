@@ -15,9 +15,10 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 // 建筑方块基类：放置时创建对应建筑实体（不实现则方块无效）喵
 // size 为多格边长（Mindustry size）；实体类型用 Supplier 延迟解析避免注册期 unbound 喵
 public class BlockdustryBuildingBlock extends Block implements EntityBlock {
-    // 多格建筑的格内位置（跨格贴图用）喵
+    // 多格建筑的格内位置（跨格贴图用）：3×3 共 9 值，行0/1/2 × 列0/1/2 喵
+    // 顺序 NW,N,NE,W,C,E,SW,S,SE：保持 2×2 的 NW/NE/SW/SE 序列不变，兼容旧存档喵
     public enum Corner implements net.minecraft.util.StringRepresentable {
-        NW("nw"), NE("ne"), SW("sw"), SE("se");
+        NW("nw"), N("n"), NE("ne"), W("w"), C("c"), E("e"), SW("sw"), S("s"), SE("se");
 
         private final String name;
 
@@ -47,12 +48,35 @@ public class BlockdustryBuildingBlock extends Block implements EntityBlock {
         return size;
     }
 
-    // 由 dx/dz（0..size-1）换算格内方位喵
+    // 由 dx/dz（0..size-1，size 支持 1/2/3）换算格内方位喵
+    // size==2：四象限 NW/NE/SW/SE（原 2×2 语义，drill/graphite_press）喵
+    // size>=3：九宫格 行0/1/2 × 列0/1/2 → NW,N,NE / W,C,E / SW,S,SE（core/unit_factory）喵
+    public static Corner cornerFor(int dx, int dz, int size) {
+        if (size <= 1) return Corner.NW;
+        if (size == 2) {
+            if (dx == 0 && dz == 0) return Corner.NW;
+            if (dx != 0 && dz == 0) return Corner.NE;
+            if (dx == 0 && dz != 0) return Corner.SW;
+            return Corner.SE;
+        }
+        if (dx <= 0) {
+            if (dz <= 0) return Corner.NW;
+            if (dz == 1) return Corner.W;
+            return Corner.SW;
+        } else if (dx == 1) {
+            if (dz <= 0) return Corner.N;
+            if (dz == 1) return Corner.C;
+            return Corner.S;
+        } else {
+            if (dz <= 0) return Corner.NE;
+            if (dz == 1) return Corner.E;
+            return Corner.SE;
+        }
+    }
+
+    // 便捷重载：不传 size 时按 2×2 语义（原行为）喵
     public static Corner cornerFor(int dx, int dz) {
-        if (dx == 0 && dz == 0) return Corner.NW;
-        if (dx != 0 && dz == 0) return Corner.NE;
-        if (dx == 0 && dz != 0) return Corner.SW;
-        return Corner.SE;
+        return cornerFor(dx, dz, 2);
     }
 
     @Override

@@ -1,5 +1,31 @@
 {
   "variants": {
-    "": { "model": "blockdustry:block/turret" }
+    "corner=nw": {
+      "model": "blockdustry:block/turret"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/turret"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/turret"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/turret"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/turret"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/turret"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/turret"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/turret"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/turret"
+    }
   }
 }

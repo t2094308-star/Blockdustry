@@ -17,7 +17,10 @@ import com.blockdustry.building.BlockdustryBlocks;
 import com.blockdustry.building.BlockdustryBuildings;
 import com.blockdustry.config.BlockdustryConfig;
 import com.blockdustry.entities.BlockdustryEntities;
+import com.blockdustry.entities.DaggerUnitEntity;
 import com.blockdustry.power.PowerGridManager;
+
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
 // 方块工业 (Blockdustry) 主类，modId 需与 neoforge.mods.toml 中一致喵
 @Mod(Blockdustry.MODID)
@@ -39,6 +42,8 @@ public class Blockdustry {
         BlockdustryBlocks.register(modEventBus);
         // 注册炮弹等实体类型喵
         BlockdustryEntities.register(modEventBus);
+        // 注册实体属性（dagger 等）喵
+        modEventBus.addListener(Blockdustry::registerAttributes);
         // 建筑管理器挂模组新 tick 喵
         BlockdustryBuildings.hook();
         // 电网管理器挂模组新 tick 喵
@@ -55,5 +60,10 @@ public class Blockdustry {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         LOGGER.info("方块工业: 服务器已启动");
+    }
+
+    // 注册实体属性（Mindustry dagger：血量150/速度0.3/攻击10）喵
+    private static void registerAttributes(EntityAttributeCreationEvent event) {
+        event.put(BlockdustryEntities.DAGGER.get(), DaggerUnitEntity.createAttributes().build());
     }
 }

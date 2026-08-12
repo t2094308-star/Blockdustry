@@ -4,10 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.blockdustry.team.BlockdustryTeam;
+import com.blockdustry.team.BlockdustryTeamStorage;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.attachment.IAttachmentHolder;
 import net.neoforged.neoforge.attachment.IAttachmentSerializer;
@@ -31,6 +36,13 @@ public class BlockdustryAttachments {
             ATTACHMENT_TYPES.register("entity_team",
                     () -> AttachmentType.<BlockdustryTeam>builder(() -> BlockdustryTeam.DERELICT)
                             .serialize(getEntityTeamSerializer())
+                            .build());
+
+    // 队伍共享存储：Map<Team, Storage> 挂 ServerLevel（Mindustry 核心共享 storage），持久化喵
+    public static final DeferredHolder<AttachmentType<?>, AttachmentType<Map<BlockdustryTeam, BlockdustryTeamStorage.Storage>>> TEAM_STORAGE =
+            ATTACHMENT_TYPES.register("team_storage",
+                    () -> AttachmentType.<Map<BlockdustryTeam, BlockdustryTeamStorage.Storage>>builder(() -> new HashMap<>())
+                            .serialize(getTeamStorageSerializer())
                             .build());
 
     private static IAttachmentSerializer<CompoundTag, Map<BlockPos, BlockdustryTeam>> getBlockTeamSerializer() {
@@ -68,6 +80,33 @@ public class BlockdustryAttachments {
                 CompoundTag tag = new CompoundTag();
                 tag.putString("team", attachment.name());
                 return tag;
+            }
+        };
+    }
+
+    private static IAttachmentSerializer<CompoundTag, Map<BlockdustryTeam, BlockdustryTeamStorage.Storage>> getTeamStorageSerializer() {
+        return new IAttachmentSerializer<>() {
+            @Override
+            public Map<BlockdustryTeam, BlockdustryTeamStorage.Storage> read(IAttachmentHolder holder, CompoundTag tag, HolderLookup.Provider provider) {
+                Map<BlockdustryTeam, BlockdustryTeamStorage.Storage> map = new HashMap<>();
+                for (String teamKey : tag.getAllKeys()) {
+                    BlockdustryTeam team = BlockdustryTeam.byName(teamKey);
+                    BlockdustryTeamStorage.Storage storage = new BlockdustryTeamStorage.Storage();
+                    storage.readItems(tag.getCompound(teamKey));
+                    map.put(team, storage);
+                }
+                return map;
+            }
+
+            @Override
+            public CompoundTag write(Map<BlockdustryTeam, BlockdustryTeamStorage.Storage> attachment, HolderLookup.Provider provider) {
+                if (attachment.isEmpty()) return null;
+                CompoundTag tag = new CompoundTag();
+                attachment.forEach((team, storage) -> {
+                    CompoundTag items = storage.writeItems();
+                    if (!items.isEmpty()) tag.put(team.name(), items);
+                });
+                return tag.isEmpty() ? null : tag;
             }
         };
     }

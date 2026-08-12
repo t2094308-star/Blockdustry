@@ -73,6 +73,9 @@ public final class BlockdustryBlocks {
 
     // 石墨物品（Mindustry 原料，MC 无此物品）喵
     public static final DeferredItem<Item> GRAPHITE = ITEMS.register("graphite", () -> new Item(new Item.Properties()));
+    // 单位配方原料（Mindustry 忠于原作）：硅 + 铅喵
+    public static final DeferredItem<Item> SILICON = ITEMS.register("silicon", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> LEAD = ITEMS.register("lead", () -> new Item(new Item.Properties()));
 
     // 加工工厂：石墨压缩机（2×2，吃 2 煤产 1 石墨）喵
     public static final DeferredBlock<Block> GRAPHITE_PRESS = BLOCKS.register("graphite_press", BlockdustryBlocks::graphitePressBlock);
@@ -86,12 +89,18 @@ public final class BlockdustryBlocks {
     public static final DeferredBlock<Block> POWER_NODE = BLOCKS.register("power_node", BlockdustryBlocks::powerNodeBlock);
     public static final DeferredBlock<Block> COMBUSTION_GENERATOR = BLOCKS.register("combustion_generator", BlockdustryBlocks::combustionGeneratorBlock);
     public static final DeferredBlock<Block> BATTERY = BLOCKS.register("battery", BlockdustryBlocks::batteryBlock);
+    public static final DeferredBlock<Block> CORE = BLOCKS.register("core", BlockdustryBlocks::coreBlock);
+    public static final DeferredBlock<Block> UNIT_FACTORY = BLOCKS.register("unit_factory", BlockdustryBlocks::unitFactoryBlock);
     public static final DeferredItem<BlockdustryBuildingItem> POWER_NODE_ITEM =
             ITEMS.register("power_node", () -> new BlockdustryBuildingItem(POWER_NODE.get(), new Item.Properties(), 1));
     public static final DeferredItem<BlockdustryBuildingItem> COMBUSTION_GENERATOR_ITEM =
             ITEMS.register("combustion_generator", () -> new BlockdustryBuildingItem(COMBUSTION_GENERATOR.get(), new Item.Properties(), 1));
     public static final DeferredItem<BlockdustryBuildingItem> BATTERY_ITEM =
             ITEMS.register("battery", () -> new BlockdustryBuildingItem(BATTERY.get(), new Item.Properties(), 1));
+    public static final DeferredItem<BlockdustryBuildingItem> CORE_ITEM =
+            ITEMS.register("core", () -> new BlockdustryBuildingItem(CORE.get(), new Item.Properties(), 3));
+    public static final DeferredItem<BlockdustryBuildingItem> UNIT_FACTORY_ITEM =
+            ITEMS.register("unit_factory", () -> new BlockdustryBuildingItem(UNIT_FACTORY.get(), new Item.Properties(), 3));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PowerNodeBlockEntity>> POWER_NODE_ENTITY =
             BLOCK_ENTITY_TYPES.register("power_node",
                     () -> BlockEntityType.Builder.of((pos, state) -> new PowerNodeBlockEntity(pos, state), POWER_NODE.get()).build(null));
@@ -101,6 +110,20 @@ public final class BlockdustryBlocks {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BatteryBlockEntity>> BATTERY_ENTITY =
             BLOCK_ENTITY_TYPES.register("battery",
                     () -> BlockEntityType.Builder.of((pos, state) -> new BatteryBlockEntity(pos, state), BATTERY.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CoreBlockEntity>> CORE_ENTITY =
+            BLOCK_ENTITY_TYPES.register("core",
+                    () -> BlockEntityType.Builder.of((pos, state) -> new CoreBlockEntity(pos, state), CORE.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<UnitFactoryBlockEntity>> UNIT_FACTORY_ENTITY =
+            BLOCK_ENTITY_TYPES.register("unit_factory",
+                    () -> BlockEntityType.Builder.of((pos, state) -> new UnitFactoryBlockEntity(pos, state), UNIT_FACTORY.get()).build(null));
+
+    // 沙盒调试：物品源（无限凭空产煤/石墨等，Mindustry item-source）喵
+    public static final DeferredBlock<Block> ITEM_SOURCE = BLOCKS.register("item_source", BlockdustryBlocks::itemSourceBlock);
+    public static final DeferredItem<BlockdustryBuildingItem> ITEM_SOURCE_ITEM =
+            ITEMS.register("item_source", () -> new BlockdustryBuildingItem(ITEM_SOURCE.get(), new Item.Properties(), 1));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ItemSourceBlockEntity>> ITEM_SOURCE_ENTITY =
+            BLOCK_ENTITY_TYPES.register("item_source",
+                    () -> BlockEntityType.Builder.of((pos, state) -> new ItemSourceBlockEntity(pos, state), ITEM_SOURCE.get()).build(null));
 
     // 独立「方块工业」创造栏 tab 喵
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB =
@@ -115,9 +138,14 @@ public final class BlockdustryBlocks {
                                 output.accept(ROUTER_ITEM);
                                 output.accept(GRAPHITE_PRESS_ITEM);
                                 output.accept(GRAPHITE);
+                                output.accept(SILICON);
+                                output.accept(LEAD);
                                 output.accept(POWER_NODE_ITEM);
                                 output.accept(COMBUSTION_GENERATOR_ITEM);
                                 output.accept(BATTERY_ITEM);
+                                output.accept(CORE_ITEM);
+                                output.accept(UNIT_FACTORY_ITEM);
+                                output.accept(ITEM_SOURCE_ITEM);
                             })
                             .build());
 
@@ -174,6 +202,28 @@ public final class BlockdustryBlocks {
         return new BlockdustryBuildingBlock(
                 BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(3f),
                 () -> BATTERY_ENTITY.get(),
+                1);
+    }
+
+    private static BlockdustryBuildingBlock coreBlock() {
+        return new BlockdustryBuildingBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(12f),
+                () -> CORE_ENTITY.get(),
+                3);
+    }
+
+    private static BlockdustryBuildingBlock unitFactoryBlock() {
+        return new BlockdustryBuildingBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(5f),
+                () -> UNIT_FACTORY_ENTITY.get(),
+                3);
+    }
+
+    // 物品源方块工厂：1×1，易碎（调试方块），实体类型延迟解析喵
+    private static BlockdustryBuildingBlock itemSourceBlock() {
+        return new ItemSourceBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(0.5f),
+                () -> ITEM_SOURCE_ENTITY.get(),
                 1);
     }
 

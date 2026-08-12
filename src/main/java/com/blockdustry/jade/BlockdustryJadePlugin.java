@@ -11,8 +11,6 @@ import snownee.jade.api.WailaPlugin;
 @WailaPlugin
 public class BlockdustryJadePlugin implements IWailaPlugin {
     // provider 唯一 id（也是 config 开关 key）喵
-    public static final ResourceLocation UID_BLOCK_HP =
-            ResourceLocation.fromNamespaceAndPath("blockdustry", "block_hp");
     public static final ResourceLocation UID_BUILDING_INFO =
             ResourceLocation.fromNamespaceAndPath("blockdustry", "building_info");
     public static final ResourceLocation UID_PROGRESS =
@@ -20,15 +18,13 @@ public class BlockdustryJadePlugin implements IWailaPlugin {
 
     @Override
     public void register(IWailaCommonRegistration registration) {
-        // 对任意方块同步血量（免疫方块在 provider 内过滤）；只覆盖方块工业建筑可改 BlockdustryBuildingBlock.class 喵
-        registration.registerBlockDataProvider(BlockHpServerDataProvider.INSTANCE, Block.class);
+        // 血量条由 ProgressServerProvider 直接读 BlockHealthApi，无需再同步 hp/maxHp；只覆盖方块工业建筑可改 BlockdustryBuildingBlock.class 喵
         registration.registerBlockDataProvider(BuildingInfoServerDataProvider.INSTANCE, Block.class);
         registration.registerProgress(ProgressServerProvider.INSTANCE, Block.class);
     }
 
     @Override
     public void registerClient(IWailaClientRegistration registration) {
-        registration.registerBlockComponent(BlockHpComponentProvider.INSTANCE, Block.class);
         registration.registerBlockComponent(BuildingInfoComponentProvider.INSTANCE, Block.class);
         registration.registerProgressClient(ProgressClientProvider.INSTANCE);
     }

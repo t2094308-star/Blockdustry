@@ -12,8 +12,8 @@ import snownee.jade.impl.ui.SimpleProgressStyle;
 import java.util.ArrayList;
 import java.util.List;
 
-// 制作进度条客户端：服务端同步的 ProgressView NBT 转成可渲染的进度条；
-// style 为空时用 SimpleProgressStyle 填色（Mindustry accent 橙，详见 docs/研究-Mindustry进度条样式.md）喵
+// 各类条客户端：按 ViewGroup.id 给进度条填 Mindustry 颜色（血 #ff341c / 电 #ec7b4c / 进度 #ff8947），
+// color2 同色避免横纹，纯色左→右（研究-Mindustry各类条.md）喵
 public class ProgressClientProvider implements IClientExtensionProvider<CompoundTag, ProgressView> {
     public static final ProgressClientProvider INSTANCE = new ProgressClientProvider();
 
@@ -23,18 +23,25 @@ public class ProgressClientProvider implements IClientExtensionProvider<Compound
         List<ClientViewGroup<ProgressView>> result = new ArrayList<>();
         for (ViewGroup<CompoundTag> group : serverData) {
             if (group.views == null || group.views.isEmpty()) continue;
+            int color = colorFor(group.id);
             List<ProgressView> views = new ArrayList<>();
             for (CompoundTag nbt : group.views) {
                 ProgressView pv = ProgressView.read(nbt);
-                if (pv.style == null) {
-                    // Mindustry Pal.accent #ffd37f，进度条填充色喵
-                    pv.style = new SimpleProgressStyle().color(0xFFffd37f);
-                }
+                // ProgressView.read() 内部固定 new SlimProgressStyle()（color 默认 0=透明黑，条呈黑灰），
+                // style 永不为 null，之前的 if (pv.style==null) 永不执行导致配色失效；必须无条件覆盖喵
+                pv.style = new SimpleProgressStyle().color(color, color);
                 views.add(pv);
             }
             result.add(new ClientViewGroup<>(views));
         }
         return result.isEmpty() ? null : result;
+    }
+
+    // Mindustry 各条颜色喵
+    private static int colorFor(String id) {
+        if (ProgressServerProvider.ID_HP.equals(id)) return 0xFFff341c;      // 血量纯红喵
+        if (ProgressServerProvider.ID_POWER.equals(id)) return 0xFFec7b4c;   // 电量 Pal.powerBar 橙喵
+        return 0xFFff8947;                                                   // 进度 Pal.ammo 橙喵
     }
 
     @Override

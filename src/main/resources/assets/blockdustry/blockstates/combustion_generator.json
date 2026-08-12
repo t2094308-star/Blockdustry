@@ -3,10 +3,25 @@
     "corner=nw": {
       "model": "blockdustry:block/combustion_generator"
     },
+    "corner=n": {
+      "model": "blockdustry:block/combustion_generator"
+    },
     "corner=ne": {
       "model": "blockdustry:block/combustion_generator"
     },
+    "corner=w": {
+      "model": "blockdustry:block/combustion_generator"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/combustion_generator"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/combustion_generator"
+    },
     "corner=sw": {
+      "model": "blockdustry:block/combustion_generator"
+    },
+    "corner=s": {
       "model": "blockdustry:block/combustion_generator"
     },
     "corner=se": {

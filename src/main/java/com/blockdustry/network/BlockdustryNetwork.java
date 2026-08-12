@@ -4,9 +4,15 @@ import com.blockdustry.Blockdustry;
 import com.blockdustry.BlockdustryTeams;
 import com.blockdustry.team.BlockdustryTeam;
 
+import com.blockdustry.BlockdustryTeams;
+import com.blockdustry.building.BlockdustryBlocks;
+import com.blockdustry.team.BlockdustryTeam;
+import com.blockdustry.team.BlockdustryTeamStorage;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -25,6 +31,8 @@ public class BlockdustryNetwork {
         registrar.playToClient(TeamDataPayload.TYPE, TeamDataPayload.STREAM_CODEC, BlockdustryNetwork::handleTeamData);
         registrar.playToServer(QueryPowerPayload.TYPE, QueryPowerPayload.STREAM_CODEC, BlockdustryNetwork::handleQueryPower);
         registrar.playToClient(PowerDataPayload.TYPE, PowerDataPayload.STREAM_CODEC, BlockdustryNetwork::handlePowerData);
+        registrar.playToServer(QueryCoreStoragePayload.TYPE, QueryCoreStoragePayload.STREAM_CODEC, BlockdustryNetwork::handleQueryCoreStorage);
+        registrar.playToClient(CoreStorageDataPayload.TYPE, CoreStorageDataPayload.STREAM_CODEC, BlockdustryNetwork::handleCoreStorageData);
     }
 
     private static void handleQuery(QueryTeamPayload payload, IPayloadContext ctx) {
@@ -85,5 +93,25 @@ public class BlockdustryNetwork {
                 screen.updatePower(payload);
             }
         });
+    }
+
+    // 查询玩家队伍共享核心物资（煤/石墨数量，HUD 用；DERELICT 兜底回退 SHARDED 喵）
+    private static void handleQueryCoreStorage(QueryCoreStoragePayload payload, IPayloadContext ctx) {
+        ctx.enqueueWork(() -> {
+            ServerPlayer player = (ServerPlayer) ctx.player();
+            BlockdustryTeam team = BlockdustryTeams.getTeam(player);
+            if (team == BlockdustryTeam.DERELICT) team = BlockdustryTeam.SHARDED;
+            int coal = 0;
+            int graphite = 0;
+            BlockdustryTeamStorage.Storage s = BlockdustryTeamStorage.get(player.serverLevel(), team);
+            coal = s.getCount(Items.COAL);
+            graphite = s.getCount(BlockdustryBlocks.GRAPHITE.get());
+            PacketDistributor.sendToPlayer(player, new CoreStorageDataPayload(coal, graphite));
+        });
+    }
+
+    // 客户端：更新右上角核心物资资源栏（Mindustry 资源栏样式）喵
+    private static void handleCoreStorageData(CoreStorageDataPayload payload, IPayloadContext ctx) {
+        ctx.enqueueWork(() -> com.blockdustry.client.CoreHudHandler.setCoreStorage(payload.coal(), payload.graphite()));
     }
 }

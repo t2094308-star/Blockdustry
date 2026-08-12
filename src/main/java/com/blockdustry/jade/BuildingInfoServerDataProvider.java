@@ -2,6 +2,7 @@ package com.blockdustry.jade;
 
 import com.blockdustry.building.BlockdustryBuildingEntity;
 import com.blockdustry.building.GraphitePressBlockEntity;
+import com.blockdustry.building.UnitFactoryBlockEntity;
 import com.blockdustry.power.BlockdustryPowerNode;
 
 import net.minecraft.nbt.CompoundTag;
@@ -20,6 +21,8 @@ public class BuildingInfoServerDataProvider implements IServerDataProvider<Block
     public static final String KEY_CAPACITY = "bd_capacity";
     public static final String KEY_COAL = "bd_coal";
     public static final String KEY_GRAPHITE = "bd_graphite";
+    public static final String KEY_SILICON = "bd_silicon";
+    public static final String KEY_LEAD = "bd_lead";
     public static final String KEY_PROGRESS = "bd_progress";
     public static final String KEY_PRODUCED = "bd_produced";
     public static final String KEY_NEEDED = "bd_needed";
@@ -39,10 +42,14 @@ public class BuildingInfoServerDataProvider implements IServerDataProvider<Block
                 }
             }
             data.putString(KEY_TEAM, building.getTeam().name());
-            if (be instanceof GraphitePressBlockEntity g) {
+            if (building instanceof GraphitePressBlockEntity g) {
                 // 石墨压机：煤/石墨库存（进度条由 ProgressServerProvider 独立提供）喵
                 data.putInt(KEY_COAL, g.getCoalCount());
                 data.putInt(KEY_GRAPHITE, g.getGraphiteCount());
+            } else if (building instanceof UnitFactoryBlockEntity uf) {
+                // 单位工厂：硅/铅库存（craft 进度由 ProgressServerProvider 独立提供）喵
+                data.putInt(KEY_SILICON, uf.getSiliconCount());
+                data.putInt(KEY_LEAD, uf.getLeadCount());
             } else {
                 // 普通建筑内置库存（钻机存矿、发电机存煤等）喵
                 Item item = building.getStoredItem();

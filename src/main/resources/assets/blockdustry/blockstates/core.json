@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/core_nw"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/core_n"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/core_ne"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/core_w"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/core_c"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/core_e"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/core_sw"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/core_s"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/core_se"
+    }
+  }
+}

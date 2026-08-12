@@ -1,6 +1,7 @@
 package com.blockdustry.power;
 
 import com.blockdustry.Blockdustry;
+import com.blockdustry.building.ItemSourceBlockEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -21,6 +22,8 @@ public class PowerNodeInteractHandler {
         if (!player.getMainHandItem().isEmpty()) return; // 空手喵
         BlockPos clicked = event.getPos();
         BlockEntity be = player.serverLevel().getBlockEntity(clicked);
+        // 物品源自己处理空手右键（切换产物），不拦截，交由方块 useWithoutItem 喵
+        if (be instanceof ItemSourceBlockEntity) return;
         if (be instanceof PowerNodeBlockEntity node) {
             // 右键节点：选中，进入连接模式喵
             player.getPersistentData().putLong("bd_selected_node", clicked.asLong());

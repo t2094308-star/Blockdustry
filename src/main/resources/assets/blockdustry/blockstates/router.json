@@ -3,10 +3,25 @@
     "corner=nw": {
       "model": "blockdustry:block/router"
     },
+    "corner=n": {
+      "model": "blockdustry:block/router"
+    },
     "corner=ne": {
       "model": "blockdustry:block/router"
     },
+    "corner=w": {
+      "model": "blockdustry:block/router"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/router"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/router"
+    },
     "corner=sw": {
+      "model": "blockdustry:block/router"
+    },
+    "corner=s": {
       "model": "blockdustry:block/router"
     },
     "corner=se": {

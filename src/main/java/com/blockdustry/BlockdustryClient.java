@@ -4,9 +4,12 @@ import com.blockdustry.building.BlockdustryBlocks;
 import com.blockdustry.client.BlockdustryBulletRenderer;
 import com.blockdustry.client.ConveyorBlockEntityRenderer;
 import com.blockdustry.client.CombustionGeneratorBlockEntityRenderer;
+import com.blockdustry.client.CoreBlockEntityRenderer;
+import com.blockdustry.client.DaggerUnitRenderer;
 import com.blockdustry.client.DrillBlockEntityRenderer;
 import com.blockdustry.client.PowerNodeBlockEntityRenderer;
 import com.blockdustry.client.TurretBlockEntityRenderer;
+import com.blockdustry.client.UnitFactoryBlockEntityRenderer;
 import com.blockdustry.entities.BlockdustryEntities;
 
 import net.neoforged.api.distmarker.Dist;
@@ -34,6 +37,9 @@ public class BlockdustryClient {
         event.registerBlockEntityRenderer(BlockdustryBlocks.POWER_NODE_ENTITY.get(), PowerNodeBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockdustryBlocks.TURRET_ENTITY.get(), TurretBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockdustryBlocks.COMBUSTION_GENERATOR_ENTITY.get(), CombustionGeneratorBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BlockdustryBlocks.CORE_ENTITY.get(), CoreBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BlockdustryBlocks.UNIT_FACTORY_ENTITY.get(), UnitFactoryBlockEntityRenderer::new);
         event.registerEntityRenderer(BlockdustryEntities.BULLET.get(), BlockdustryBulletRenderer::new);
+        event.registerEntityRenderer(BlockdustryEntities.DAGGER.get(), DaggerUnitRenderer::new);
     }
 }

@@ -96,7 +96,8 @@ public class TurretBlockEntity extends BlockdustryBuildingEntity {
         double dx = targetCenter.x - worldPosition.getCenter().x;
         double dz = targetCenter.z - worldPosition.getCenter().z;
         if (dx * dx + dz * dz > 1e-6) {
-            float targetYaw = (float) Math.toDegrees(Math.atan2(dx, dz));
+            // duo 贴图"前"朝反方向，加 180° 修正（研究-炮塔动画.md 角度校准）喵
+            float targetYaw = (float) Math.toDegrees(Math.atan2(-dx, -dz));
             aimYaw = moveToward(aimYaw, targetYaw, 10f);
         }
     }

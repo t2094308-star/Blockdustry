@@ -22,6 +22,13 @@ public final class BlockdustryEntities {
                             .updateInterval(1)
                             .build("bullet"));
 
+    // Mindustry dagger 地面单位（单位工厂产出，队伍附件 + 索敌攻击）喵
+    public static final DeferredHolder<EntityType<?>, EntityType<DaggerUnitEntity>> DAGGER =
+            ENTITY_TYPES.register("dagger",
+                    () -> EntityType.Builder.<DaggerUnitEntity>of(DaggerUnitEntity::new, MobCategory.MISC)
+                            .sized(0.6f, 0.6f)
+                            .build("dagger"));
+
     public static void register(IEventBus bus) {
         ENTITY_TYPES.register(bus);
     }

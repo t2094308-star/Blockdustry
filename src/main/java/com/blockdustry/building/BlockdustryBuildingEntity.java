@@ -34,6 +34,8 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
     private boolean registered;
     // 卸货轮询指针（Mindustry cdump，公平分配）喵
     protected int dumpPointer;
+    // 客户端队伍缓存：从 NBT 同步（服务端队伍存在 ServerLevel attachment，客户端拿不到，靠 BE 数据带过来喵）
+    private BlockdustryTeam clientTeam = BlockdustryTeam.DERELICT;
 
     public BlockdustryBuildingEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -49,9 +51,10 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
     // 子类实现锚点格的具体行为喵
     protected abstract void tickAnchor();
 
-    // 建筑队伍：读取 Level attachment（放置时已继承放置者队伍）喵
+    // 建筑队伍：服务端读 Level attachment（放置时已继承放置者队伍）；客户端读 NBT 缓存喵
     public BlockdustryTeam getTeam() {
-        if (level == null || level.isClientSide) return BlockdustryTeam.DERELICT;
+        if (level == null) return BlockdustryTeam.DERELICT;
+        if (level.isClientSide) return clientTeam;
         return BlockdustryTeams.getTeam((ServerLevel) level, worldPosition);
     }
 
@@ -240,6 +243,7 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
         if (storedItem != null) {
             tag.putString("bd_item", BuiltInRegistries.ITEM.getKey(storedItem).toString());
         }
+        tag.putString("bd_team", getTeam().name());
         tag.putInt("bd_count", storedCount);
         tag.putInt("bd_capacity", itemCapacity);
     }
@@ -253,6 +257,9 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
         if (tag.contains("bd_item")) {
             Item item = BuiltInRegistries.ITEM.get(ResourceLocation.tryParse(tag.getString("bd_item")));
             if (item != null && item != Items.AIR) storedItem = item;
+        }
+        if (tag.contains("bd_team")) {
+            clientTeam = BlockdustryTeam.byName(tag.getString("bd_team"));
         }
         storedCount = tag.getInt("bd_count");
         itemCapacity = Math.max(0, tag.getInt("bd_capacity"));

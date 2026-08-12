@@ -27,6 +27,10 @@ public class BuildingInfoComponentProvider implements IBlockComponentProvider {
             int coal = data.getInt(BuildingInfoServerDataProvider.KEY_COAL);
             int graphite = data.getInt(BuildingInfoServerDataProvider.KEY_GRAPHITE);
             tooltip.add(Component.literal("煤: " + coal + " | 石墨: " + graphite));
+        } else if (data.contains(BuildingInfoServerDataProvider.KEY_SILICON)) {
+            int silicon = data.getInt(BuildingInfoServerDataProvider.KEY_SILICON);
+            int lead = data.getInt(BuildingInfoServerDataProvider.KEY_LEAD);
+            tooltip.add(Component.literal("硅: " + silicon + " | 铅: " + lead));
         } else if (data.contains(BuildingInfoServerDataProvider.KEY_ITEM)) {
             String item = data.getString(BuildingInfoServerDataProvider.KEY_ITEM);
             int count = data.getInt(BuildingInfoServerDataProvider.KEY_ITEM_COUNT);

@@ -3,10 +3,25 @@
     "corner=nw": {
       "model": "blockdustry:block/battery"
     },
+    "corner=n": {
+      "model": "blockdustry:block/battery"
+    },
     "corner=ne": {
       "model": "blockdustry:block/battery"
     },
+    "corner=w": {
+      "model": "blockdustry:block/battery"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/battery"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/battery"
+    },
     "corner=sw": {
+      "model": "blockdustry:block/battery"
+    },
+    "corner=s": {
       "model": "blockdustry:block/battery"
     },
     "corner=se": {

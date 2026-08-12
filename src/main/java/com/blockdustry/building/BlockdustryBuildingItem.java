@@ -58,7 +58,7 @@ public class BlockdustryBuildingItem extends BlockItem {
                     BlockPos p = base.offset(dx, 0, dz);
                     if (!p.equals(base)) {
                         serverLevel.setBlockAndUpdate(p, getBlock().defaultBlockState()
-                                .setValue(BlockdustryBuildingBlock.CORNER, BlockdustryBuildingBlock.cornerFor(dx, dz)));
+                                .setValue(BlockdustryBuildingBlock.CORNER, BlockdustryBuildingBlock.cornerFor(dx, dz, size)));
                     }
                     if (serverLevel.getBlockEntity(p) instanceof BlockdustryBuildingEntity b) {
                         b.setAnchor(base);

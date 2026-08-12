@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/item_source"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/item_source"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/item_source"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/item_source"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/item_source"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/item_source"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/item_source"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/item_source"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/item_source"
+    }
+  }
+}
