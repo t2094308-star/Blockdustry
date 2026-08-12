@@ -16,6 +16,7 @@ public class BlockdustryTeamScreen extends Screen {
     private final int targetEntityId;
     private final String targetName;
     private String currentTeam = "查询中...";
+    private String powerText = ""; // 电量调试信息（非电力建筑为空）喵
 
     public BlockdustryTeamScreen(BlockPos pos, int entityId, String targetName) {
         super(Component.literal("队伍调试"));
@@ -26,7 +27,7 @@ public class BlockdustryTeamScreen extends Screen {
 
     @Override
     protected void init() {
-        int y = 68;
+        int y = 92;
         for (BlockdustryTeam team : BlockdustryTeam.values()) {
             final BlockdustryTeam t = team;
             this.addRenderableWidget(Button.builder(Component.literal(team.name()), btn ->
@@ -42,6 +43,12 @@ public class BlockdustryTeamScreen extends Screen {
         this.currentTeam = team;
     }
 
+    // 服务端返回的电力信息更新显示喵
+    public void updatePower(com.blockdustry.network.PowerDataPayload p) {
+        this.powerText = String.format("电量: 产 %.1f/t | 耗 %.1f/t | 存 %.0f/%.0f | 满足率 %.0f%%",
+                p.produced(), p.needed(), p.stored(), p.capacity(), p.status() * 100f);
+    }
+
     @Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         super.render(guiGraphics, mouseX, mouseY, partialTick);
@@ -49,5 +56,8 @@ public class BlockdustryTeamScreen extends Screen {
         guiGraphics.drawCenteredString(this.font, this.title, this.width / 2, 20, 0xFFFFFF);
         guiGraphics.drawCenteredString(this.font, Component.literal("目标: " + targetName), this.width / 2, 38, 0xAAAAAA);
         guiGraphics.drawCenteredString(this.font, Component.literal("当前队伍: " + currentTeam), this.width / 2, 50, 0xFFFF55);
+        if (!powerText.isEmpty()) {
+            guiGraphics.drawCenteredString(this.font, Component.literal(powerText), this.width / 2, 62, 0x55FF55);
+        }
     }
 }

@@ -24,7 +24,9 @@ public class PowerNodeBlockEntity extends BlockdustryBuildingEntity implements B
 
     private final List<BlockPos> links = new ArrayList<>();
     private float powerStatus;
+    private float lastSyncedStatus = -1f;
     private boolean autolinked;
+    private boolean needsAutolink;
 
     // 放置构造：super 用注册表实体类型（drill 同款，无循环）喵
     public PowerNodeBlockEntity(BlockPos pos, BlockState state) {
@@ -79,16 +81,33 @@ public class PowerNodeBlockEntity extends BlockdustryBuildingEntity implements B
 
     @Override
     protected void tickAnchor() {
+        // 首 tick 自动连接（此时相邻建筑已就位）喵
+        if (needsAutolink) {
+            needsAutolink = false;
+            autolink();
+        }
+        // 清理失效链接：目标建筑被移除后激光仍残留；区块未加载时保留（避免误删后无法重连）喵
+        if (links.removeIf(p -> level.isLoaded(p) && !(level.getBlockEntity(p) instanceof BlockdustryPowerNode))) {
+            setChanged();
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+        }
         // 节点 0 产 0 耗，连通由 PowerGridManager 处理喵
+        // 电网满足率变化时同步客户端（激光颜色随 status 渐变）喵
+        if (Math.abs(powerStatus - lastSyncedStatus) > 0.02f) {
+            lastSyncedStatus = powerStatus;
+            if (level != null && !level.isClientSide) {
+                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+            }
+        }
     }
 
-    // 放置后自动连接范围内合法有电建筑（Mindustry autolink）喵
+    // 放置后标记待自动连接（延迟到首 tick 执行，确保相邻建筑 BE 已就位）喵
     @Override
     public void onLoad() {
         super.onLoad();
         if (level != null && !level.isClientSide && !autolinked) {
             autolinked = true;
-            autolink();
+            needsAutolink = true;
         }
     }
 
@@ -96,13 +115,21 @@ public class PowerNodeBlockEntity extends BlockdustryBuildingEntity implements B
         if (level == null || level.isClientSide) return;
         int r = (int) LASER_RANGE;
         for (int dx = -r; dx <= r && links.size() < MAX_NODES; dx++) {
-            for (int dz = -r; dz <= r && links.size() < MAX_NODES; dz++) {
-                BlockPos target = worldPosition.offset(dx, 0, dz);
-                if (target.equals(worldPosition)) continue;
-                if (linkValid(target)) {
-                    connect(target);
+            for (int dy = -r; dy <= r && links.size() < MAX_NODES; dy++) {
+                for (int dz = -r; dz <= r && links.size() < MAX_NODES; dz++) {
+                    // 三维球范围（Mindustry 2D 只有平面圆，MC 应含 y 轴）喵
+                    if (dx * dx + dy * dy + dz * dz > r * r) continue;
+                    BlockPos target = worldPosition.offset(dx, dy, dz);
+                    if (target.equals(worldPosition)) continue;
+                    if (linkValid(target)) {
+                        connect(target);
+                    }
                 }
             }
+        }
+        // 同步客户端连接数据，激光才会显示喵
+        if (level != null && !level.isClientSide) {
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
         }
     }
 
@@ -131,7 +158,7 @@ public class PowerNodeBlockEntity extends BlockdustryBuildingEntity implements B
         if (level != null) level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
     }
 
-    private void connect(BlockPos target) {
+    public void connect(BlockPos target) {
         links.add(target);
         BlockEntity be = level.getBlockEntity(target);
         if (be instanceof PowerNodeBlockEntity pn && !pn.links.contains(worldPosition)) {
@@ -139,6 +166,10 @@ public class PowerNodeBlockEntity extends BlockdustryBuildingEntity implements B
             pn.setChanged();
         }
         setChanged();
+        // 同步客户端连接数据（LinkHandler 反向连接时也要刷新激光）喵
+        if (level != null && !level.isClientSide) {
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+        }
     }
 
     @Override

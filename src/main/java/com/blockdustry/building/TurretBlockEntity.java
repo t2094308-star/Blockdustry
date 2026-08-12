@@ -6,6 +6,8 @@ import com.blockdustry.BlockdustryTeams;
 import com.blockdustry.entities.BlockdustryBulletEntity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,6 +28,13 @@ public class TurretBlockEntity extends BlockdustryBuildingEntity {
     private int cooldown;
     private int barrel;
 
+    // 炮塔动画（Mindustry DrawTurret）：朝向 + 双管/整体后坐力喵
+    private float aimYaw;             // 渲染角（度），贴图"前"方向校准见 docs/研究-炮塔动画.md 喵
+    private float recoilL, recoilR;   // 两管后坐力 0..1，开火置 1、20tick 线性回零（curRecoils）喵
+    private float recoilTop;          // 整体后坐力（curRecoil），转盘本体位移喵
+    private float lastSyncedYaw = Float.MAX_VALUE; // 上次同步朝向，>2° 才发包喵
+    private long lastSyncTick;        // 客户端收到同步的时刻，供渲染器本地衰减后坐力喵
+
     // 方块实体注册用的 (BlockPos, BlockState) 构造器，委托给带类型的完整构造器喵
     public TurretBlockEntity(BlockPos pos, BlockState state) {
         this(BlockdustryBlocks.TURRET_ENTITY.get(), pos, state);
@@ -36,13 +45,16 @@ public class TurretBlockEntity extends BlockdustryBuildingEntity {
         super(type, pos, state);
     }
 
-    // 每模组 tick（仅锚点格）：装填计时，归零后索敌（活体+建筑）用当前管开火并换管喵
+    // 每模组 tick（仅锚点格）：每 tick 衰减后坐力 + 索敌转向（冷却中也转） + 装填归零开火喵
     @Override
     protected void tickAnchor() {
-        if (cooldown > 0) {
-            cooldown--;
-            return;
-        }
+        // 1) 后坐力线性衰减（recoilTime = reload = 20 tick 回零，Mindustry approachDelta）喵
+        float decay = 1f / RELOAD;
+        recoilL = Math.max(0, recoilL - decay);
+        recoilR = Math.max(0, recoilR - decay);
+        recoilTop = Math.max(0, recoilTop - decay);
+
+        // 2) 索敌并转向（即使冷却中也持续转向，Mindustry turnToTarget）喵
         AABB range = new AABB(worldPosition).inflate(RANGE);
         LivingEntity livingTarget = nearestLiving(range);
         BlockdustryBuildingEntity buildingTarget = nearestBuilding(range);
@@ -56,10 +68,78 @@ public class TurretBlockEntity extends BlockdustryBuildingEntity {
             targetCenter = buildingTarget.getBlockPos().getCenter();
         }
         if (targetCenter != null) {
+            turnToward(targetCenter);
+        }
+
+        // 3) 装填归零且有目标则开火喵
+        if (cooldown > 0) {
+            cooldown--;
+        } else if (targetCenter != null) {
             fireAt(targetCenter, targetVel, barrel);
+            // 当前管后坐力置 1（barrel 0=右管→recoilR，1=左管→recoilL）+ 整体后坐力置 1 喵
+            if (barrel == 0) recoilR = 1f; else recoilL = 1f;
+            recoilTop = 1f;
             barrel = 1 - barrel;
             cooldown = RELOAD;
+            sync(); // 开火必发：客户端本地衰减后坐力需要同步快照喵
         }
+
+        // 4) 转向超过 2° 才发包（静止不发，节省带宽）喵
+        if (Math.abs(aimYaw - lastSyncedYaw) > 2f) {
+            lastSyncedYaw = aimYaw;
+            sync();
+        }
+    }
+
+    // 转向：水平角匀速逼近目标角（rotateSpeed=10°/tick，含最短角差）喵
+    private void turnToward(Vec3 targetCenter) {
+        double dx = targetCenter.x - worldPosition.getCenter().x;
+        double dz = targetCenter.z - worldPosition.getCenter().z;
+        if (dx * dx + dz * dz > 1e-6) {
+            float targetYaw = (float) Math.toDegrees(Math.atan2(dx, dz));
+            aimYaw = moveToward(aimYaw, targetYaw, 10f);
+        }
+    }
+
+    // 最短角差逼近（Mindustry Angles.moveToward）喵
+    private static float moveToward(float from, float to, float step) {
+        float diff = ((to - from) % 360f + 540f) % 360f - 180f;
+        if (Math.abs(diff) <= step) return to;
+        return from + Math.copySign(step, diff);
+    }
+
+    // 同步客户端（getUpdateTag 携带 aimYaw/recoil，客户端 loadAdditional 收到）喵
+    private void sync() {
+        if (level != null && !level.isClientSide) {
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+        }
+    }
+
+    // —— 动画 getter（渲染器用）——
+    public float getAimYaw() { return aimYaw; }
+    public float getRecoilL() { return recoilL; }
+    public float getRecoilR() { return recoilR; }
+    public float getRecoilTop() { return recoilTop; }
+    public long lastSyncTick() { return lastSyncTick; }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        tag.putFloat("bd_aim_yaw", aimYaw);
+        tag.putFloat("bd_recoil_l", recoilL);
+        tag.putFloat("bd_recoil_r", recoilR);
+        tag.putFloat("bd_recoil_top", recoilTop);
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        aimYaw = tag.getFloat("bd_aim_yaw");
+        recoilL = tag.getFloat("bd_recoil_l");
+        recoilR = tag.getFloat("bd_recoil_r");
+        recoilTop = tag.getFloat("bd_recoil_top");
+        // 客户端收到同步时记录时刻，渲染器据此本地衰减后坐力喵
+        if (level != null && level.isClientSide) lastSyncTick = level.getGameTime();
     }
 
     // 最近的敌对活体目标喵

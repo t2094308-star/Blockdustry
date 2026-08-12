@@ -2,6 +2,7 @@ package com.blockdustry.client;
 
 import com.blockdustry.Blockdustry;
 import com.blockdustry.building.BlockdustryBlocks;
+import com.blockdustry.network.QueryPowerPayload;
 import com.blockdustry.network.QueryTeamPayload;
 
 import net.minecraft.client.Minecraft;
@@ -32,6 +33,10 @@ public class BlockdustryDebugHandler {
             String name = mc.level.getBlockState(pos).getBlock().getName().getString();
             mc.setScreen(new BlockdustryTeamScreen(pos, -1, name));
             PacketDistributor.sendToServer(new QueryTeamPayload(pos, -1));
+            // 电力建筑额外查询电量，供调试显示喵
+            if (mc.level.getBlockEntity(pos) instanceof com.blockdustry.power.BlockdustryPowerNode) {
+                PacketDistributor.sendToServer(new QueryPowerPayload(pos));
+            }
         } else if (hit instanceof EntityHitResult ehr && ehr.getEntity() != null) {
             Entity entity = ehr.getEntity();
             String name = entity.getType().getDescription().getString();

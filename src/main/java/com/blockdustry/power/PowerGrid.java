@@ -38,7 +38,15 @@ public class PowerGrid {
             float excess = produced - needed;
             produced -= chargeBatteries(excess);
         }
-        float coverage = (needed <= 0f) ? 1f : Math.min(1f, produced / Math.max(needed, 1e-6f));
+        float coverage;
+        if (needed <= 0f) {
+            // 无耗电设备：以供电能力评估——有产电或有电池储能即视为充足，否则视为空电（避免无耗电时恒 1 恒白）喵
+            float stored = 0f;
+            for (BlockdustryPowerNode n : members) stored += n.powerStored();
+            coverage = (produced > 0f || stored > 0f) ? 1f : 0f;
+        } else {
+            coverage = Math.min(1f, produced / Math.max(needed, 1e-6f));
+        }
         lastStatus = coverage;
         for (BlockdustryPowerNode n : members) {
             n.setPowerStatus(coverage);

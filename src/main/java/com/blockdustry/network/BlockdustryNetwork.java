@@ -7,6 +7,7 @@ import com.blockdustry.team.BlockdustryTeam;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -22,6 +23,8 @@ public class BlockdustryNetwork {
         registrar.playToServer(QueryTeamPayload.TYPE, QueryTeamPayload.STREAM_CODEC, BlockdustryNetwork::handleQuery);
         registrar.playToServer(SetTeamPayload.TYPE, SetTeamPayload.STREAM_CODEC, BlockdustryNetwork::handleSet);
         registrar.playToClient(TeamDataPayload.TYPE, TeamDataPayload.STREAM_CODEC, BlockdustryNetwork::handleTeamData);
+        registrar.playToServer(QueryPowerPayload.TYPE, QueryPowerPayload.STREAM_CODEC, BlockdustryNetwork::handleQueryPower);
+        registrar.playToClient(PowerDataPayload.TYPE, PowerDataPayload.STREAM_CODEC, BlockdustryNetwork::handlePowerData);
     }
 
     private static void handleQuery(QueryTeamPayload payload, IPayloadContext ctx) {
@@ -57,6 +60,29 @@ public class BlockdustryNetwork {
         ctx.enqueueWork(() -> {
             if (Minecraft.getInstance().screen instanceof com.blockdustry.client.BlockdustryTeamScreen screen) {
                 screen.updateTeam(payload.teamName());
+            }
+        });
+    }
+
+    // 查询目标电力信息（调试棒用）喵
+    private static void handleQueryPower(QueryPowerPayload payload, IPayloadContext ctx) {
+        ctx.enqueueWork(() -> {
+            ServerPlayer player = (ServerPlayer) ctx.player();
+            BlockEntity be = player.serverLevel().getBlockEntity(payload.pos());
+            if (be instanceof com.blockdustry.power.BlockdustryPowerNode pn) {
+                PacketDistributor.sendToPlayer(player, new PowerDataPayload(payload.pos(),
+                        pn.powerProduction(), pn.powerNeeded(), pn.powerCapacity(), pn.powerStored(), pn.getPowerStatus()));
+            } else {
+                PacketDistributor.sendToPlayer(player, new PowerDataPayload(payload.pos(), 0f, 0f, 0f, 0f, 0f));
+            }
+        });
+    }
+
+    // 客户端：把返回的电力信息更新到打开的队伍 UI 喵
+    private static void handlePowerData(PowerDataPayload payload, IPayloadContext ctx) {
+        ctx.enqueueWork(() -> {
+            if (Minecraft.getInstance().screen instanceof com.blockdustry.client.BlockdustryTeamScreen screen) {
+                screen.updatePower(payload);
             }
         });
     }

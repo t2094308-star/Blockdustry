@@ -32,7 +32,8 @@ public class ConveyorBlockEntityRenderer implements BlockEntityRenderer<Conveyor
             double along = p - 0.5;
             pose.pushPose();
             pose.translate(0.5 + facing.getStepX() * along, 0.25, 0.5 + facing.getStepZ() * along);
-            pose.mulPose(Axis.YP.rotationDegrees(-facing.toYRot()));
+            pose.mulPose(Axis.YP.rotationDegrees(-facing.toYRot())); // 物品正面朝传送方向喵
+            pose.mulPose(Axis.XP.rotationDegrees(-90.0F)); // 物品平躺：+Z 贴图法线转到 +Y 朝上，不再竖立广告牌喵
             Minecraft.getInstance().getItemRenderer().renderStatic(
                     items[i].getDefaultInstance(), ItemDisplayContext.FIXED,
                     light, overlay, pose, buffer, be.getLevel(), 0);
