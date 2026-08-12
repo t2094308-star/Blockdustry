@@ -17,6 +17,8 @@ public final class BlockdustryTeams {
     public static void setTeam(ServerLevel level, BlockPos pos, BlockdustryTeam team) {
         if (level.isClientSide) return;
         level.getData(BlockdustryAttachments.BLOCK_TEAM.get()).put(pos, team);
+        // 触发客户端方块更新，让 Jade 重新拉取 serverData（队伍变更即时反馈到 Jade 面板）喵
+        level.sendBlockUpdated(pos, level.getBlockState(pos), level.getBlockState(pos), 3);
     }
 
     public static void removeTeam(ServerLevel level, BlockPos pos) {

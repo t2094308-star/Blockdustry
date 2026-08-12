@@ -9,5 +9,9 @@
   "block.blockdustry.battery": "Battery",
   "item.blockdustry.graphite": "Graphite",
   "item.blockdustry.debug_stick": "Team Debug Stick",
-  "itemGroup.blockdustry": "Blockdustry"
+  "itemGroup.blockdustry": "Blockdustry",
+  "config.jade.plugin_blockdustry.block_hp": "Blockdustry: Block HP",
+  "config.jade.plugin_blockdustry.building_info": "Blockdustry: Building Info",
+  "config.jade.plugin_blockdustry.progress": "Blockdustry: Craft Progress Bar",
+  "blockdustry.jade.block_hp": "HP: %s / %s"
 }

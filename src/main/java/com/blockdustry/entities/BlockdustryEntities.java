@@ -14,11 +14,12 @@ public final class BlockdustryEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(Registries.ENTITY_TYPE, Blockdustry.MODID);
 
-    // Mindustry 炮弹实体喵
+    // Mindustry 炮弹实体（updateInterval=1：位置包每 tick 一发，配合客户端自模拟平滑飞行）喵
     public static final DeferredHolder<EntityType<?>, EntityType<BlockdustryBulletEntity>> BULLET =
             ENTITY_TYPES.register("bullet",
                     () -> EntityType.Builder.<BlockdustryBulletEntity>of(BlockdustryBulletEntity::new, MobCategory.MISC)
                             .sized(0.25f, 0.25f)
+                            .updateInterval(1)
                             .build("bullet"));
 
     public static void register(IEventBus bus) {

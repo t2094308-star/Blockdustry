@@ -9,5 +9,9 @@
   "block.blockdustry.battery": "电池",
   "item.blockdustry.graphite": "石墨",
   "item.blockdustry.debug_stick": "队伍调试棒",
-  "itemGroup.blockdustry": "方块工业"
+  "itemGroup.blockdustry": "方块工业",
+  "config.jade.plugin_blockdustry.block_hp": "方块工业：显示方块血量",
+  "config.jade.plugin_blockdustry.building_info": "方块工业：显示建筑信息",
+  "config.jade.plugin_blockdustry.progress": "方块工业：显示制作进度条",
+  "blockdustry.jade.block_hp": "血量: %s / %s"
 }

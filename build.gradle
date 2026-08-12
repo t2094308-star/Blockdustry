@@ -108,6 +108,9 @@ dependencies {
     // 前置库模组 BlockHealth (方块血量) 的 jar 依赖，需先构建该工程喵
     implementation files("D:/Blockdustry/子仓库(方块血量)/build/libs/blockhealth-1.0.0.jar")
 
+    // Jade（玉）可选依赖：编译期用本地 jar，运行时也加载（dev 环境测试联动）；正式发布由玩家自装喵
+    implementation files("D:/Blockdustry/Jade-1.21.1-NeoForge-15.10.6 (1).jar")
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

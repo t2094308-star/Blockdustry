@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 
 // duo 炮塔动画渲染（Mindustry DrawTurret）：基座沿用方块模型，BER 叠画转盘 + 双炮管，
@@ -44,32 +45,36 @@ public class TurretBlockEntityRenderer implements BlockEntityRenderer<TurretBloc
 
         // 转盘本体：整体后坐力沿炮管反方向（局部 +Z）平移：pow(recoil,1.8)*0.5px/8 喵
         float topBack = (float) Math.pow(top, 1.8f) * 0.5f / 8f;
+        // 三张 quad 给不同 y 抬升消除共面（entityCutout 写深度，共面会浮点噪声互相渗色成黑阴影）；
+        // Mindustry 里炮管 under=true 画在下层，转盘抬最高盖住炮管根部喵
         pose.pushPose();
-        pose.translate(0, 0, topBack);
+        pose.translate(0, 0.008f, topBack);
         drawQuad(pose, buffer, TEX_TOP, light, overlay);
         pose.popPose();
 
-        // 双炮管：整体后坐力基础上再各自加 moveY=-1.5px 的管后坐力喵
-        drawBarrel(pose, buffer, TEX_BARREL_L, topBack + 1.5f * rl / 8f, light, overlay);
-        drawBarrel(pose, buffer, TEX_BARREL_R, topBack + 1.5f * rr / 8f, light, overlay);
+        // 双炮管：整体后坐力基础上再各自加 moveY=-1.5px 的管后坐力；左右管也错开 liftY 避免两管共面喵
+        drawBarrel(pose, buffer, TEX_BARREL_L, 0f, topBack + 1.5f * rl / 8f, light, overlay);
+        drawBarrel(pose, buffer, TEX_BARREL_R, 0.004f, topBack + 1.5f * rr / 8f, light, overlay);
         pose.popPose();
     }
 
-    // 平面 quad 铺满 1 格（-0.5..0.5），uv 覆盖整张贴图，法线朝上（entityCutout 透明底正常）喵
+    // 平面 quad 铺满 1 格（-0.5..0.5），uv 覆盖整张贴图，法线朝上（entityCutout 透明底正常）。
+    // ⚠️ 必须全亮 setLight(FULL_BRIGHT) + NO_OVERLAY：透传 BER 的 light 在白天 blockLight=0 时极暗，
+    // 深色炮管 × 暗光 ≈ 纯黑（研究-炮管黑.md），改全亮后正常喵
     private void drawQuad(PoseStack pose, MultiBufferSource buffer, ResourceLocation tex,
                           int light, int overlay) {
         VertexConsumer vc = buffer.getBuffer(RenderType.entityCutout(tex));
         var matrix = pose.last().pose();
-        vc.addVertex(matrix, -0.5f, 0f, -0.5f).setUv(0f, 0f).setColor(255, 255, 255, 255).setLight(light).setOverlay(overlay).setNormal(0f, 1f, 0f);
-        vc.addVertex(matrix, -0.5f, 0f, 0.5f).setUv(0f, 1f).setColor(255, 255, 255, 255).setLight(light).setOverlay(overlay).setNormal(0f, 1f, 0f);
-        vc.addVertex(matrix, 0.5f, 0f, 0.5f).setUv(1f, 1f).setColor(255, 255, 255, 255).setLight(light).setOverlay(overlay).setNormal(0f, 1f, 0f);
-        vc.addVertex(matrix, 0.5f, 0f, -0.5f).setUv(1f, 0f).setColor(255, 255, 255, 255).setLight(light).setOverlay(overlay).setNormal(0f, 1f, 0f);
+        vc.addVertex(matrix, -0.5f, 0f, -0.5f).setUv(0f, 0f).setColor(255, 255, 255, 255).setLight(0xF000F0).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0f, 1f, 0f);
+        vc.addVertex(matrix, -0.5f, 0f, 0.5f).setUv(0f, 1f).setColor(255, 255, 255, 255).setLight(0xF000F0).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0f, 1f, 0f);
+        vc.addVertex(matrix, 0.5f, 0f, 0.5f).setUv(1f, 1f).setColor(255, 255, 255, 255).setLight(0xF000F0).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0f, 1f, 0f);
+        vc.addVertex(matrix, 0.5f, 0f, -0.5f).setUv(1f, 0f).setColor(255, 255, 255, 255).setLight(0xF000F0).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0f, 1f, 0f);
     }
 
     private void drawBarrel(PoseStack pose, MultiBufferSource buffer, ResourceLocation tex,
-                            float back, int light, int overlay) {
+                            float liftY, float back, int light, int overlay) {
         pose.pushPose();
-        pose.translate(0, 0, back);
+        pose.translate(0, liftY, back);
         drawQuad(pose, buffer, tex, light, overlay);
         pose.popPose();
     }

@@ -3,6 +3,7 @@ package com.blockdustry;
 import com.blockdustry.building.BlockdustryBlocks;
 import com.blockdustry.client.BlockdustryBulletRenderer;
 import com.blockdustry.client.ConveyorBlockEntityRenderer;
+import com.blockdustry.client.CombustionGeneratorBlockEntityRenderer;
 import com.blockdustry.client.DrillBlockEntityRenderer;
 import com.blockdustry.client.PowerNodeBlockEntityRenderer;
 import com.blockdustry.client.TurretBlockEntityRenderer;
@@ -32,6 +33,7 @@ public class BlockdustryClient {
         event.registerBlockEntityRenderer(BlockdustryBlocks.CONVEYOR_ENTITY.get(), ConveyorBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockdustryBlocks.POWER_NODE_ENTITY.get(), PowerNodeBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockdustryBlocks.TURRET_ENTITY.get(), TurretBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BlockdustryBlocks.COMBUSTION_GENERATOR_ENTITY.get(), CombustionGeneratorBlockEntityRenderer::new);
         event.registerEntityRenderer(BlockdustryEntities.BULLET.get(), BlockdustryBulletRenderer::new);
     }
 }
