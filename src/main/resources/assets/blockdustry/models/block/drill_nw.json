@@ -1,21 +1,77 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "blockdustry:block/drill_side",
-    "side": "blockdustry:block/drill_side",
+    "particle": "blockdustry:block/drill_side_left",
+    "side": "blockdustry:block/drill_side_left",
     "top": "blockdustry:block/drill"
   },
   "elements": [
     {
-      "from": [0, 0, 0],
-      "to": [16, 16, 16],
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
       "faces": {
-        "down": { "uv": [0, 0, 16, 16], "texture": "#side" },
-        "up": { "uv": [0, 0, 8, 8], "texture": "#top" },
-        "north": { "uv": [0, 0, 16, 16], "texture": "#side" },
-        "south": { "uv": [0, 0, 16, 16], "texture": "#side" },
-        "east": { "uv": [0, 0, 16, 16], "texture": "#side" },
-        "west": { "uv": [0, 0, 16, 16], "texture": "#side" }
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": "#top"
+        },
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side"
+        }
       }
     }
   ]

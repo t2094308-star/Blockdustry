@@ -1,9 +1,12 @@
 package com.blockdustry.building;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.blockdustry.BlockdustryTeams;
+import com.blockdustry.lib.BlockHealthApi;
 import com.blockdustry.logistics.BlockdustryItemSink;
 import com.blockdustry.logistics.BlockdustryItemSource;
 import com.blockdustry.team.BlockdustryTeam;
@@ -36,6 +39,10 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
     protected int dumpPointer;
     // 客户端队伍缓存：从 NBT 同步（服务端队伍存在 ServerLevel attachment，客户端拿不到，靠 BE 数据带过来喵）
     private BlockdustryTeam clientTeam = BlockdustryTeam.DERELICT;
+    // 建筑装甲（Mindustry Building.armor，固定减伤：受伤 = max(1, 伤害 - 装甲)）喵
+    private float armor;
+    // 整组共享血量：是否已注册进 BlockHealth 组（仅锚点格，避免重复注册）喵
+    private boolean healthGroupRegistered;
 
     public BlockdustryBuildingEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -56,6 +63,16 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
         if (level == null) return BlockdustryTeam.DERELICT;
         if (level.isClientSide) return clientTeam;
         return BlockdustryTeams.getTeam((ServerLevel) level, worldPosition);
+    }
+
+    // 建筑装甲：默认 0，子类构造函数可调 setArmor 设置喵
+    public float getArmor() {
+        return armor;
+    }
+
+    public void setArmor(float armor) {
+        this.armor = Math.max(0f, armor);
+        setChanged();
     }
 
     // 库存 API：单品种存储，总库存判满（忠于 Mindustry）喵
@@ -191,23 +208,25 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
         return anchor == null || anchor.equals(worldPosition);
     }
 
-    // 服务端加载时注册进建筑管理器喵
+    // 服务端加载时注册进建筑管理器 + 整组共享血量组注册喵
     @Override
     public void onLoad() {
         super.onLoad();
         if (level != null && !level.isClientSide && !registered) {
             BlockdustryBuildings.register(this);
             registered = true;
+            registerHealthGroup();
         }
     }
 
-    // 移除时注销，避免漏 tick 喵
+    // 移除时注销，避免漏 tick；同时注销整组共享血量组喵
     @Override
     public void setRemoved() {
         super.setRemoved();
         if (registered) {
             BlockdustryBuildings.unregister(this);
             registered = false;
+            unregisterHealthGroup();
         }
     }
 
@@ -218,7 +237,40 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
         if (level != null && !level.isClientSide && !registered) {
             BlockdustryBuildings.register(this);
             registered = true;
+            registerHealthGroup();
         }
+    }
+
+    // 多格建筑整组共享血量（T10 Level 3）：锚点格把「锚点 + 全部格」注册进 BlockHealth 组喵。
+    // 必须 hasAnchor && isAnchor：fresh 放置时 onLoad 早于 setAnchor 触发（各格 anchor 皆 null 会误判锚点），
+    // 故 onLoad 只处理「已从 NBT 载入 anchor 的 chunk 重载」；fresh 放置由 place 设完锚点后调 registerHealthGroupExplicit 喵
+    private void registerHealthGroup() {
+        if (level == null || level.isClientSide || healthGroupRegistered) return;
+        if (!hasAnchor() || !isAnchor() || getSize() <= 1) return; // 仅多格建筑且确系锚点格喵
+        BlockPos anchorPos = getAnchor();
+        Set<BlockPos> cells = new HashSet<>();
+        int size = getSize();
+        for (int dx = 0; dx < size; dx++) {
+            for (int dz = 0; dz < size; dz++) {
+                cells.add(anchorPos.offset(dx, 0, dz));
+            }
+        }
+        BlockHealthApi.registerGroup((ServerLevel) level, anchorPos, cells);
+        healthGroupRegistered = true;
+    }
+
+    // 供放置逻辑在设完锚点后显式注册整组血量（fresh 放置专用）喵
+    public void registerHealthGroupExplicit() {
+        registerHealthGroup();
+    }
+
+    // 注销整组共享血量组（幂等）喵
+    private void unregisterHealthGroup() {
+        if (!healthGroupRegistered) return;
+        if (level == null || level.isClientSide) return;
+        BlockPos anchorPos = hasAnchor() ? getAnchor() : worldPosition;
+        BlockHealthApi.unregisterGroup((ServerLevel) level, anchorPos);
+        healthGroupRegistered = false;
     }
 
     // 客户端同步：sendBlockUpdated 时随 packet 携带完整数据（含 anchor），否则客户端 anchor 不同步喵
@@ -246,6 +298,7 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
         tag.putString("bd_team", getTeam().name());
         tag.putInt("bd_count", storedCount);
         tag.putInt("bd_capacity", itemCapacity);
+        tag.putFloat("bd_armor", armor);
     }
 
     @Override
@@ -263,5 +316,6 @@ public abstract class BlockdustryBuildingEntity extends BlockEntity
         }
         storedCount = tag.getInt("bd_count");
         itemCapacity = Math.max(0, tag.getInt("bd_capacity"));
+        armor = Math.max(0f, tag.getFloat("bd_armor"));
     }
 }

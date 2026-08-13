@@ -35,6 +35,11 @@ public class DaggerUnitEntity extends PathfinderMob {
         BlockdustryTeams.setTeam(this, team);
     }
 
+    // 目标标签：dagger 是地面单位（Mindustry 陆），对地炮可锁定、对空炮不锁定喵
+    public TargetType getTargetType() {
+        return TargetType.GROUND;
+    }
+
     // 属性供应商：交给主会话在 EntityAttributeCreationEvent 里注册喵
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()

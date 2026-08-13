@@ -4,7 +4,13 @@
   "package": "com.blockdustry.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "EntityTypeMixin"
+    "EntityTypeMixin",
+    "FreecamMixinEntity",
+    "FreecamMixinLocalPlayer",
+    "FreecamMixinGui",
+    "FreecamMixinCamera",
+    "FreecamMixinGameRenderer",
+    "FreecamMixinMultiPlayerGameMode"
   ],
   "injectors": {
     "defaultRequire": 1

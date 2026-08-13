@@ -27,11 +27,15 @@ public class BlockdustryBuildingItem extends BlockItem {
         if (!ctx.getLevel().getBlockState(base).canBeReplaced(ctx)) {
             base = base.relative(ctx.getClickedFace());
         }
-        // 预检 size×size 区域全部可替换，否则失败不消耗喵
-        for (int dx = 0; dx < size; dx++) {
-            for (int dz = 0; dz < size; dz++) {
-                if (!ctx.getLevel().getBlockState(base.offset(dx, 0, dz)).canBeReplaced(ctx)) {
-                    return InteractionResult.FAIL;
+        // 建筑视觉/碰撞高度：核心等高层建筑占 height 层（上层放隐形碰撞格，见 BlockdustryBuildingBlock.getShape）喵
+        int height = (getBlock() instanceof BlockdustryBuildingBlock b) ? b.getHeight() : 1;
+        // 预检 size×size×height 区域全部可替换，否则失败不消耗喵
+        for (int lvl = 0; lvl < height; lvl++) {
+            for (int dx = 0; dx < size; dx++) {
+                for (int dz = 0; dz < size; dz++) {
+                    if (!ctx.getLevel().getBlockState(base.offset(dx, lvl, dz)).canBeReplaced(ctx)) {
+                        return InteractionResult.FAIL;
+                    }
                 }
             }
         }
@@ -50,25 +54,31 @@ public class BlockdustryBuildingItem extends BlockItem {
             if (!hasOre) return InteractionResult.FAIL;
         }
         InteractionResult result = super.place(ctx);
-        // 服务端：填充其余格 + 统一锚点 + 继承放置者队伍喵
+        // 服务端：填充其余格（含上层碰撞格）+ 统一锚点 + 继承放置者队伍喵
         if (result.consumesAction() && !ctx.getLevel().isClientSide && size > 1) {
             ServerLevel serverLevel = (ServerLevel) ctx.getLevel();
-            for (int dx = 0; dx < size; dx++) {
-                for (int dz = 0; dz < size; dz++) {
-                    BlockPos p = base.offset(dx, 0, dz);
-                    if (!p.equals(base)) {
-                        serverLevel.setBlockAndUpdate(p, getBlock().defaultBlockState()
-                                .setValue(BlockdustryBuildingBlock.CORNER, BlockdustryBuildingBlock.cornerFor(dx, dz, size)));
-                    }
-                    if (serverLevel.getBlockEntity(p) instanceof BlockdustryBuildingEntity b) {
-                        b.setAnchor(base);
-                        b.setChanged();
-                    }
-                    if (ctx.getPlayer() != null) {
-                        BlockdustryTeams.setTeam(serverLevel, p, BlockdustryTeams.getTeam(ctx.getPlayer()));
+            for (int lvl = 0; lvl < height; lvl++) {
+                for (int dx = 0; dx < size; dx++) {
+                    for (int dz = 0; dz < size; dz++) {
+                        BlockPos p = base.offset(dx, lvl, dz);
+                        if (!p.equals(base)) {
+                            serverLevel.setBlockAndUpdate(p, getBlock().defaultBlockState()
+                                    .setValue(BlockdustryBuildingBlock.CORNER, BlockdustryBuildingBlock.cornerFor(dx, dz, size)));
+                        }
+                        if (serverLevel.getBlockEntity(p) instanceof BlockdustryBuildingEntity b) {
+                            b.setAnchor(base);
+                            b.setChanged();
+                        }
+                        if (ctx.getPlayer() != null) {
+                            BlockdustryTeams.setTeam(serverLevel, p, BlockdustryTeams.getTeam(ctx.getPlayer()));
+                        }
                     }
                 }
             }
+        // 整组共享血量：设完锚点后显式注册组（onLoad 早于 setAnchor 触发，无法靠 onLoad 识别 fresh 锚点）喵
+        if (serverLevel.getBlockEntity(base) instanceof BlockdustryBuildingEntity baseBe) {
+            baseBe.registerHealthGroupExplicit();
+        }
         }
         return result;
     }

@@ -3,7 +3,7 @@
   "textures": {
     "particle": "blockdustry:block/conveyor_corner",
     "belt": "blockdustry:block/conveyor_corner",
-    "side": "minecraft:block/stone"
+    "side": "blockdustry:block/conveyor_side"
   },
   "elements": [
     {

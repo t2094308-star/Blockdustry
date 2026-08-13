@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "blockdustry:block/drill_side",
-    "side": "blockdustry:block/drill_side",
+    "particle": "blockdustry:block/turret_side",
+    "side": "blockdustry:block/turret_side",
     "top": "blockdustry:block/turret_base"
   },
   "elements": [

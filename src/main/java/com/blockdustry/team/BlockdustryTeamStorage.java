@@ -34,11 +34,18 @@ public final class BlockdustryTeamStorage {
         }
 
         public boolean take(Item item) {
+            return take(item, 1) == 1;
+        }
+
+        // 批量取物：从共享池最多取 count 个，返回实际取出数喵
+        public int take(Item item, int count) {
             int c = items.getOrDefault(item, 0);
-            if (c <= 0) return false;
-            if (c == 1) items.remove(item);
-            else items.put(item, c - 1);
-            return true;
+            int taken = Math.min(c, count);
+            if (taken <= 0) return 0;
+            int remain = c - taken;
+            if (remain == 0) items.remove(item);
+            else items.put(item, remain);
+            return taken;
         }
 
         public int getCount(Item item) {

@@ -15,10 +15,14 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 import com.blockdustry.building.BlockdustryBlocks;
 import com.blockdustry.building.BlockdustryBuildings;
+import com.blockdustry.building.ElevatorBlocks;
+import com.blockdustry.building.FuseArcRegistrar;
 import com.blockdustry.config.BlockdustryConfig;
 import com.blockdustry.entities.BlockdustryEntities;
 import com.blockdustry.entities.DaggerUnitEntity;
+import com.blockdustry.item.BlockdustryItems;
 import com.blockdustry.power.PowerGridManager;
+import com.blockdustry.possession.TurretPossessManager;
 
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
@@ -40,6 +44,11 @@ public class Blockdustry {
         BlockdustryAttachments.ATTACHMENT_TYPES.register(modEventBus);
         // 注册建筑方块与方块实体喵
         BlockdustryBlocks.register(modEventBus);
+        // 注册 Mindustry 材料物品（独立注册类）喵
+        BlockdustryItems.register(modEventBus);
+        // 火焰炮/电弧自包含注册（FuseArcRegistrar）与垂直提升机（ElevatorBlocks）喵
+        FuseArcRegistrar.register(modEventBus);
+        ElevatorBlocks.register(modEventBus);
         // 注册炮弹等实体类型喵
         BlockdustryEntities.register(modEventBus);
         // 注册实体属性（dagger 等）喵
@@ -48,11 +57,15 @@ public class Blockdustry {
         BlockdustryBuildings.hook();
         // 电网管理器挂模组新 tick 喵
         PowerGridManager.hook();
+        // 炮台附身管理器挂模组新 tick 喵
+        TurretPossessManager.hook();
         // 注册本类响应游戏事件（服务端启动等）喵
         NeoForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
+        // 多格建筑整组共享血量：注册各多格建筑的组总血（commonSetup 双端执行，客户端 tooltip/挖掘进度也用）喵
+        BlockdustryBlocks.registerBlockHealthDefaults();
         // 验证 mod 加载成功的标记日志喵
         LOGGER.info("方块工业 (blockdustry) 加载成功");
     }

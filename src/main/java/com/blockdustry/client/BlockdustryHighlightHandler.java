@@ -1,6 +1,7 @@
 package com.blockdustry.client;
 
 import com.blockdustry.Blockdustry;
+import com.blockdustry.building.BlockdustryBlocks;
 import com.blockdustry.building.BlockdustryBuildingBlock;
 import com.blockdustry.building.BlockdustryBuildingEntity;
 
@@ -35,9 +36,11 @@ public class BlockdustryHighlightHandler {
         if (!(be instanceof BlockdustryBuildingEntity b) || b.getAnchor() == null) return;
         BlockPos anchor = b.getAnchor();
         int size = building.getSize();
+        // 核心视觉为 3×3×3 正方体，选中框高度跟随 3 格；其余多格建筑仍 1 格高喵
+        int height = (building == BlockdustryBlocks.CORE.get()) ? size : 1;
         Vec3 cam = event.getCamera().getPosition();
         AABB box = new AABB(anchor.getX(), anchor.getY(), anchor.getZ(),
-                anchor.getX() + size, anchor.getY() + 1, anchor.getZ() + size)
+                anchor.getX() + size, anchor.getY() + height, anchor.getZ() + size)
                 .move(-cam.x, -cam.y, -cam.z);
         VertexConsumer lines = event.getMultiBufferSource().getBuffer(RenderType.lines());
         LevelRenderer.renderLineBox(event.getPoseStack(), lines, box, 0f, 0f, 0f, 0.4f);

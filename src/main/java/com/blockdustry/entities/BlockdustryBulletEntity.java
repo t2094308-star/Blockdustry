@@ -68,10 +68,10 @@ public class BlockdustryBulletEntity extends Projectile {
             this.discard();
             return;
         }
-        // 命中活体目标造成伤害喵
+        // 命中活体目标造成伤害（先按 Mindustry 装甲固定减伤折算）喵
         for (LivingEntity target : this.level().getEntitiesOfClass(LivingEntity.class,
                 this.getBoundingBox().inflate(0.2), this::canHitEntity)) {
-            target.hurt(this.damageSources().generic(), this.damage);
+            target.hurt(this.damageSources().generic(), BlockdustryArmor.applyToEntity(target, this.damage));
             this.discard();
             return;
         }
@@ -81,7 +81,11 @@ public class BlockdustryBulletEntity extends Projectile {
         if (be instanceof BlockdustryBuildingEntity building
                 && BlockdustryTeams.isHostile(ownerTeam, building.getTeam())
                 && this.level() instanceof ServerLevel serverLevel) {
-            BlockHealthApi.damage(serverLevel, pos, this.damage, null, BlockHealthApi.DamageType.PROJECTILE);
+            // 多格建筑整组共享血量：统一扣锚点格（BlockHealth 组转发生效，显式转发更清晰）喵
+            BlockPos target = building.hasAnchor() ? building.getAnchor() : pos;
+            // BlockHealthApi.damage 无 armor 参数，调用前按建筑装甲自行折算喵
+            BlockHealthApi.damage(serverLevel, target, BlockdustryArmor.applyToBuilding(building, this.damage),
+                    null, BlockHealthApi.DamageType.PROJECTILE);
             this.discard();
             return;
         }

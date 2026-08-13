@@ -3,6 +3,9 @@ package com.blockdustry.building;
 import com.blockdustry.entities.BlockdustryEntities;
 import com.blockdustry.entities.DaggerUnitEntity;
 import com.blockdustry.logistics.BlockdustryItemSource;
+import com.blockdustry.power.BlockdustryPowerNode;
+
+import java.util.List;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,20 +18,23 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-// 地面单位工厂（Mindustry groundFactory）最小移植：吃 10 硅 + 10 铅产 1 架 dagger，craftTime=900tick=15s 喵
-public class UnitFactoryBlockEntity extends BlockdustryBuildingEntity {
+// 地面单位工厂（Mindustry groundFactory）最小移植：吃 10 硅 + 10 铅产 1 架 dagger，craftTime=900tick=15s 喵。
+// 用电：powerNeeded=1.2（Mindustry groundFactory consumePower(1.2)），无电（powerStatus<=0.01）停摆喵
+public class UnitFactoryBlockEntity extends BlockdustryBuildingEntity implements BlockdustryPowerNode {
     private static final int CRAFT_TIME = 900;       // 生产耗时 900tick=15s（忠于原作）喵
     private static final int CRAFT_SILICON = 10;     // 每架消耗硅 10 喵
     private static final int CRAFT_LEAD = 10;        // 每架消耗铅 10 喵
     private static final int SILICON_CAPACITY = 20;  // 硅库存容量 = 需求*2 喵
     private static final int LEAD_CAPACITY = 20;     // 铅库存容量 = 需求*2 喵
     private static final float WARMUP_SPEED = 0.02f; // 预热爬升/衰减速率（驱动顶面染色动画）喵
+    private static final float POWER_NEEDED = 1.2f;  // Mindustry groundFactory consumePower(1.2) 喵
 
     private int siliconCount;
     private int leadCount;
     private float craftProgress;
     private float warmup;           // 0..1 预热，驱动顶面染色动画喵
     private float lastSyncedWarmup = -1f; // 同步游标，warmup 变化超过阈值才发包喵
+    private float powerStatus;      // 电网满足率 0..1（由 PowerGridManager 结算注入）喵
 
     public UnitFactoryBlockEntity(BlockPos pos, BlockState state) {
         super(BlockdustryBlocks.UNIT_FACTORY_ENTITY.get(), pos, state);
@@ -92,7 +98,9 @@ public class UnitFactoryBlockEntity extends BlockdustryBuildingEntity {
     // 生产：材料够则推进进度；攒满 1 扣料并在门口生成 dagger；缺料停工且进度清零喵
     @Override
     protected void tickAnchor() {
-        boolean producing = siliconCount >= CRAFT_SILICON && leadCount >= CRAFT_LEAD;
+        // 无电即停摆：powerStatus<=0.01 视为断电，与缺料同样处理（warmup 衰减、进度清零）喵
+        boolean hasPower = getPowerStatus() > 0.01f;
+        boolean producing = hasPower && siliconCount >= CRAFT_SILICON && leadCount >= CRAFT_LEAD;
         // warmup 预热：可生产爬升、否则衰减（Mindustry Factory 预热近似 0.02/tick）喵
         warmup = producing ? Math.min(1f, warmup + WARMUP_SPEED) : Math.max(0f, warmup - WARMUP_SPEED);
         if (producing) {
@@ -159,6 +167,51 @@ public class UnitFactoryBlockEntity extends BlockdustryBuildingEntity {
         return Direction.NORTH;
     }
 
+    // —— BlockdustryPowerNode ——
+    @Override
+    public BlockPos getPos() {
+        return worldPosition;
+    }
+
+    @Override
+    public float powerProduction() {
+        return 0f;
+    }
+
+    @Override
+    public float powerNeeded() {
+        // 仅锚点格计入耗电：3×3 共 9 格 BE 都会进电网结算，非锚点格返回 0，避免耗电被计 9 次喵
+        return isAnchor() ? POWER_NEEDED : 0f;
+    }
+
+    @Override
+    public float powerCapacity() {
+        return 0f;
+    }
+
+    @Override
+    public float powerStored() {
+        return 0f;
+    }
+
+    @Override
+    public float getPowerStatus() {
+        return powerStatus;
+    }
+
+    @Override
+    public void setPowerStatus(float status) {
+        this.powerStatus = status;
+    }
+
+    @Override
+    public List<BlockPos> getPowerLinks() {
+        // 非锚点格把自己并入锚点所在电网：无论 PowerNode/电力源连到工厂哪一格，整座工厂都在同一网喵
+        if (isAnchor()) return List.of();
+        BlockPos anchor = getAnchor();
+        return anchor != null ? List.of(anchor) : List.of();
+    }
+
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
@@ -166,6 +219,7 @@ public class UnitFactoryBlockEntity extends BlockdustryBuildingEntity {
         tag.putInt("bd_lead", leadCount);
         tag.putFloat("bd_progress", craftProgress);
         tag.putFloat("bd_warmup", warmup);
+        tag.putFloat("bd_power_status", powerStatus);
     }
 
     @Override
@@ -175,5 +229,6 @@ public class UnitFactoryBlockEntity extends BlockdustryBuildingEntity {
         leadCount = tag.getInt("bd_lead");
         craftProgress = tag.getFloat("bd_progress");
         warmup = tag.getFloat("bd_warmup");
+        powerStatus = tag.getFloat("bd_power_status");
     }
 }

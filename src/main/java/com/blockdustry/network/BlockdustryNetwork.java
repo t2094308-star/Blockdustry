@@ -2,16 +2,21 @@ package com.blockdustry.network;
 
 import com.blockdustry.Blockdustry;
 import com.blockdustry.BlockdustryTeams;
-import com.blockdustry.team.BlockdustryTeam;
-
-import com.blockdustry.BlockdustryTeams;
 import com.blockdustry.building.BlockdustryBlocks;
+import com.blockdustry.item.BlockdustryItems;
+import com.blockdustry.possession.TurretControlPayload;
+import com.blockdustry.possession.TurretPossessExitPayload;
+import com.blockdustry.possession.TurretPossessManager;
+import com.blockdustry.possession.TurretPossessStatePayload;
 import com.blockdustry.team.BlockdustryTeam;
 import com.blockdustry.team.BlockdustryTeamStorage;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -33,6 +38,26 @@ public class BlockdustryNetwork {
         registrar.playToClient(PowerDataPayload.TYPE, PowerDataPayload.STREAM_CODEC, BlockdustryNetwork::handlePowerData);
         registrar.playToServer(QueryCoreStoragePayload.TYPE, QueryCoreStoragePayload.STREAM_CODEC, BlockdustryNetwork::handleQueryCoreStorage);
         registrar.playToClient(CoreStorageDataPayload.TYPE, CoreStorageDataPayload.STREAM_CODEC, BlockdustryNetwork::handleCoreStorageData);
+        // 炮台附身网络（T5）喵
+        registrar.playToServer(TurretControlPayload.TYPE, TurretControlPayload.STREAM_CODEC, TurretPossessManager::handleControl);
+        registrar.playToServer(TurretPossessExitPayload.TYPE, TurretPossessExitPayload.STREAM_CODEC, TurretPossessManager::handleExit);
+        registrar.playToClient(TurretPossessStatePayload.TYPE, TurretPossessStatePayload.STREAM_CODEC, BlockdustryNetwork::handleTurretPossessState);
+        // 物品源菜单选中产物（T22）喵
+        registrar.playToServer(ItemSourceSelectPayload.TYPE, ItemSourceSelectPayload.STREAM_CODEC, BlockdustryNetwork::handleItemSourceSelect);
+    }
+
+    // 服务端：物品源菜单选中产物，校验在迁移材料内后设置喵
+    private static void handleItemSourceSelect(ItemSourceSelectPayload payload, IPayloadContext ctx) {
+        ctx.enqueueWork(() -> {
+            ServerPlayer player = (ServerPlayer) ctx.player();
+            BlockEntity be = player.serverLevel().getBlockEntity(payload.pos());
+            if (be instanceof com.blockdustry.building.ItemSourceBlockEntity src) {
+                Item item = BuiltInRegistries.ITEM.get(ResourceLocation.tryParse(payload.itemId()));
+                if (item != null && item != Items.AIR && BlockdustryItems.allMaterials().contains(item)) {
+                    src.setProduct(item);
+                }
+            }
+        });
     }
 
     private static void handleQuery(QueryTeamPayload payload, IPayloadContext ctx) {
@@ -113,5 +138,10 @@ public class BlockdustryNetwork {
     // 客户端：更新右上角核心物资资源栏（Mindustry 资源栏样式）喵
     private static void handleCoreStorageData(CoreStorageDataPayload payload, IPayloadContext ctx) {
         ctx.enqueueWork(() -> com.blockdustry.client.CoreHudHandler.setCoreStorage(payload.coal(), payload.graphite()));
+    }
+
+    // 客户端：炮台附身状态（进入/退出+射程），须放本类引用客户端类避免专用服 ClassNotFound 喵
+    private static void handleTurretPossessState(TurretPossessStatePayload payload, IPayloadContext ctx) {
+        ctx.enqueueWork(() -> com.blockdustry.client.TurretPossessHandler.onState(payload));
     }
 }

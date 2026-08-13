@@ -25,7 +25,9 @@ public class ConveyorBlock extends BlockdustryBuildingBlock {
     private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 4, 16);
 
     public enum Connection implements StringRepresentable {
-        NONE("none"), STRAIGHT("straight"), CORNER("corner"), T("t"), CROSS("cross");
+        NONE("none"), STRAIGHT("straight"), CORNER("corner"),
+        CORNER_LEFT("corner_left"), CORNER_RIGHT("corner_right"),
+        T("t"), CROSS("cross");
 
         private final String name;
 
@@ -112,7 +114,11 @@ public class ConveyorBlock extends BlockdustryBuildingBlock {
         if (n == 0) return Connection.NONE;
         if (f && b) return (l && r) ? Connection.CROSS : (l || r) ? Connection.T : Connection.STRAIGHT;
         if ((l && r) && !f && !b) return Connection.STRAIGHT;
-        if ((f || b) && (l || r)) return Connection.CORNER;
+        // 转角：前/后 + 左/右各连一侧。侧向在 facing 顺时针侧(l)=右转，逆时针侧(r)=左转喵
+        // conveyor-1 原版贴图=左转（带面从逆时针侧进），右转需用垂直翻转的镜像贴图喵
+        if ((f || b) && (l || r)) {
+            return l ? Connection.CORNER_RIGHT : Connection.CORNER_LEFT;
+        }
         return Connection.STRAIGHT;
     }
 }

@@ -115,10 +115,15 @@ public class ConveyorBlockEntity extends BlockdustryBuildingEntity {
     }
 
     // 来源格相对本格的方位喵
+    // 源直接在本格正下方（提升机顶格垂直交接 + 顶面四邻卸货的源都定位在候选格正下方）→
+    // 视为尾部进料，沿本带朝向运走；正常平面/坡道行为不受影响喵
     private Direction directionOf(BlockdustryItemSource source) {
         if (source == null || source.getPos() == null) return null;
         for (Direction dir : Direction.Plane.HORIZONTAL) {
             if (worldPosition.relative(dir).equals(source.getPos())) return dir;
+        }
+        if (worldPosition.below().equals(source.getPos())) {
+            return getFacing().getOpposite();
         }
         return null;
     }

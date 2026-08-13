@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/elevator"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/elevator"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/elevator"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/elevator"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/elevator"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/elevator"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/elevator"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/elevator"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/elevator"
+    }
+  }
+}

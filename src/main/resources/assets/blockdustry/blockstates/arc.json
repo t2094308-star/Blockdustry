@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/arc"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/arc"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/arc"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/arc"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/arc"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/arc"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/arc"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/arc"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/arc"
+    }
+  }
+}

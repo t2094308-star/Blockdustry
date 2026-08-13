@@ -1,5 +1,6 @@
 package com.blockdustry.building;
 
+import com.blockdustry.item.BlockdustryItems;
 import com.blockdustry.logistics.BlockdustryItemSource;
 
 import net.minecraft.core.BlockPos;
@@ -13,7 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 // 物品源（Mindustry sandbox item-source）：每模组 tick 凭空产出一个物品，卸给相邻可接收的传送带/建筑喵。
-// 产物默认煤，空手右键循环切换：煤 → 石墨 → 硅 → 铅 喵
+// 产物默认煤，空手右键打开菜单（Screen）选产物，产物为全部赛普罗迁移材料喵
 public class ItemSourceBlockEntity extends BlockdustryBuildingEntity {
     private Item product = Items.COAL;
 
@@ -25,22 +26,16 @@ public class ItemSourceBlockEntity extends BlockdustryBuildingEntity {
         super(type, pos, state);
     }
 
-    // 当前产物（供右键提示/Jade 读取）喵
+    // 当前产物（供菜单高亮/Jade 读取）喵
     public Item getProduct() {
         return product;
     }
 
-    // 循环切换产物：煤→石墨→硅→铅→煤喵
-    public void cycleProduct() {
-        if (product == Items.COAL) {
-            product = BlockdustryBlocks.GRAPHITE.get();
-        } else if (product == BlockdustryBlocks.GRAPHITE.get()) {
-            product = BlockdustryBlocks.SILICON.get();
-        } else if (product == BlockdustryBlocks.SILICON.get()) {
-            product = BlockdustryBlocks.LEAD.get();
-        } else {
-            product = Items.COAL;
-        }
+    // 菜单选中：服务端设置产物（仅接受全部迁移材料），并同步客户端喵
+    public void setProduct(Item item) {
+        if (item == null || item == Items.AIR) return;
+        if (!BlockdustryItems.allMaterials().contains(item)) return;
+        product = item;
         setChanged();
         if (level != null && !level.isClientSide) {
             level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);

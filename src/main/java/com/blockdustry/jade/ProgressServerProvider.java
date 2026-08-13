@@ -34,18 +34,20 @@ public class ProgressServerProvider implements IServerExtensionProvider<Compound
         BlockEntity be = ba.getBlockEntity();
         // 多格建筑统一读锚点格数据（进度/库存只在锚点格跑，避免从格显示 0）喵
         BlockEntity info = be;
+        // 血量统一读锚点格（整组共享血量，T10 Level 3）喵
+        BlockPos hpPos = ba.getPosition();
         if (be instanceof BlockdustryBuildingEntity b && !b.isAnchor() && b.hasAnchor()) {
             BlockEntity anchor = ba.getLevel().getBlockEntity(b.getAnchor());
             if (anchor instanceof BlockdustryBuildingEntity) {
                 info = anchor;
+                hpPos = b.getAnchor();
             }
         }
         List<ViewGroup<CompoundTag>> groups = new ArrayList<>();
-        // 血量条（BlockHealth 前置库，免疫方块 maxHp<=0 跳过）喵
-        BlockPos pos = ba.getPosition();
-        float maxHp = BlockHealthApi.getMaxHp(ba.getLevel(), pos);
+        // 血量条（BlockHealth 前置库，免疫方块 maxHp<=0 跳过）；整组共享血量读锚点格喵
+        float maxHp = BlockHealthApi.getMaxHp(ba.getLevel(), hpPos);
         if (maxHp > 0f) {
-            float hp = BlockHealthApi.getHp(ba.getLevel(), pos);
+            float hp = BlockHealthApi.getHp(ba.getLevel(), hpPos);
             groups.add(new ViewGroup<>(List.of(ProgressView.create(hp / maxHp)), Optional.of(ID_HP), Optional.empty()));
         }
         // 电量条（电力建筑满足率）喵

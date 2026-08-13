@@ -26,9 +26,35 @@ public class PowerNodeBlockEntityRenderer implements BlockEntityRenderer<PowerNo
     private static final float AMBER_R = 0xfb / 255f;
     private static final float AMBER_G = 0xd3 / 255f;
     private static final float AMBER_B = 0x67 / 255f;
-    // 本 mod 1×1 纯白纹理（原版 white.png 不可靠），配合 vertex 颜色染色成纯色光柱喵
+    // 本 mod 1×1 纯白纹理（原版 white.png 不可靠），配合 vertex 颜色染色成纯色光柱/斜面喵
     private static final ResourceLocation WHITE_TEX =
             ResourceLocation.fromNamespaceAndPath(com.blockdustry.Blockdustry.MODID, "textures/misc/white.png");
+
+    // 8 角等边三角斜面（模型坐标 0-16，画时 /16 转本地世界）。每角切点沿三条棱距角 5 单位
+    // → 切面平面过 (5,0,0)(0,5,0)(0,0,5)，三边均 5√2 等边三角形，法线 (1,1,1)/√3 朝外 = 45° 倒角喵
+    private static final float[][][] CHAMFER_TRIS = {
+            {{5, 0, 0}, {0, 5, 0}, {0, 0, 5}},           // 角(0,0,0)喵
+            {{11, 0, 0}, {16, 5, 0}, {16, 0, 5}},        // 角(16,0,0)喵
+            {{5, 16, 0}, {0, 11, 0}, {0, 16, 5}},        // 角(0,16,0)喵
+            {{11, 16, 0}, {16, 11, 0}, {16, 16, 5}},     // 角(16,16,0)喵
+            {{5, 0, 16}, {0, 5, 16}, {0, 0, 11}},        // 角(0,0,16)喵
+            {{11, 0, 16}, {16, 5, 16}, {16, 0, 11}},     // 角(16,0,16)喵
+            {{5, 16, 16}, {0, 11, 16}, {0, 16, 11}},     // 角(0,16,16)喵
+            {{11, 16, 16}, {16, 11, 16}, {16, 16, 11}}   // 角(16,16,16)喵
+    };
+    // 每角斜面外法线（角坐标 0→-1, 16→+1，归一化 /√3）喵
+    private static final float[][] CHAMFER_NORMALS = {
+            {-0.57735f, -0.57735f, -0.57735f},
+            {0.57735f, -0.57735f, -0.57735f},
+            {-0.57735f, 0.57735f, -0.57735f},
+            {0.57735f, 0.57735f, -0.57735f},
+            {-0.57735f, -0.57735f, 0.57735f},
+            {0.57735f, -0.57735f, 0.57735f},
+            {-0.57735f, 0.57735f, 0.57735f},
+            {0.57735f, 0.57735f, 0.57735f}
+    };
+    // 斜面配色：贴图侧边深灰 (110,112,128)，与 power_node 材质一致喵
+    private static final int CHAMFER_R = 110, CHAMFER_G = 112, CHAMFER_B = 128;
 
     public PowerNodeBlockEntityRenderer(BlockEntityRendererProvider.Context ctx) {
     }
@@ -46,8 +72,17 @@ public class PowerNodeBlockEntityRenderer implements BlockEntityRenderer<PowerNo
     @Override
     public void render(PowerNodeBlockEntity be, float partialTick, PoseStack pose,
                        MultiBufferSource buffer, int light, int overlay) {
+        // 8 角等边三角斜面（真 45° 去角倒角）：方块模型 cube_all 角部实心，BER 画凸出斜面盖住角，
+        // 顶点全亮 + NO_OVERLAY 防暗/黑（见 坑/BER渲染.md），法线朝外使 diffuse 光照自然喵
+        {
+            VertexConsumer chamferVC = buffer.getBuffer(RenderType.entityTranslucent(WHITE_TEX));
+            Matrix4f chamferMatrix = pose.last().pose();
+            for (int i = 0; i < 8; i++) {
+                drawChamfer(chamferVC, chamferMatrix, i);
+            }
+        }
+        // 激光（世界坐标，须重置矩阵）喵
         if (!be.isAnchor() || be.getPowerLinks().isEmpty()) return;
-        // LevelRenderer 传入的 pose 已含 translate(blockPos - cam)，用世界坐标须重置矩阵，否则双重偏移激光画到画面外喵
         pose.pushPose();
         pose.setIdentity();
         Vec3 cam = Minecraft.getInstance().gameRenderer.getMainCamera().getPosition();
@@ -112,6 +147,35 @@ public class PowerNodeBlockEntityRenderer implements BlockEntityRenderer<PowerNo
                 .setOverlay(OverlayTexture.NO_OVERLAY) // 0xFFFFFF 会让 overlay 纹理越界采样成透明黑把光束染黑，必须用 NO_OVERLAY 喵
                 .setLight(0xF000F0) // 全亮，不随环境光照变暗喵
                 .setNormal(0f, 1f, 0f); // 固定朝上：entity shader 的 diffuse 光照恒定最亮，避免背面法线把颜色压黑喵
+    }
+
+    // 画单个角斜面三角形：模型坐标 /16 转本地世界，顶点沿外法线平移 eps 凸出 cube_all 表面防 z-fighting 喵
+    // 注意：entityTranslucent 是 QUADS 模式，必须 4 顶点对齐（退化 quad v0,v1,v2,v0），否则顶点错乱把深灰色块画到别处喵
+    private static void drawChamfer(VertexConsumer vc, Matrix4f matrix, int idx) {
+        float[][] tri = CHAMFER_TRIS[idx];
+        float[] n = CHAMFER_NORMALS[idx];
+        final float inv = 1f / 16f;
+        final float eps = 0.02f; // 世界单位外凸：比之前大，进一步压掉与 cube_all 面的 z-fighting/穿插喵
+        for (int v = 0; v < 4; v++) {
+            int vi = v % 3; // 0,1,2,0：三角形退化 quad，凑满 QUADS 顶点数喵
+            vertex(vc, matrix,
+                    tri[vi][0] * inv + n[0] * eps,
+                    tri[vi][1] * inv + n[1] * eps,
+                    tri[vi][2] * inv + n[2] * eps,
+                    CHAMFER_R, CHAMFER_G, CHAMFER_B, 255,
+                    n[0], n[1], n[2]);
+        }
+    }
+
+    // 带法线的顶点：斜面用真实朝外法线，entity shader diffuse 光照让斜切面有自然明暗喵
+    private static void vertex(VertexConsumer vc, Matrix4f matrix, float x, float y, float z,
+                               int r, int g, int bl, int alpha, float nx, float ny, float nz) {
+        vc.addVertex(matrix, x, y, z)
+                .setColor(r, g, bl, alpha)
+                .setUv(0f, 0f)
+                .setOverlay(OverlayTexture.NO_OVERLAY)
+                .setLight(0xF000F0)
+                .setNormal(nx, ny, nz);
     }
 
     private static float lerp(float a, float b, float t) {

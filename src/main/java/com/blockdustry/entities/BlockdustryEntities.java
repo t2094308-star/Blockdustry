@@ -29,6 +29,14 @@ public final class BlockdustryEntities {
                             .sized(0.6f, 0.6f)
                             .build("dagger"));
 
+    // Mindustry flak 霰弹（scatter 对空炮炮弹，近炸引信）喵
+    public static final DeferredHolder<EntityType<?>, EntityType<FlakBulletEntity>> FLAK =
+            ENTITY_TYPES.register("flak",
+                    () -> EntityType.Builder.<FlakBulletEntity>of(FlakBulletEntity::new, MobCategory.MISC)
+                            .sized(0.25f, 0.25f)
+                            .updateInterval(1)
+                            .build("flak"));
+
     public static void register(IEventBus bus) {
         ENTITY_TYPES.register(bus);
     }
