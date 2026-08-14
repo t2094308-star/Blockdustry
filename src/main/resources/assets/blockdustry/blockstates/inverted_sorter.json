@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/inverted_sorter"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/inverted_sorter"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/inverted_sorter"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/inverted_sorter"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/inverted_sorter"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/inverted_sorter"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/inverted_sorter"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/inverted_sorter"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/inverted_sorter"
+    }
+  }
+}

@@ -47,6 +47,7 @@ public final class BlockdustryItems {
         list.add(com.blockdustry.building.BlockdustryBlocks.GRAPHITE.get());
         list.add(com.blockdustry.building.BlockdustryBlocks.SILICON.get());
         list.add(com.blockdustry.building.BlockdustryBlocks.LEAD.get());
+        list.add(com.blockdustry.building.PlastaniumCompressorRegistrar.OIL.get()); // 批1C 塑钢压缩机油料占位物品喵
         list.addAll(newMaterials());
         return list;
     }

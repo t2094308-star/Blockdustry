@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "corner=nw": { "model": "blockdustry:block/door_nw" },
+    "corner=n": { "model": "blockdustry:block/door_nw" },
+    "corner=ne": { "model": "blockdustry:block/door_nw" },
+    "corner=w": { "model": "blockdustry:block/door_nw" },
+    "corner=c": { "model": "blockdustry:block/door_nw" },
+    "corner=e": { "model": "blockdustry:block/door_nw" },
+    "corner=sw": { "model": "blockdustry:block/door_nw" },
+    "corner=s": { "model": "blockdustry:block/door_nw" },
+    "corner=se": { "model": "blockdustry:block/door_nw" }
+  }
+}

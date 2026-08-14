@@ -1,0 +1,10 @@
+-proc:none
+-source
+21
+-target
+21
+-d
+tools/tmp_javac/out
+-cp
+D:/Blockdustry/仓库/build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/decompile/outputs.jar
+tools/tmp_javac/Test.java

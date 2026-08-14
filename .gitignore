@@ -38,3 +38,6 @@ run/
 **/src/generated/**/.cache/
 repo/
 !**/src/**/repo/
+
+# Claude Code 个人设置（不提交）喵
+.claude/settings.local.json

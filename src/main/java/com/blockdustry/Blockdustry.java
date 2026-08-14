@@ -17,6 +17,9 @@ import com.blockdustry.building.BlockdustryBlocks;
 import com.blockdustry.building.BlockdustryBuildings;
 import com.blockdustry.building.ElevatorBlocks;
 import com.blockdustry.building.FuseArcRegistrar;
+import com.blockdustry.distribution.GateRegistrar;
+import com.blockdustry.distribution.JunctionRegistrar;
+import com.blockdustry.distribution.SorterRegistrar;
 import com.blockdustry.config.BlockdustryConfig;
 import com.blockdustry.entities.BlockdustryEntities;
 import com.blockdustry.entities.DaggerUnitEntity;
@@ -49,6 +52,33 @@ public class Blockdustry {
         // 火焰炮/电弧自包含注册（FuseArcRegistrar）与垂直提升机（ElevatorBlocks）喵
         FuseArcRegistrar.register(modEventBus);
         ElevatorBlocks.register(modEventBus);
+        // 批1A 物流扩展：junction/distributor、sorter/invertedSorter、overflowGate/underflowGate 喵
+        JunctionRegistrar.register(modEventBus);
+        SorterRegistrar.register(modEventBus);
+        GateRegistrar.register(modEventBus);
+        // 批1B 存储+桥梁：container、bridge-conveyor 喵
+        com.blockdustry.storage.ContainerRegistrar.register(modEventBus);
+        com.blockdustry.distribution.BridgeRegistrar.register(modEventBus);
+        // 批1C/1D 生产与钻机：气动/激光/爆破钻头 + 硅冶炼/窑炉/塑钢压缩机 喵
+        com.blockdustry.building.PneumaticDrillRegistrar.register(modEventBus);
+        com.blockdustry.building.LaserDrillRegistrar.register(modEventBus);
+        com.blockdustry.building.BlastDrillRegistrar.register(modEventBus);
+        com.blockdustry.building.SiliconSmelterRegistrar.register(modEventBus);
+        com.blockdustry.production.KilnRegistrar.register(modEventBus);
+        com.blockdustry.building.PlastaniumCompressorRegistrar.register(modEventBus);
+        // 批1E/1F/2A/2B：太阳能/大型节点电池/二极管涌电塔、墙体与门、硫化物/粉碎/焚烧/相织布、修理器/力墙 喵
+        com.blockdustry.power.SolarPanelRegistrar.register(modEventBus);
+        com.blockdustry.power.PowerNodeLargeRegistrar.register(modEventBus);
+        com.blockdustry.power.BatteryLargeRegistrar.register(modEventBus);
+        com.blockdustry.building.DiodeSurgeTowerRegistrar.register(modEventBus);
+        com.blockdustry.defense.DefenseRegistrar.register(modEventBus);
+        com.blockdustry.production.PyratiteMixerRegistrar.register(modEventBus);
+        com.blockdustry.production.PulverizerRegistrar.register(modEventBus);
+        com.blockdustry.production.IncineratorRegistrar.register(modEventBus);
+        com.blockdustry.building.PhaseWeaverRegistrar.register(modEventBus);
+        com.blockdustry.defense.AdvancedWallRegistrar.register(modEventBus);
+        com.blockdustry.building.MenderRegistrar.register(modEventBus);
+        com.blockdustry.building.ForceProjectorRegistrar.register(modEventBus);
         // 注册炮弹等实体类型喵
         BlockdustryEntities.register(modEventBus);
         // 注册实体属性（dagger 等）喵

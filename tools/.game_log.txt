@@ -1,21 +1,20 @@
 Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
 Reusing configuration cache.
 > Task :cacheVersionManifest1.21.1 UP-TO-DATE
-> Task :neoFormJoined1.21.1-20240808.144430DownloadAssets UP-TO-DATE
 > Task :neoFormListLibraries UP-TO-DATE
+> Task :neoFormJoined1.21.1-20240808.144430DownloadAssets UP-TO-DATE
 > Task :cacheVersionExecutableServer1.21.1 UP-TO-DATE
 > Task :cacheVersionExecutableClient1.21.1 UP-TO-DATE
 > Task :cacheVersionMappingsClient1.21.1 UP-TO-DATE
-> Task :neoFormJoined1.21.1-20240808.144430ExtractNatives UP-TO-DATE
-> Task :processResources UP-TO-DATE
 > Task :cacheVersionExtractedServer1.21.1 UP-TO-DATE
 > Task :neoFormStripClient UP-TO-DATE
-> Task :neoFormMergeMappings UP-TO-DATE
 > Task :neoFormStripServer UP-TO-DATE
 > Task :create1.21.1ClientExtraJar UP-TO-DATE
 > Task :selectRawArtifactNg_dummy_ng.net.minecraft_client_1.21.1_client-extra UP-TO-DATE
+> Task :neoFormMergeMappings UP-TO-DATE
 > Task :neoFormMerge UP-TO-DATE
 > Task :neoFormListTransformLibraries UP-TO-DATE
+> Task :neoFormJoined1.21.1-20240808.144430ExtractNatives FROM-CACHE
 > Task :neoFormRename UP-TO-DATE
 > Task :neoFormDecompile UP-TO-DATE
 > Task :neoFormInject UP-TO-DATE
@@ -25,31 +24,32 @@ Reusing configuration cache.
 > Task :neoFormRecompile UP-TO-DATE
 > Task :supplyRawJarForneoFormJoined1.21.1-20240808.144430 UP-TO-DATE
 > Task :selectRawArtifactNg_dummy_ng.net.neoforged_neoforge_21.1.235 UP-TO-DATE
-> Task :writeMinecraftClasspathClient UP-TO-DATE
 > Task :compileJava UP-TO-DATE
-> Task :classes UP-TO-DATE
+> Task :writeMinecraftClasspathClient
+> Task :processResources
+> Task :classes
 
 > Task :runClient
 Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
-[17:12:23.356] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientdev, --version, 21.1.235, --assetIndex, asset-index, --assetsDir, C:\Users\flafk\.gradle\caches\minecraft\assets, --gameDir, ., --fml.fmlVersion, 4.0.42, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.235, --fml.neoFormVersion, 20240808.144430] 
-[17:12:23.359] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.11+10-LTS 
-[17:12:23.360] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.11 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0 
-[17:12:23.513] [main/INFO] [loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow 
-[17:12:23.696] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6 
-[17:12:23.974] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6 
-[17:12:24.185] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/flafk/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23142!/ Service=ModLauncher Env=CLIENT 
-[17:12:24.258] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) UHD Graphics 730 GL version 4.6.0 - Build 32.0.101.7080, Intel 
-[17:12:24.366] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.235.jar" [locator: neoforge devenv provider ([D:\Blockdustry\仓库\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.1.235\neoforge-21.1.235.jar])] 
-[17:12:24.403] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.235.jar" [locator: neoforge devenv provider ([D:\Blockdustry\仓库\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.1.235\neoforge-21.1.235.jar])] 
-[17:12:24.425] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "main" [locator: userdev mods and services, reader: mod manifest] 
-[17:12:24.438] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "blockhealth-1.0.0.jar" [locator: userdev mods and services, reader: mod manifest] 
-[17:12:24.454] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "Jade-1.21.1-NeoForge-15.10.6 (1).jar" [locator: userdev mods and services, reader: mod manifest] 
-[17:12:24.467] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.235.jar" [locator: userdev mods and services, reader: mod manifest] 
-[17:12:24.791] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [locator: userdev mods and services, reader: mod manifest] 
-[17:12:25.062] [main/WARN] [selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:mixinextras.neoforge. Using Mod File: C:\Users\flafk\.gradle\caches\modules-2\files-2.1\io.github.llamalad7\mixinextras-neoforge\0.5.3\a0919957808de97707c5fb4ce073e66aeef3e187\mixinextras-neoforge-0.5.3.jar 
-[17:12:25.063] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection 
-[17:12:25.063] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.235.jar" [parent: neoforge-21.1.235.jar, locator: jarinjar, reader: mod manifest] 
-[17:12:25.066] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
+[17:25:30.548] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientdev, --version, 21.1.235, --assetIndex, asset-index, --assetsDir, C:\Users\flafk\.gradle\caches\minecraft\assets, --gameDir, ., --fml.fmlVersion, 4.0.42, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.235, --fml.neoFormVersion, 20240808.144430] 
+[17:25:30.551] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.11+10-LTS 
+[17:25:30.553] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.11 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0 
+[17:25:30.775] [main/INFO] [loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow 
+[17:25:30.964] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6 
+[17:25:31.208] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6 
+[17:25:31.378] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/flafk/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23142!/ Service=ModLauncher Env=CLIENT 
+[17:25:31.489] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) UHD Graphics 730 GL version 4.6.0 - Build 32.0.101.7080, Intel 
+[17:25:31.620] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.235.jar" [locator: neoforge devenv provider ([D:\Blockdustry\仓库\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.1.235\neoforge-21.1.235.jar])] 
+[17:25:31.652] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.235.jar" [locator: neoforge devenv provider ([D:\Blockdustry\仓库\.gradle\repositories\ng_dummy_ng\net\neoforged\neoforge\21.1.235\neoforge-21.1.235.jar])] 
+[17:25:31.672] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "main" [locator: userdev mods and services, reader: mod manifest] 
+[17:25:31.691] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "blockhealth-1.0.0.jar" [locator: userdev mods and services, reader: mod manifest] 
+[17:25:31.713] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "Jade-1.21.1-NeoForge-15.10.6 (1).jar" [locator: userdev mods and services, reader: mod manifest] 
+[17:25:31.734] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.235.jar" [locator: userdev mods and services, reader: mod manifest] 
+[17:25:32.055] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [locator: userdev mods and services, reader: mod manifest] 
+[17:25:32.209] [main/WARN] [selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:mixinextras.neoforge. Using Mod File: C:\Users\flafk\.gradle\caches\modules-2\files-2.1\io.github.llamalad7\mixinextras-neoforge\0.5.3\a0919957808de97707c5fb4ce073e66aeef3e187\mixinextras-neoforge-0.5.3.jar 
+[17:25:32.209] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection 
+[17:25:32.210] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.235.jar" [parent: neoforge-21.1.235.jar, locator: jarinjar, reader: mod manifest] 
+[17:25:32.214] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
@@ -58,330 +58,363 @@ Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
 		NeoForge 21.1.235 (neoforge)
 		方块工业 1.0.0 (blockdustry)
 		方块血量 1.0.0 (blockhealth) 
-[17:12:25.747] [main/INFO] [mixin/]: Compatibility level set to JAVA_21 
-[17:12:25.766] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientdev' with arguments [--version, 21.1.235, --gameDir, ., --assetsDir, C:\Users\flafk\.gradle\caches\minecraft\assets, --assetIndex, asset-index] 
+[17:25:32.943] [main/INFO] [mixin/]: Compatibility level set to JAVA_21 
+[17:25:32.971] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientdev' with arguments [--version, 21.1.235, --gameDir, ., --assetsDir, C:\Users\flafk\.gradle\caches\minecraft\assets, --assetIndex, asset-index] 
 WARN StatusConsoleListener Advanced terminal features are not available in this environment
-[17:12:27] [main/DEBUG] [io.ne.ut.in.lo.InternalLoggerFactory/]: Using SLF4J as the default logging framework
-[17:12:27] [main/DEBUG] [io.ne.ut.ResourceLeakDetector/]: -Dio.netty.leakDetection.level: simple
-[17:12:27] [main/DEBUG] [io.ne.ut.ResourceLeakDetector/]: -Dio.netty.leakDetection.targetRecords: 4
-[17:12:28] [main/DEBUG] [os.ut.FileUtil/]: No oshi.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@77c7ed8e
-[17:12:28] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 384 milliseconds
-[17:12:28] [main/DEBUG] [os.ut.FileUtil/]: No oshi.architecture.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@77c7ed8e
-[17:12:29] [pool-9-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: Registering new injector for @SugarWrapper with com.llamalad7.mixinextras.sugar.impl.SugarWrapperInjectionInfo
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: Registering new injector for @FactoryRedirectWrapper with com.llamalad7.mixinextras.wrapper.factory.FactoryRedirectWrapperInjectionInfo
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: Registering new injector for @ExpressionInjectorWrapper with com.llamalad7.mixinextras.expression.impl.wrapper.ExpressionInjectorWrapperInjectionInfo
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: Mixing MappedRegistryAccessor from neoforge.mixins.json into net.minecraft.core.MappedRegistry
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: Mixing BlockBehaviourMixin from blockhealth.mixins.json into net.minecraft.world.level.block.state.BlockBehaviour
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: blockhealth.mixins.json:BlockBehaviourMixin from mod blockhealth->@Inject::blockhealth$getDestroyProgress(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: Mixing EntityAccess from jade.mixins.json into net.minecraft.world.entity.Entity
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: jade.mixins.json:EntityAccess from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: Mixing FreecamMixinEntity from blockdustry.mixins.json into net.minecraft.world.entity.Entity
-[17:12:29] [pool-9-thread-1/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinEntity from mod blockdustry->@Inject::blockdustry$redirectTurn(DDLorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
-[17:12:30] [pool-9-thread-1/DEBUG] [mixin/]: Mixing EntityTypeMixin from blockdustry.mixins.json into net.minecraft.world.entity.EntityType
-[17:12:30] [pool-9-thread-1/DEBUG] [mixin/]: blockdustry.mixins.json:EntityTypeMixin from mod blockdustry->@Inject::blockdustry$inheritTeam(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/MobSpawnType;ZZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:30] [pool-9-thread-1/DEBUG] [mixin/]: Mixing BlockEntityTypeAccessor from neoforge.mixins.json into net.minecraft.world.level.block.entity.BlockEntityType
-[17:12:31] [pool-9-thread-1/DEBUG] [mixin/]: Mixing AbstractFurnaceBlockEntityAccess from jade.mixins.json into net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity
-[17:12:31] [pool-9-thread-1/DEBUG] [mixin/]: jade.mixins.json:AbstractFurnaceBlockEntityAccess from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: -Dio.netty.noUnsafe: false
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: Java version: 21
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: sun.misc.Unsafe.theUnsafe: available
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: sun.misc.Unsafe.copyMemory: available
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: sun.misc.Unsafe.storeFence: available
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.Buffer.address: available
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.Bits.unaligned: available, true
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: sun.misc.Unsafe: available
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: maxDirectMemory: 12817793024 bytes (maybe)
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.tmpdir: C:\Users\flafk\AppData\Local\Temp (java.io.tmpdir)
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.bitMode: 64 (sun.arch.data.model)
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: Platform: Windows
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.maxDirectMemory: -1 bytes
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.uninitializedArrayAllocationThreshold: -1
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.CleanerJava9/]: java.nio.ByteBuffer.cleaner(): available
-[17:12:32] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.noPreferDirect: false
-[17:12:35] [pool-9-thread-1/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: Creating vanilla freeze snapshot
-[17:12:35] [pool-9-thread-1/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: Vanilla freeze snapshot created
-[17:12:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[17:12:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
-[17:12:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[17:12:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[17:12:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[17:12:36] [Render thread/DEBUG] [mixin/]: Mixing FreecamMixinLocalPlayer from blockdustry.mixins.json into net.minecraft.client.player.LocalPlayer
-[17:12:37] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPre(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V doesn't use it's CallbackInfo
-[17:12:37] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPre(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V has 0 override(s) in child classes
-[17:12:37] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPre(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V won't be passed a CallbackInfo as a result
-[17:12:37] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPost(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V doesn't use it's CallbackInfo
-[17:12:37] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPost(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V has 0 override(s) in child classes
-[17:12:37] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPost(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V won't be passed a CallbackInfo as a result
-[17:12:37] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$forceControlledCamera(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:37] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$preventSwing(Lnet/minecraft/world/InteractionHand;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
-[17:12:37] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/Blockdustry/仓库/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.1.235/neoforge-21.1.235.jar%23195!/assets/.mcassetsroot' uses unexpected schema
-[17:12:37] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/Blockdustry/仓库/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.1.235/neoforge-21.1.235.jar%23195!/data/.mcassetsroot' uses unexpected schema
-[17:12:37] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[17:12:37] [Render thread/INFO] [minecraft/Minecraft]: Setting user: Dev
-[17:12:37] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
-[17:12:37] [Render thread/DEBUG] [ne.ne.fm.ModWorkManager/LOADING]: Using 12 threads for parallel mod-loading
-[17:12:37] [Render thread/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [com.blockdustry.lib.BlockHealth]
-[17:12:37] [Render thread/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [snownee.jade.util.CommonProxy]
-[17:12:37] [Render thread/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [com.blockdustry.Blockdustry, com.blockdustry.BlockdustryClient]
-[17:12:37] [Render thread/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [net.neoforged.neoforge.common.NeoForgeMod, net.neoforged.neoforge.client.ClientNeoForgeMod]
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file blockhealth-common.toml for blockhealth tracking
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for blockhealth
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.net.BlockHealthNetwork for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/net/BlockHealthNetwork; to the mod event bus of mod blockhealth
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.ne.in.ve.ne.NeoForgeVersion/CORE]: Found NeoForge version 21.1.235
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.ne.in.ve.ne.NeoForgeVersion/CORE]: Found FML version 4.0.42
-[17:12:38] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.235, for MC 1.21.1
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.client.BlockHealthCrackCache for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/client/BlockHealthCrackCache; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.BlockHealthTooltips for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/BlockHealthTooltips; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.BlockHealthProjectileHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file neoforge-client.toml for neoforge tracking
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/BlockHealthProjectileHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file neoforge-server.toml for neoforge tracking
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file neoforge-common.toml for neoforge tracking
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.BlockHealthPlayerHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/BlockHealthPlayerHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for jade
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.BlockHealthExplosionHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/BlockHealthExplosionHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file blockdustry-common.toml for blockdustry tracking
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for blockdustry
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.BlockdustryClient for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/BlockdustryClient; to the mod event bus of mod blockdustry
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.BlockdustryClientCommands for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/BlockdustryClientCommands; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.BlockdustryCommands for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/BlockdustryCommands; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.BlockdustryTeamHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/BlockdustryTeamHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.building.CoreRespawnHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/building/CoreRespawnHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.building.TeamInitHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/building/TeamInitHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.BlockdustryDebugHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/BlockdustryDebugHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.BlockdustryHighlightHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/BlockdustryHighlightHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.CoreHudHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for neoforge
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.server.command.ConfigCommand for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/server/command/ConfigCommand; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/CoreHudHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.freecam.FreecamHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.network.NetworkInitialization for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/network/NetworkInitialization; to the mod event bus of mod neoforge
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.network.filters.GenericPacketSplitter for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/freecam/FreecamHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.ResearchKeyRegistrar for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/ResearchKeyRegistrar; to the mod event bus of mod blockdustry
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.ResearchScreenHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/ResearchScreenHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.TurretPossessHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [mixin/]: Mixing FreecamMixinGameRenderer from blockdustry.mixins.json into net.minecraft.client.renderer.GameRenderer
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.AbstractByteBuf/]: -Dio.netty.buffer.checkAccessible: true
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.AbstractByteBuf/]: -Dio.netty.buffer.checkBounds: true
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.ut.ResourceLeakDetectorFactory/]: Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@3759a56e
-[17:12:38] [modloading-worker-0/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinGameRenderer from mod blockdustry->@Inject::blockdustry$hideHand(Lnet/minecraft/client/Camera;FLorg/joml/Matrix4f;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.ut.in.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.ut.in.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.numHeapArenas: 24
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.numDirectArenas: 24
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.pageSize: 8192
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.maxOrder: 9
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.chunkSize: 4194304
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.smallCacheSize: 256
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.normalCacheSize: 64
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedBufferCapacity: 32768
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimInterval: 8192
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimIntervalMillis: 0
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.useCacheForAllThreads: false
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.ByteBufUtil/]: -Dio.netty.allocator.type: pooled
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.ByteBufUtil/]: -Dio.netty.threadLocalDirectBufferSize: 0
-[17:12:38] [modloading-worker-0/DEBUG] [io.ne.bu.ByteBufUtil/]: -Dio.netty.maxThreadLocalCharBufferSize: 16384
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/network/filters/GenericPacketSplitter; to the mod event bus of mod neoforge
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.network.ConfigurationInitialization for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/network/ConfigurationInitialization; to the mod event bus of mod neoforge
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.common.MonsterRoomHooks for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/common/MonsterRoomHooks; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.common.DeferredSpawnEggItem$CommonHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/common/DeferredSpawnEggItem$CommonHandler; to the mod event bus of mod neoforge
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.common.DeferredSpawnEggItem$ColorRegisterHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/common/DeferredSpawnEggItem$ColorRegisterHandler; to the mod event bus of mod neoforge
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.client.ParticleBoundsDebugRenderer for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [mixin/]: Mixing LevelRendererCrackMixin from blockhealth.mixins.json into net.minecraft.client.renderer.LevelRenderer
-[17:12:38] [modloading-worker-0/DEBUG] [mixin/]: blockhealth.mixins.json:LevelRendererCrackMixin from mod blockhealth->@Inject::blockhealth$renderHealthCracks(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V doesn't use it's CallbackInfo
-[17:12:38] [modloading-worker-0/DEBUG] [mixin/]: blockhealth.mixins.json:LevelRendererCrackMixin from mod blockhealth->@Inject::blockhealth$renderHealthCracks(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V has 0 override(s) in child classes
-[17:12:38] [modloading-worker-0/DEBUG] [mixin/]: blockhealth.mixins.json:LevelRendererCrackMixin from mod blockhealth->@Inject::blockhealth$renderHealthCracks(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V won't be passed a CallbackInfo as a result
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/client/ParticleBoundsDebugRenderer; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.client.model.data.ModelDataManager for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/client/model/data/ModelDataManager; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.client.ClientHooks$ClientEvents for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/client/ClientHooks$ClientEvents; to the mod event bus of mod neoforge
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.client.BlockEntityRenderBoundsDebugRenderer for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/client/BlockEntityRenderBoundsDebugRenderer; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.attachment.AttachmentSync for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/attachment/AttachmentSync; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.attachment.AttachmentInternals for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/attachment/AttachmentInternals; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/TurretPossessHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.network.BlockdustryNetwork for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/network/BlockdustryNetwork; to the mod event bus of mod blockdustry
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.possession.TurretPossessManager for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/possession/TurretPossessManager; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.power.PowerNodeInteractHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/power/PowerNodeInteractHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.power.PowerNodeLinkHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/power/PowerNodeLinkHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.research.ResearchCommands for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/research/ResearchCommands; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.research.ResearchGateHandler for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/research/ResearchGateHandler; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.research.ResearchManager for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/research/ResearchManager; to the game event bus
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.research.ResearchNetwork for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/research/ResearchNetwork; to the mod event bus of mod blockdustry
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.tick.BlockdustryTicks for @SubscribeEvent-annotated methods
-[17:12:38] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/tick/BlockdustryTicks; to the game event bus
-[17:12:38] [modloading-sync-worker/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: Unfreezing registries
-[17:12:38] [modloading-sync-worker/DEBUG] [mixin/]: Mixing CanItemPerformAbilityAccess from jade.mixins.json into net.neoforged.neoforge.common.loot.CanItemPerformAbility
-[17:12:38] [modloading-sync-worker/DEBUG] [mixin/]: jade.mixins.json:CanItemPerformAbilityAccess from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: Freezing registries
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: All registries frozen
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loading configs type CLIENT
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.ne.co.NeoForgeConfig/FORGEMOD]: Loaded NeoForge config file neoforge-client.toml
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-client.toml
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-client.toml for changes
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loading configs type COMMON
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\blockhealth-common.toml
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\blockhealth-common.toml for changes
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.ne.co.NeoForgeConfig/FORGEMOD]: Loaded NeoForge config file neoforge-common.toml
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-common.toml
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-common.toml for changes
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\blockdustry-common.toml
-[17:12:39] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\blockdustry-common.toml for changes
-[17:12:39] [Render thread/DEBUG] [mixin/]: Mixing FontMixin from jade.mixins.json into net.minecraft.client.gui.Font
-[17:12:39] [Render thread/DEBUG] [mixin/]: jade.mixins.json:FontMixin from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
-[17:12:39] [Render thread/DEBUG] [mixin/]: jade.mixins.json:FontMixin from mod jade->@Inject::jade$renderChar(Lnet/minecraft/client/gui/font/glyphs/BakedGlyph;ZZFFFLorg/joml/Matrix4f;Lcom/mojang/blaze3d/vertex/VertexConsumer;FFFFILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
-[17:12:39] [Render thread/DEBUG] [mixin/]: Mixing FreecamMixinCamera from blockdustry.mixins.json into net.minecraft.client.Camera
-[17:12:39] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinCamera from mod blockdustry->@Inject::blockdustry$disableFluidFog(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:39] [Render thread/DEBUG] [mixin/]: Mixing FreecamMixinGui from blockdustry.mixins.json into net.minecraft.client.gui.Gui
-[17:12:39] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinGui from mod blockdustry->@Inject::blockdustry$useRealPlayerForHud(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:39] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [blockdustry]
-[17:12:40] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/blockhealth, mod/jade, mod/blockdustry, mod/neoforge
-[17:12:40] [Worker-Main-1/INFO] [co.bl.li.BlockHealth/]: 方块血量 (blockhealth) 加载成功
-[17:12:40] [Worker-Main-1/INFO] [co.bl.Blockdustry/]: 方块工业 (blockdustry) 加载成功
-[17:12:40] [Render thread/DEBUG] [ne.ne.fm.DeferredWorkQueue/LOADING]: Dispatching synchronous work for work queue Common setup: 1 jobs
-[17:12:40] [Render thread/DEBUG] [ne.ne.fm.DeferredWorkQueue/LOADING]: Synchronous work queue completed in 961.3 μs
-[17:12:40] [Worker-Main-6/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
-[17:12:41] [Worker-Main-10/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
-[17:12:41] [Worker-Main-10/INFO] [co.bl.Blockdustry/]: 方块工业: 客户端加载成功
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.vanilla.VanillaPlugin
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.vanilla.VanillaPlugin in 75.47 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.vanilla.VanillaPlugin in 92.68 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.universal.UniversalPlugin
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.universal.UniversalPlugin in 11.86 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.universal.UniversalPlugin in 12.68 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.debug.DebugPlugin
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.debug.DebugPlugin in 7.598 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.debug.DebugPlugin in 8.254 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.core.CorePlugin
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.core.CorePlugin in 10.06 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.core.CorePlugin in 11.72 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.access.AccessibilityPlugin
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.access.AccessibilityPlugin in 5.144 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.access.AccessibilityPlugin in 5.619 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from com.blockdustry.jade.BlockdustryJadePlugin
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from com.blockdustry.jade.BlockdustryJadePlugin in 9.978 ms
-[17:12:43] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from com.blockdustry.jade.BlockdustryJadePlugin in 10.57 ms
-[17:12:44] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
-[17:12:44] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[17:12:44] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on 耳机 (Realtek(R) Audio)
-[17:12:44] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/blocks.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
-[17:12:44] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
-[17:12:44] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[17:12:44] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
-[17:12:46] [Render thread/DEBUG] [mixin/]: Mixing StringRenderOutputMixin from jade.mixins.json into net.minecraft.client.gui.Font$StringRenderOutput
-[17:12:46] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
-[17:12:46] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade->@Inject::jade$init(Lnet/minecraft/client/gui/Font;Lnet/minecraft/client/renderer/MultiBufferSource;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/gui/Font$DisplayMode;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V doesn't use it's CallbackInfo
-[17:12:46] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade->@Inject::jade$init(Lnet/minecraft/client/gui/Font;Lnet/minecraft/client/renderer/MultiBufferSource;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/gui/Font$DisplayMode;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V has 0 override(s) in child classes
-[17:12:46] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade->@Inject::jade$init(Lnet/minecraft/client/gui/Font;Lnet/minecraft/client/renderer/MultiBufferSource;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/gui/Font$DisplayMode;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V won't be passed a CallbackInfo as a result
-[17:12:46] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade->@Inject::jade$accept(ILnet/minecraft/network/chat/Style;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:49] [Render thread/DEBUG] [mixin/]: Mixing ServerPlayerGameModeMixin from blockhealth.mixins.json into net.minecraft.server.level.ServerPlayerGameMode
-[17:12:49] [Render thread/DEBUG] [mixin/]: blockhealth.mixins.json:ServerPlayerGameModeMixin from mod blockhealth->@Inject::blockhealth$onMine(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V doesn't use it's CallbackInfoReturnable
-[17:12:49] [Render thread/DEBUG] [mixin/]: blockhealth.mixins.json:ServerPlayerGameModeMixin from mod blockhealth->@Inject::blockhealth$onMine(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V has 0 override(s) in child classes
-[17:12:49] [Render thread/DEBUG] [mixin/]: blockhealth.mixins.json:ServerPlayerGameModeMixin from mod blockhealth->@Inject::blockhealth$onMine(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V won't be passed a CallbackInfoReturnable as a result
-[17:12:49] [Render thread/DEBUG] [mixin/]: blockhealth.mixins.json:ServerPlayerGameModeMixin from mod blockhealth->@Inject::blockhealth$onDestroyBlock(Lnet/minecraft/core/BlockPos;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:50] [Render thread/INFO] [minecraft/RecipeManager]: Loaded 1290 recipes
-[17:12:50] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 1399 advancements
-[17:12:50] [Render thread/INFO] [sn.ja.Jade/]: LootTableMineableCollector took 4.965 ms
-[17:12:50] [Render thread/DEBUG] [ne.ne.ne.co.CommonHooks/WP]: Gathered mod list to write to world save 新的世界
-[17:12:51] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.21.1
-[17:12:51] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
-[17:12:51] [Server thread/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loading configs type SERVER
-[17:12:51] [Server thread/DEBUG] [ne.ne.ne.co.NeoForgeConfig/FORGEMOD]: Loaded NeoForge config file neoforge-server.toml
-[17:12:51] [Server thread/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-server.toml
-[17:12:51] [Server thread/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-server.toml for changes
-[17:12:51] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
-[17:12:51] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: 准备生成区域中：0%
-[17:12:51] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
-[17:12:51] [Server thread/INFO] [co.bl.Blockdustry/]: 方块工业: 服务器已启动
-[17:12:51] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 356 ms
-[17:12:51] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 21, from 10
-[17:12:51] [Server thread/INFO] [minecraft/IntegratedServer]: Changing simulation distance to 12, from 0
-[17:12:51] [Render thread/DEBUG] [io.ne.ch.MultithreadEventLoopGroup/]: -Dio.netty.eventLoopThreads: 24
-[17:12:51] [Render thread/DEBUG] [io.ne.ut.co.GlobalEventExecutor/]: -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
-[17:12:51] [Render thread/DEBUG] [io.ne.ch.ni.NioEventLoop/]: -Dio.netty.noKeySetOptimization: false
-[17:12:51] [Render thread/DEBUG] [io.ne.ch.ni.NioEventLoop/]: -Dio.netty.selectorAutoRebuildThreshold: 512
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.in.PlatformDependent/]: org.jctools-core.MpscChunkedArrayQueue: available
-[17:12:52] [Render thread/DEBUG] [io.ne.ch.DefaultChannelId/]: -Dio.netty.processId: 45004 (auto-detected)
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.NetUtil/]: -Djava.net.preferIPv4Stack: false
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.NetUtil/]: -Djava.net.preferIPv6Addresses: system
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.NetUtilInitializations/]: Loopback interface: loopback_0 (Software Loopback Interface 1, 0:0:0:0:0:0:0:1)
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.NetUtil/]: Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
-[17:12:52] [Render thread/DEBUG] [io.ne.ch.DefaultChannelId/]: -Dio.netty.machineId: e0:0a:f6:ff:fe:b1:c8:98 (auto-detected)
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.maxCapacityPerThread: 4096
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.ratio: 8
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.chunkSize: 32
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.blocking: false
-[17:12:52] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.batchFastThreadLocalOnly: true
-[17:12:52] [Netty Server IO #1/DEBUG] [ne.ne.ne.ne.fi.NetworkFilters/]: Injected net.neoforged.neoforge.network.filters.GenericPacketSplitter@26460f54 into net.minecraft.network.Connection@79c6550
-[17:12:52] [Netty Local Client IO #0/DEBUG] [ne.ne.ne.ne.fi.NetworkFilters/]: Injected net.neoforged.neoforge.network.filters.GenericPacketSplitter@47983466 into net.minecraft.network.Connection@1afa7ca6
-[17:12:52] [Render thread/DEBUG] [mixin/]: Mixing SessionSearchTreesMixin from jade.mixins.json into net.minecraft.client.multiplayer.SessionSearchTrees
-[17:12:52] [Render thread/DEBUG] [mixin/]: jade.mixins.json:SessionSearchTreesMixin from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
-[17:12:52] [Render thread/DEBUG] [mixin/]: jade.mixins.json:SessionSearchTreesMixin from mod jade->@Inject::jade$preGet(Ljava/util/stream/Stream;Lnet/minecraft/world/item/Item$TooltipContext;Lnet/minecraft/world/item/TooltipFlag;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V doesn't use it's CallbackInfoReturnable
-[17:12:52] [Netty Server IO #1/DEBUG] [ne.ne.ne.ne.fi.NetworkFilters/]: Injected net.neoforged.neoforge.network.filters.GenericPacketSplitter@3f947d97 into net.minecraft.network.Connection@79c6550
-[17:12:52] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:ab49e2f0] logged in with entity id 1 at (-30.738334062141263, 59.91894931224123, 115.30000001192093)
-[17:12:52] [Render thread/DEBUG] [mixin/]: Mixing FreecamMixinMultiPlayerGameMode from blockdustry.mixins.json into net.minecraft.client.multiplayer.MultiPlayerGameMode
-[17:12:52] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noDestroy(Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:52] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noContinueDestroy(Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:52] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noUseItemOn(Lnet/minecraft/client/player/LocalPlayer;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:52] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noUseItem(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:52] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/InteractionHand;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:52] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noInteractAt(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/EntityHitResult;Lnet/minecraft/world/InteractionHand;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:52] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noAttack(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
-[17:12:52] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$hideExp(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
-[17:12:52] [Server thread/INFO] [minecraft/MinecraftServer]: Dev加入了游戏
-[17:12:53] [Render thread/INFO] [sn.ja.Jade/]: Received config from the server: 
-[17:12:53] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 126 advancements
-[17:12:55] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
-[17:12:55] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:overworld
-[17:12:55] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:the_nether
-[17:12:55] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:the_end
-[17:12:55] [Server thread/DEBUG] [ne.ne.ne.co.CommonHooks/WP]: Gathered mod list to write to world save 新的世界
+[17:25:34] [main/DEBUG] [io.ne.ut.in.lo.InternalLoggerFactory/]: Using SLF4J as the default logging framework
+[17:25:34] [main/DEBUG] [io.ne.ut.ResourceLeakDetector/]: -Dio.netty.leakDetection.level: simple
+[17:25:34] [main/DEBUG] [io.ne.ut.ResourceLeakDetector/]: -Dio.netty.leakDetection.targetRecords: 4
+[17:25:35] [main/DEBUG] [os.ut.FileUtil/]: No oshi.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@66bacdbc
+[17:25:35] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 439 milliseconds
+[17:25:36] [main/DEBUG] [os.ut.FileUtil/]: No oshi.architecture.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@66bacdbc
+[17:25:36] [pool-9-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: Registering new injector for @SugarWrapper with com.llamalad7.mixinextras.sugar.impl.SugarWrapperInjectionInfo
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: Registering new injector for @FactoryRedirectWrapper with com.llamalad7.mixinextras.wrapper.factory.FactoryRedirectWrapperInjectionInfo
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: Registering new injector for @ExpressionInjectorWrapper with com.llamalad7.mixinextras.expression.impl.wrapper.ExpressionInjectorWrapperInjectionInfo
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: Mixing MappedRegistryAccessor from neoforge.mixins.json into net.minecraft.core.MappedRegistry
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: Mixing BlockBehaviourMixin from blockhealth.mixins.json into net.minecraft.world.level.block.state.BlockBehaviour
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: blockhealth.mixins.json:BlockBehaviourMixin from mod blockhealth->@Inject::blockhealth$getDestroyProgress(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: Mixing EntityAccess from jade.mixins.json into net.minecraft.world.entity.Entity
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: jade.mixins.json:EntityAccess from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: Mixing FreecamMixinEntity from blockdustry.mixins.json into net.minecraft.world.entity.Entity
+[17:25:36] [pool-9-thread-1/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinEntity from mod blockdustry->@Inject::blockdustry$redirectTurn(DDLorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
+[17:25:37] [pool-9-thread-1/DEBUG] [mixin/]: Mixing EntityTypeMixin from blockdustry.mixins.json into net.minecraft.world.entity.EntityType
+[17:25:37] [pool-9-thread-1/DEBUG] [mixin/]: blockdustry.mixins.json:EntityTypeMixin from mod blockdustry->@Inject::blockdustry$inheritTeam(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/MobSpawnType;ZZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:38] [pool-9-thread-1/DEBUG] [mixin/]: Mixing BlockEntityTypeAccessor from neoforge.mixins.json into net.minecraft.world.level.block.entity.BlockEntityType
+[17:25:38] [pool-9-thread-1/DEBUG] [mixin/]: Mixing AbstractFurnaceBlockEntityAccess from jade.mixins.json into net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity
+[17:25:38] [pool-9-thread-1/DEBUG] [mixin/]: jade.mixins.json:AbstractFurnaceBlockEntityAccess from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: -Dio.netty.noUnsafe: false
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: Java version: 21
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: sun.misc.Unsafe.theUnsafe: available
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: sun.misc.Unsafe.copyMemory: available
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: sun.misc.Unsafe.storeFence: available
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.Buffer.address: available
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.Bits.unaligned: available, true
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: sun.misc.Unsafe: available
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: maxDirectMemory: 12817793024 bytes (maybe)
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.tmpdir: C:\Users\flafk\AppData\Local\Temp (java.io.tmpdir)
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.bitMode: 64 (sun.arch.data.model)
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: Platform: Windows
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.maxDirectMemory: -1 bytes
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.uninitializedArrayAllocationThreshold: -1
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.CleanerJava9/]: java.nio.ByteBuffer.cleaner(): available
+[17:25:40] [pool-9-thread-1/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.noPreferDirect: false
+[17:25:43] [pool-9-thread-1/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: Creating vanilla freeze snapshot
+[17:25:43] [pool-9-thread-1/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: Vanilla freeze snapshot created
+[17:25:44] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[17:25:44] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[17:25:44] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[17:25:44] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[17:25:44] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[17:25:44] [Render thread/DEBUG] [mixin/]: Mixing FreecamMixinLocalPlayer from blockdustry.mixins.json into net.minecraft.client.player.LocalPlayer
+[17:25:44] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPre(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V doesn't use it's CallbackInfo
+[17:25:44] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPre(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V has 0 override(s) in child classes
+[17:25:44] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPre(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V won't be passed a CallbackInfo as a result
+[17:25:44] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPost(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V doesn't use it's CallbackInfo
+[17:25:44] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPost(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V has 0 override(s) in child classes
+[17:25:44] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$freezeInputPost(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V won't be passed a CallbackInfo as a result
+[17:25:44] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$forceControlledCamera(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:44] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinLocalPlayer from mod blockdustry->@Inject::blockdustry$preventSwing(Lnet/minecraft/world/InteractionHand;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
+[17:25:44] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/Blockdustry/仓库/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.1.235/neoforge-21.1.235.jar%23195!/assets/.mcassetsroot' uses unexpected schema
+[17:25:44] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/Blockdustry/仓库/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/21.1.235/neoforge-21.1.235.jar%23195!/data/.mcassetsroot' uses unexpected schema
+[17:25:44] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[17:25:44] [Render thread/INFO] [minecraft/Minecraft]: Setting user: Dev
+[17:25:44] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+[17:25:44] [Render thread/DEBUG] [ne.ne.fm.ModWorkManager/LOADING]: Using 12 threads for parallel mod-loading
+[17:25:45] [Render thread/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [com.blockdustry.lib.BlockHealth]
+[17:25:45] [Render thread/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [snownee.jade.util.CommonProxy]
+[17:25:45] [Render thread/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [com.blockdustry.Blockdustry, com.blockdustry.BlockdustryClient]
+[17:25:45] [Render thread/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [net.neoforged.neoforge.common.NeoForgeMod, net.neoforged.neoforge.client.ClientNeoForgeMod]
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file blockhealth-common.toml for blockhealth tracking
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.ne.in.ve.ne.NeoForgeVersion/CORE]: Found NeoForge version 21.1.235
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.ne.in.ve.ne.NeoForgeVersion/CORE]: Found FML version 4.0.42
+[17:25:45] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.235, for MC 1.21.1
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for blockhealth
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.net.BlockHealthNetwork for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/net/BlockHealthNetwork; to the mod event bus of mod blockhealth
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.client.BlockHealthCrackCache for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file neoforge-client.toml for neoforge tracking
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file neoforge-server.toml for neoforge tracking
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file neoforge-common.toml for neoforge tracking
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for jade
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/client/BlockHealthCrackCache; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.BlockHealthTooltips for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/BlockHealthTooltips; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.BlockHealthProjectileHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/BlockHealthProjectileHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.BlockHealthPlayerHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/BlockHealthPlayerHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.lib.BlockHealthExplosionHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/lib/BlockHealthExplosionHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file blockdustry-common.toml for blockdustry tracking
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for neoforge
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.server.command.ConfigCommand for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/server/command/ConfigCommand; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.network.NetworkInitialization for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/network/NetworkInitialization; to the mod event bus of mod neoforge
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.network.filters.GenericPacketSplitter for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.AbstractByteBuf/]: -Dio.netty.buffer.checkAccessible: true
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.AbstractByteBuf/]: -Dio.netty.buffer.checkBounds: true
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.ut.ResourceLeakDetectorFactory/]: Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@f4df1c5
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.ut.in.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.ut.in.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.numHeapArenas: 24
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.numDirectArenas: 24
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.pageSize: 8192
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.maxOrder: 9
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.chunkSize: 4194304
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.smallCacheSize: 256
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.normalCacheSize: 64
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimInterval: 8192
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.useCacheForAllThreads: false
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for blockdustry
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.BlockdustryClient for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/BlockdustryClient; to the mod event bus of mod blockdustry
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.BlockdustryClientCommands for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/BlockdustryClientCommands; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.BlockdustryCommands for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.ByteBufUtil/]: -Dio.netty.allocator.type: pooled
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.ByteBufUtil/]: -Dio.netty.threadLocalDirectBufferSize: 0
+[17:25:45] [modloading-worker-0/DEBUG] [io.ne.bu.ByteBufUtil/]: -Dio.netty.maxThreadLocalCharBufferSize: 16384
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/BlockdustryCommands; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.BlockdustryTeamHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/BlockdustryTeamHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.building.CoreRespawnHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/building/CoreRespawnHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.building.TeamInitHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/network/filters/GenericPacketSplitter; to the mod event bus of mod neoforge
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/building/TeamInitHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.BlockdustryDebugHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.network.ConfigurationInitialization for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/BlockdustryDebugHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.BlockdustryHighlightHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/network/ConfigurationInitialization; to the mod event bus of mod neoforge
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.common.MonsterRoomHooks for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/BlockdustryHighlightHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.CoreHudHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/common/MonsterRoomHooks; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.common.DeferredSpawnEggItem$CommonHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/common/DeferredSpawnEggItem$CommonHandler; to the mod event bus of mod neoforge
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/CoreHudHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.freecam.FreecamHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.common.DeferredSpawnEggItem$ColorRegisterHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/common/DeferredSpawnEggItem$ColorRegisterHandler; to the mod event bus of mod neoforge
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/freecam/FreecamHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.client.ParticleBoundsDebugRenderer for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.ResearchKeyRegistrar for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/ResearchKeyRegistrar; to the mod event bus of mod blockdustry
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.ResearchScreenHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/client/ParticleBoundsDebugRenderer; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.client.model.data.ModelDataManager for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/ResearchScreenHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.client.TurretPossessHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/client/model/data/ModelDataManager; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.client.ClientHooks$ClientEvents for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/client/ClientHooks$ClientEvents; to the mod event bus of mod neoforge
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.client.BlockEntityRenderBoundsDebugRenderer for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/client/BlockEntityRenderBoundsDebugRenderer; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.attachment.AttachmentSync for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/attachment/AttachmentSync; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.attachment.AttachmentInternals for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/attachment/AttachmentInternals; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [mixin/]: Mixing FreecamMixinGameRenderer from blockdustry.mixins.json into net.minecraft.client.renderer.GameRenderer
+[17:25:45] [modloading-worker-0/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinGameRenderer from mod blockdustry->@Inject::blockdustry$hideHand(Lnet/minecraft/client/Camera;FLorg/joml/Matrix4f;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
+[17:25:45] [modloading-worker-0/DEBUG] [mixin/]: Mixing LevelRendererCrackMixin from blockhealth.mixins.json into net.minecraft.client.renderer.LevelRenderer
+[17:25:45] [modloading-worker-0/DEBUG] [mixin/]: blockhealth.mixins.json:LevelRendererCrackMixin from mod blockhealth->@Inject::blockhealth$renderHealthCracks(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V doesn't use it's CallbackInfo
+[17:25:45] [modloading-worker-0/DEBUG] [mixin/]: blockhealth.mixins.json:LevelRendererCrackMixin from mod blockhealth->@Inject::blockhealth$renderHealthCracks(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V has 0 override(s) in child classes
+[17:25:45] [modloading-worker-0/DEBUG] [mixin/]: blockhealth.mixins.json:LevelRendererCrackMixin from mod blockhealth->@Inject::blockhealth$renderHealthCracks(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V won't be passed a CallbackInfo as a result
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/client/TurretPossessHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.distribution.SorterNetwork for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/distribution/SorterNetwork; to the mod event bus of mod blockdustry
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.network.BlockdustryNetwork for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/network/BlockdustryNetwork; to the mod event bus of mod blockdustry
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.possession.TurretPossessManager for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/possession/TurretPossessManager; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.power.PowerNodeInteractHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/power/PowerNodeInteractHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.power.PowerNodeLargeInteractHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/power/PowerNodeLargeInteractHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.power.PowerNodeLargeLinkHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/power/PowerNodeLargeLinkHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.power.PowerNodeLinkHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/power/PowerNodeLinkHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.power.SurgeTowerInteractHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/power/SurgeTowerInteractHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.research.ResearchCommands for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/research/ResearchCommands; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.research.ResearchGateHandler for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/research/ResearchGateHandler; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.research.ResearchManager for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/research/ResearchManager; to the game event bus
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.research.ResearchNetwork for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/research/ResearchNetwork; to the mod event bus of mod blockdustry
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.blockdustry.tick.BlockdustryTicks for @SubscribeEvent-annotated methods
+[17:25:45] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/blockdustry/tick/BlockdustryTicks; to the game event bus
+[17:25:45] [modloading-sync-worker/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: Unfreezing registries
+[17:25:46] [modloading-sync-worker/DEBUG] [mixin/]: Mixing CanItemPerformAbilityAccess from jade.mixins.json into net.neoforged.neoforge.common.loot.CanItemPerformAbility
+[17:25:46] [modloading-sync-worker/DEBUG] [mixin/]: jade.mixins.json:CanItemPerformAbilityAccess from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: Freezing registries
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.ne.re.GameData/REGISTRIES]: All registries frozen
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loading configs type CLIENT
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.ne.co.NeoForgeConfig/FORGEMOD]: Loaded NeoForge config file neoforge-client.toml
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-client.toml
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-client.toml for changes
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loading configs type COMMON
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\blockhealth-common.toml
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\blockhealth-common.toml for changes
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.ne.co.NeoForgeConfig/FORGEMOD]: Loaded NeoForge config file neoforge-common.toml
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-common.toml
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-common.toml for changes
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\blockdustry-common.toml
+[17:25:46] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\blockdustry-common.toml for changes
+[17:25:46] [Render thread/DEBUG] [mixin/]: Mixing FontMixin from jade.mixins.json into net.minecraft.client.gui.Font
+[17:25:46] [Render thread/DEBUG] [mixin/]: jade.mixins.json:FontMixin from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
+[17:25:46] [Render thread/DEBUG] [mixin/]: jade.mixins.json:FontMixin from mod jade->@Inject::jade$renderChar(Lnet/minecraft/client/gui/font/glyphs/BakedGlyph;ZZFFFLorg/joml/Matrix4f;Lcom/mojang/blaze3d/vertex/VertexConsumer;FFFFILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
+[17:25:46] [Render thread/DEBUG] [mixin/]: Mixing FreecamMixinCamera from blockdustry.mixins.json into net.minecraft.client.Camera
+[17:25:46] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinCamera from mod blockdustry->@Inject::blockdustry$disableFluidFog(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:46] [Render thread/DEBUG] [mixin/]: Mixing FreecamMixinGui from blockdustry.mixins.json into net.minecraft.client.gui.Gui
+[17:25:46] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinGui from mod blockdustry->@Inject::blockdustry$useRealPlayerForHud(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:47] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [blockdustry]
+[17:25:47] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/blockhealth, mod/jade, mod/blockdustry, mod/neoforge
+[17:25:47] [Worker-Main-1/INFO] [co.bl.li.BlockHealth/]: 方块血量 (blockhealth) 加载成功
+[17:25:47] [Worker-Main-1/INFO] [co.bl.Blockdustry/]: 方块工业 (blockdustry) 加载成功
+[17:25:47] [Render thread/DEBUG] [ne.ne.fm.DeferredWorkQueue/LOADING]: Dispatching synchronous work for work queue Common setup: 1 jobs
+[17:25:47] [Render thread/DEBUG] [ne.ne.fm.DeferredWorkQueue/LOADING]: Synchronous work queue completed in 2.074 ms
+[17:25:47] [Worker-Main-5/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[17:25:47] [Worker-Main-1/WARN] [minecraft/SoundManager]: File minecraft:sounds/door.ogg does not exist, cannot add it to event blockdustry:door
+[17:25:47] [Worker-Main-11/INFO] [co.bl.Blockdustry/]: 方块工业: 客户端加载成功
+[17:25:47] [Worker-Main-11/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[17:25:48] [Worker-Main-11/WARN] [minecraft/ModelBakery]: Unable to load model: 'blockdustry:block/door_large' referenced from: blockdustry:item/door_large: java.io.FileNotFoundException: blockdustry:models/block/door_large.json
+[17:25:49] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.vanilla.VanillaPlugin
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.vanilla.VanillaPlugin in 70.18 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.vanilla.VanillaPlugin in 81.91 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.universal.UniversalPlugin
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.universal.UniversalPlugin in 10.48 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.universal.UniversalPlugin in 11.12 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.debug.DebugPlugin
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.debug.DebugPlugin in 5.290 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.debug.DebugPlugin in 5.884 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.core.CorePlugin
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.core.CorePlugin in 10.21 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.core.CorePlugin in 11.27 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.access.AccessibilityPlugin
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from snownee.jade.addon.access.AccessibilityPlugin in 5.264 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.access.AccessibilityPlugin in 6.644 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Start loading plugin from com.blockdustry.jade.BlockdustryJadePlugin
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Bootstrapped plugin from com.blockdustry.jade.BlockdustryJadePlugin in 9.818 ms
+[17:25:50] [Worker-Main-11/INFO] [sn.ja.Jade/]: Loaded plugin from com.blockdustry.jade.BlockdustryJadePlugin in 10.46 ms
+[17:25:50] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[17:25:50] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[17:25:50] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on 耳机 (Realtek(R) Audio)
+[17:25:50] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/blocks.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[17:25:50] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[17:25:50] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[17:25:50] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
+[17:25:53] [Render thread/DEBUG] [mixin/]: Mixing StringRenderOutputMixin from jade.mixins.json into net.minecraft.client.gui.Font$StringRenderOutput
+[17:25:53] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
+[17:25:53] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade->@Inject::jade$init(Lnet/minecraft/client/gui/Font;Lnet/minecraft/client/renderer/MultiBufferSource;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/gui/Font$DisplayMode;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V doesn't use it's CallbackInfo
+[17:25:53] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade->@Inject::jade$init(Lnet/minecraft/client/gui/Font;Lnet/minecraft/client/renderer/MultiBufferSource;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/gui/Font$DisplayMode;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V has 0 override(s) in child classes
+[17:25:53] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade->@Inject::jade$init(Lnet/minecraft/client/gui/Font;Lnet/minecraft/client/renderer/MultiBufferSource;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/gui/Font$DisplayMode;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V won't be passed a CallbackInfo as a result
+[17:25:53] [Render thread/DEBUG] [mixin/]: jade.mixins.json:StringRenderOutputMixin from mod jade->@Inject::jade$accept(ILnet/minecraft/network/chat/Style;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:54] [Render thread/DEBUG] [mixin/]: Mixing ServerPlayerGameModeMixin from blockhealth.mixins.json into net.minecraft.server.level.ServerPlayerGameMode
+[17:25:54] [Render thread/DEBUG] [mixin/]: blockhealth.mixins.json:ServerPlayerGameModeMixin from mod blockhealth->@Inject::blockhealth$onMine(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V doesn't use it's CallbackInfoReturnable
+[17:25:54] [Render thread/DEBUG] [mixin/]: blockhealth.mixins.json:ServerPlayerGameModeMixin from mod blockhealth->@Inject::blockhealth$onMine(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V has 0 override(s) in child classes
+[17:25:54] [Render thread/DEBUG] [mixin/]: blockhealth.mixins.json:ServerPlayerGameModeMixin from mod blockhealth->@Inject::blockhealth$onMine(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V won't be passed a CallbackInfoReturnable as a result
+[17:25:54] [Render thread/DEBUG] [mixin/]: blockhealth.mixins.json:ServerPlayerGameModeMixin from mod blockhealth->@Inject::blockhealth$onDestroyBlock(Lnet/minecraft/core/BlockPos;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:55] [Render thread/INFO] [minecraft/RecipeManager]: Loaded 1290 recipes
+[17:25:55] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 1399 advancements
+[17:25:56] [Render thread/INFO] [sn.ja.Jade/]: LootTableMineableCollector took 3.761 ms
+[17:25:56] [Render thread/DEBUG] [ne.ne.ne.co.CommonHooks/WP]: Gathered mod list to write to world save 新的世界
+[17:25:56] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.21.1
+[17:25:56] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[17:25:56] [Server thread/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loading configs type SERVER
+[17:25:56] [Server thread/DEBUG] [ne.ne.ne.co.NeoForgeConfig/FORGEMOD]: Loaded NeoForge config file neoforge-server.toml
+[17:25:56] [Server thread/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-server.toml
+[17:25:56] [Server thread/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file D:\Blockdustry\仓库\run\client\config\neoforge-server.toml for changes
+[17:25:56] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[17:25:56] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: 准备生成区域中：0%
+[17:25:56] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[17:25:56] [Server thread/INFO] [co.bl.Blockdustry/]: 方块工业: 服务器已启动
+[17:25:56] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 297 ms
+[17:25:56] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 8, from 10
+[17:25:56] [Server thread/INFO] [minecraft/IntegratedServer]: Changing simulation distance to 12, from 0
+[17:25:56] [Render thread/DEBUG] [io.ne.ch.MultithreadEventLoopGroup/]: -Dio.netty.eventLoopThreads: 24
+[17:25:56] [Render thread/DEBUG] [io.ne.ut.co.GlobalEventExecutor/]: -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+[17:25:57] [Render thread/DEBUG] [io.ne.ch.ni.NioEventLoop/]: -Dio.netty.noKeySetOptimization: false
+[17:25:57] [Render thread/DEBUG] [io.ne.ch.ni.NioEventLoop/]: -Dio.netty.selectorAutoRebuildThreshold: 512
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.in.PlatformDependent/]: org.jctools-core.MpscChunkedArrayQueue: available
+[17:25:57] [Render thread/DEBUG] [io.ne.ch.DefaultChannelId/]: -Dio.netty.processId: 11024 (auto-detected)
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.NetUtil/]: -Djava.net.preferIPv4Stack: false
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.NetUtil/]: -Djava.net.preferIPv6Addresses: system
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.NetUtilInitializations/]: Loopback interface: loopback_0 (Software Loopback Interface 1, 0:0:0:0:0:0:0:1)
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.NetUtil/]: Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+[17:25:57] [Render thread/DEBUG] [io.ne.ch.DefaultChannelId/]: -Dio.netty.machineId: e0:0a:f6:ff:fe:b1:c8:98 (auto-detected)
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.maxCapacityPerThread: 4096
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.ratio: 8
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.chunkSize: 32
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.blocking: false
+[17:25:57] [Render thread/DEBUG] [io.ne.ut.Recycler/]: -Dio.netty.recycler.batchFastThreadLocalOnly: true
+[17:25:57] [Netty Server IO #1/DEBUG] [ne.ne.ne.ne.fi.NetworkFilters/]: Injected net.neoforged.neoforge.network.filters.GenericPacketSplitter@5af117bc into net.minecraft.network.Connection@992525e
+[17:25:57] [Netty Local Client IO #0/DEBUG] [ne.ne.ne.ne.fi.NetworkFilters/]: Injected net.neoforged.neoforge.network.filters.GenericPacketSplitter@506b0788 into net.minecraft.network.Connection@3f52e6da
+[17:25:58] [Render thread/DEBUG] [mixin/]: Mixing SessionSearchTreesMixin from jade.mixins.json into net.minecraft.client.multiplayer.SessionSearchTrees
+[17:25:58] [Render thread/DEBUG] [mixin/]: jade.mixins.json:SessionSearchTreesMixin from mod jade: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
+[17:25:58] [Render thread/DEBUG] [mixin/]: jade.mixins.json:SessionSearchTreesMixin from mod jade->@Inject::jade$preGet(Ljava/util/stream/Stream;Lnet/minecraft/world/item/Item$TooltipContext;Lnet/minecraft/world/item/TooltipFlag;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V doesn't use it's CallbackInfoReturnable
+[17:25:58] [Netty Server IO #1/DEBUG] [ne.ne.ne.ne.fi.NetworkFilters/]: Injected net.neoforged.neoforge.network.filters.GenericPacketSplitter@2233fe4e into net.minecraft.network.Connection@992525e
+[17:25:58] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:c556dbdd] logged in with entity id 1 at (-28.04283804759854, 56.0, 130.30000001192093)
+[17:25:58] [Render thread/DEBUG] [mixin/]: Mixing FreecamMixinMultiPlayerGameMode from blockdustry.mixins.json into net.minecraft.client.multiplayer.MultiPlayerGameMode
+[17:25:58] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noDestroy(Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:58] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noContinueDestroy(Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:58] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noUseItemOn(Lnet/minecraft/client/player/LocalPlayer;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:58] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noUseItem(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:58] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/InteractionHand;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:58] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noInteractAt(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/EntityHitResult;Lnet/minecraft/world/InteractionHand;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:58] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$noAttack(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V does use it's CallbackInfo
+[17:25:58] [Render thread/DEBUG] [mixin/]: blockdustry.mixins.json:FreecamMixinMultiPlayerGameMode from mod blockdustry->@Inject::blockdustry$hideExp(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
+[17:25:58] [Server thread/INFO] [minecraft/MinecraftServer]: Dev加入了游戏
+[17:25:58] [Render thread/INFO] [sn.ja.Jade/]: Received config from the server: 
+[17:25:58] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 127 advancements
+[17:26:03] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: 已将自己的游戏模式设置为创造模式]
+[17:26:03] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] 已将自己的游戏模式设置为创造模式
+[17:26:05] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[17:26:06] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:overworld
+[17:26:06] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:the_nether
+[17:26:06] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:the_end
+[17:26:06] [Server thread/DEBUG] [ne.ne.ne.co.CommonHooks/WP]: Gathered mod list to write to world save 新的世界
+[17:26:32] [Render thread/WARN] [minecraft/SoundEngine]: Unable to play empty soundEvent: blockdustry:door
+[17:29:22] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[17:29:22] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:overworld
+[17:29:22] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:the_nether
+[17:29:22] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:the_end
+[17:29:22] [Server thread/DEBUG] [ne.ne.ne.co.CommonHooks/WP]: Gathered mod list to write to world save 新的世界
+[17:29:25] [Server thread/INFO] [minecraft/ServerGamePacketListenerImpl]: Dev lost connection: 连接中断
+[17:29:25] [Server thread/INFO] [minecraft/MinecraftServer]: Dev退出了游戏
+[17:29:25] [Server thread/INFO] [minecraft/ServerCommonPacketListenerImpl]: Stopping singleplayer server as player logged out
+[17:29:25] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[17:29:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[17:29:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[17:29:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:overworld
+[17:29:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:the_nether
+[17:29:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[新的世界]'/minecraft:the_end
+[17:29:25] [Server thread/DEBUG] [ne.ne.ne.co.CommonHooks/WP]: Gathered mod list to write to world save 新的世界
+[17:29:26] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (新的世界): All chunks are saved
+[17:29:26] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[17:29:26] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[17:29:26] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[17:29:26] [Server thread/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Unloading configs type SERVER

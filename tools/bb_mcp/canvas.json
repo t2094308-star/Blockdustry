@@ -1,0 +1,12 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "\"{\\\"w\\\":64,\\\"h\\\":64,\\\"data\\\":\\\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAzUlEQVR4AeyVMQ6DQBADEQ9OWn4PvRvLosKeSClOtwUez8L5+1/38v88xn8AGBfgwAAMGCfACowLwEuQFWAFxgmwAuMC7H0FtHBWQImsnTFgrXHNiwFKZO2MAWuNa14MUCJrZwxYa1zzYoASWTtjQHvjLh8GOELt9xjQ3rDLhwGOUPs9BrQ37PJhgCPUfo8B7Q27fBjgCLXfY0Bbw2keDEiJtc1jQFujaR4MSIm1zWNAW6NpHgxIibXNY0Bbo2keDEiJtc1jwNcbffv8DwAAAP//glUimgAAAAZJREFUAwD8FJWB93QENAAAAABJRU5ErkJggg==\\\"}\""
+      }
+    ]
+  },
+  "jsonrpc": "2.0",
+  "id": 3
+}

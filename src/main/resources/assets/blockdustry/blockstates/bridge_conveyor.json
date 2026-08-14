@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "corner=nw": { "model": "blockdustry:block/bridge_conveyor" },
+    "corner=n": { "model": "blockdustry:block/bridge_conveyor" },
+    "corner=ne": { "model": "blockdustry:block/bridge_conveyor" },
+    "corner=w": { "model": "blockdustry:block/bridge_conveyor" },
+    "corner=c": { "model": "blockdustry:block/bridge_conveyor" },
+    "corner=e": { "model": "blockdustry:block/bridge_conveyor" },
+    "corner=sw": { "model": "blockdustry:block/bridge_conveyor" },
+    "corner=s": { "model": "blockdustry:block/bridge_conveyor" },
+    "corner=se": { "model": "blockdustry:block/bridge_conveyor" }
+  }
+}

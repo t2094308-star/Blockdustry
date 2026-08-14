@@ -7,6 +7,9 @@ import com.blockdustry.power.BatteryBlockEntity;
 import com.blockdustry.power.CombustionGeneratorBlockEntity;
 import com.blockdustry.power.PowerNodeBlockEntity;
 import com.blockdustry.power.PowerSourceBlockEntity;
+import com.blockdustry.distribution.GateRegistrar;
+import com.blockdustry.distribution.JunctionRegistrar;
+import com.blockdustry.distribution.SorterRegistrar;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -154,6 +157,18 @@ public final class BlockdustryBlocks {
                             .displayItems((params, output) -> {
                                 output.accept(DRILL_ITEM);
                                 output.accept(GRAPHITE_PRESS_ITEM);
+                                output.accept(com.blockdustry.building.PneumaticDrillRegistrar.PNEUMATIC_DRILL_ITEM);
+                                output.accept(com.blockdustry.building.LaserDrillRegistrar.LASER_DRILL_ITEM);
+                                output.accept(com.blockdustry.building.BlastDrillRegistrar.BLAST_DRILL_ITEM);
+                                output.accept(com.blockdustry.building.SiliconSmelterRegistrar.SILICON_SMELTER_ITEM);
+                                output.accept(com.blockdustry.production.KilnRegistrar.KILN_ITEM);
+                                output.accept(com.blockdustry.building.PlastaniumCompressorRegistrar.PLASTANIUM_COMPRESSOR_ITEM);
+                                output.accept(com.blockdustry.production.PyratiteMixerRegistrar.PYRATITE_MIXER_ITEM);
+                                output.accept(com.blockdustry.production.PulverizerRegistrar.PULVERIZER_ITEM);
+                                output.accept(com.blockdustry.production.IncineratorRegistrar.INCINERATOR_ITEM);
+                                output.accept(com.blockdustry.building.PhaseWeaverRegistrar.PHASE_WEAVER_ITEM);
+                                output.accept(com.blockdustry.building.MenderRegistrar.MENDER_ITEM);
+                                output.accept(com.blockdustry.building.ForceProjectorRegistrar.FORCE_PROJECTOR_ITEM);
                             })
                             .build());
 
@@ -167,6 +182,13 @@ public final class BlockdustryBlocks {
                                 output.accept(CONVEYOR_ITEM);
                                 output.accept(ROUTER_ITEM);
                                 output.accept(ElevatorBlocks.ELEVATOR_ITEM);
+                                output.accept(JunctionRegistrar.JUNCTION_ITEM);
+                                output.accept(JunctionRegistrar.DISTRIBUTOR_ITEM);
+                                output.accept(SorterRegistrar.SORTER_ITEM);
+                                output.accept(SorterRegistrar.INVERTED_SORTER_ITEM);
+                                output.accept(GateRegistrar.OVERFLOW_GATE_ITEM);
+                                output.accept(GateRegistrar.UNDERFLOW_GATE_ITEM);
+                                output.accept(com.blockdustry.distribution.BridgeRegistrar.BRIDGE_ITEM);
                             })
                             .build());
 
@@ -181,6 +203,12 @@ public final class BlockdustryBlocks {
                                 output.accept(COMBUSTION_GENERATOR_ITEM);
                                 output.accept(BATTERY_ITEM);
                                 output.accept(POWER_SOURCE_ITEM);
+                                output.accept(com.blockdustry.power.SolarPanelRegistrar.SOLAR_PANEL_ITEM);
+                                output.accept(com.blockdustry.power.SolarPanelRegistrar.SOLAR_PANEL_LARGE_ITEM);
+                                output.accept(com.blockdustry.power.PowerNodeLargeRegistrar.POWER_NODE_LARGE_ITEM);
+                                output.accept(com.blockdustry.power.BatteryLargeRegistrar.BATTERY_LARGE_ITEM);
+                                output.accept(com.blockdustry.building.DiodeSurgeTowerRegistrar.DIODE_ITEM);
+                                output.accept(com.blockdustry.building.DiodeSurgeTowerRegistrar.SURGE_TOWER_ITEM);
                             })
                             .build());
 
@@ -192,6 +220,7 @@ public final class BlockdustryBlocks {
                             .icon(() -> new ItemStack((ItemLike) CORE_ITEM.get()))
                             .displayItems((params, output) -> {
                                 output.accept(CORE_ITEM);
+                                output.accept(com.blockdustry.storage.ContainerRegistrar.CONTAINER_ITEM);
                             })
                             .build());
 
@@ -206,6 +235,21 @@ public final class BlockdustryBlocks {
                                 output.accept(SCATTER_ITEM);
                                 output.accept(FuseArcRegistrar.FUSE_ITEM);
                                 output.accept(FuseArcRegistrar.ARC_ITEM);
+                                // 批1F/2A 墙体与门（铜/废/钛/塑钢/钍/合金墙 + 门）喵
+                                output.accept(com.blockdustry.defense.DefenseRegistrar.TITANIUM_WALL_ITEM);
+                                output.accept(com.blockdustry.defense.DefenseRegistrar.TITANIUM_WALL_LARGE_ITEM);
+                                output.accept(com.blockdustry.defense.DefenseRegistrar.DOOR_ITEM);
+                                output.accept(com.blockdustry.defense.DefenseRegistrar.DOOR_LARGE_ITEM);
+                                output.accept(com.blockdustry.defense.DefenseRegistrar.COPPER_WALL_ITEM);
+                                output.accept(com.blockdustry.defense.DefenseRegistrar.COPPER_WALL_LARGE_ITEM);
+                                output.accept(com.blockdustry.defense.DefenseRegistrar.SCRAP_WALL_ITEM);
+                                output.accept(com.blockdustry.defense.DefenseRegistrar.SCRAP_WALL_LARGE_ITEM);
+                                output.accept(com.blockdustry.defense.AdvancedWallRegistrar.PLASTANIUM_WALL_ITEM);
+                                output.accept(com.blockdustry.defense.AdvancedWallRegistrar.PLASTANIUM_WALL_LARGE_ITEM);
+                                output.accept(com.blockdustry.defense.AdvancedWallRegistrar.THORIUM_WALL_ITEM);
+                                output.accept(com.blockdustry.defense.AdvancedWallRegistrar.THORIUM_WALL_LARGE_ITEM);
+                                output.accept(com.blockdustry.defense.AdvancedWallRegistrar.SURGE_WALL_ITEM);
+                                output.accept(com.blockdustry.defense.AdvancedWallRegistrar.SURGE_WALL_LARGE_ITEM);
                             })
                             .build());
 
@@ -241,6 +285,7 @@ public final class BlockdustryBlocks {
                                 output.accept(BlockdustryItems.BLAST_COMPOUND);
                                 output.accept(BlockdustryItems.PYRATITE);
                                 output.accept(BlockdustryItems.SCRAP);
+                                output.accept(com.blockdustry.building.PlastaniumCompressorRegistrar.OIL);
                             })
                             .build());
 
@@ -365,9 +410,38 @@ public final class BlockdustryBlocks {
     public static void registerBlockHealthDefaults() {
         registerGroupMaxHp(DRILL.get(), 2);
         registerGroupMaxHp(GRAPHITE_PRESS.get(), 2);
+        registerGroupMaxHp(com.blockdustry.building.PneumaticDrillRegistrar.PNEUMATIC_DRILL.get(), 2); // 批1D 气动钻头 2×2 组血喵
+        registerGroupMaxHp(com.blockdustry.building.SiliconSmelterRegistrar.SILICON_SMELTER.get(), 2); // 批1C 硅冶炼厂 2×2 组血 160（strength 3 → 单格 40）喵
+        registerGroupMaxHp(com.blockdustry.production.KilnRegistrar.KILN.get(), 2); // 批1C 窑炉 2×2 组血 160喵
+        registerGroupMaxHp(com.blockdustry.building.PlastaniumCompressorRegistrar.PLASTANIUM_COMPRESSOR.get(), 2); // 批1C 塑钢压缩机 2×2 组血 320喵
         registerGroupMaxHp(SCATTER.get(), 2);
         registerGroupMaxHp(CORE.get(), 3);
         registerGroupMaxHp(UNIT_FACTORY.get(), 3);
+        registerGroupMaxHp(JunctionRegistrar.DISTRIBUTOR.get(), 2); // 批1A distributor 2×2 组血量喵
+        registerGroupMaxHp(com.blockdustry.storage.ContainerRegistrar.CONTAINER.get(), 2); // 批1B container 2×2 组血 220（strength 4.5 → 单格 55）喵
+        registerGroupMaxHp(com.blockdustry.building.LaserDrillRegistrar.LASER_DRILL.get(), 3); // 批1D laser-drill 3×3 组血 360（strength 3 → 单格 40）喵
+        registerGroupMaxHp(com.blockdustry.building.BlastDrillRegistrar.BLAST_DRILL.get(), 4); // 批1D blast-drill 4×4 组血 768（strength 3.8 → 单格 48）喵
+        // 批1E 电力多格组血量喵
+        registerGroupMaxHp(com.blockdustry.power.SolarPanelRegistrar.SOLAR_PANEL_LARGE.get(), 3); // 大型太阳能板 3×3 组血 360喵
+        registerGroupMaxHp(com.blockdustry.power.PowerNodeLargeRegistrar.POWER_NODE_LARGE.get(), 2); // 大型电力节点 2×2 组血喵
+        registerGroupMaxHp(com.blockdustry.power.BatteryLargeRegistrar.BATTERY_LARGE.get(), 3); // 大型电池 3×3 组血喵
+        registerGroupMaxHp(com.blockdustry.building.DiodeSurgeTowerRegistrar.SURGE_TOWER.get(), 2); // 涌电塔 2×2 组血喵
+        // 批1F 墙体与门组血量喵
+        registerGroupMaxHp(com.blockdustry.defense.DefenseRegistrar.COPPER_WALL.get(), 1);
+        registerGroupMaxHp(com.blockdustry.defense.DefenseRegistrar.COPPER_WALL_LARGE.get(), 2);
+        registerGroupMaxHp(com.blockdustry.defense.DefenseRegistrar.SCRAP_WALL.get(), 1);
+        registerGroupMaxHp(com.blockdustry.defense.DefenseRegistrar.SCRAP_WALL_LARGE.get(), 2);
+        registerGroupMaxHp(com.blockdustry.defense.DefenseRegistrar.TITANIUM_WALL_LARGE.get(), 2); // 大型钛墙 2×2 组血 1760喵
+        registerGroupMaxHp(com.blockdustry.defense.DefenseRegistrar.DOOR_LARGE.get(), 2); // 大门 2×2 组血 1600喵
+        // 批1C 硫化物/相织布组血量喵
+        registerGroupMaxHp(com.blockdustry.production.PyratiteMixerRegistrar.PYRATITE_MIXER.get(), 2); // 硫化物混合器 2×2 组血 160喵
+        registerGroupMaxHp(com.blockdustry.building.PhaseWeaverRegistrar.PHASE_WEAVER.get(), 2); // 相织布编织器 2×2 组血 160喵
+        // 批2A 高级墙大型组血量喵
+        registerGroupMaxHp(com.blockdustry.defense.AdvancedWallRegistrar.PLASTANIUM_WALL_LARGE.get(), 2); // 塑钢大墙 2×2 组血 2000喵
+        registerGroupMaxHp(com.blockdustry.defense.AdvancedWallRegistrar.THORIUM_WALL_LARGE.get(), 2); // 钍大墙 2×2 组血 3200喵
+        registerGroupMaxHp(com.blockdustry.defense.AdvancedWallRegistrar.SURGE_WALL_LARGE.get(), 2); // 合金大墙 2×2 组血 3680喵
+        // 批2B 力墙投影 3×3 组血喵
+        registerGroupMaxHp(com.blockdustry.building.ForceProjectorRegistrar.FORCE_PROJECTOR.get(), 3);
     }
 
     // 按「单格血量公式 × 格数」注册组总血喵

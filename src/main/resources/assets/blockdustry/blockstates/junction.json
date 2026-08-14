@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "corner=nw": { "model": "blockdustry:block/junction" },
+    "corner=n": { "model": "blockdustry:block/junction" },
+    "corner=ne": { "model": "blockdustry:block/junction" },
+    "corner=w": { "model": "blockdustry:block/junction" },
+    "corner=c": { "model": "blockdustry:block/junction" },
+    "corner=e": { "model": "blockdustry:block/junction" },
+    "corner=sw": { "model": "blockdustry:block/junction" },
+    "corner=s": { "model": "blockdustry:block/junction" },
+    "corner=se": { "model": "blockdustry:block/junction" }
+  }
+}

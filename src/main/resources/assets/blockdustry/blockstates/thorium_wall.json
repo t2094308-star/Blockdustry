@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/thorium_wall"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/thorium_wall"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/thorium_wall"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/thorium_wall"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/thorium_wall"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/thorium_wall"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/thorium_wall"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/thorium_wall"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/thorium_wall"
+    }
+  }
+}

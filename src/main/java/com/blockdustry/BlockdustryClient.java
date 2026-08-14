@@ -18,6 +18,7 @@ import com.blockdustry.client.ElevatorBlockEntityRenderer;
 import com.blockdustry.client.FireBulletRenderer;
 import com.blockdustry.client.FuseBlockEntityRenderer;
 import com.blockdustry.client.freecam.FreecamHandler;
+import com.blockdustry.client.model.DaggerModel;
 import com.blockdustry.entities.BlockdustryEntities;
 
 import net.neoforged.api.distmarker.Dist;
@@ -44,6 +45,12 @@ public class BlockdustryClient {
         event.register(FreecamHandler.KEY_FREECAM);
     }
 
+    // 注册实体模型层定义（dagger 3D 模型）喵
+    @SubscribeEvent
+    static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(DaggerModel.LAYER_LOCATION, DaggerModel::createBodyLayer);
+    }
+
     // 注册方块实体渲染器与炮弹渲染器喵
     @SubscribeEvent
     static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -62,6 +69,33 @@ public class BlockdustryClient {
         event.registerBlockEntityRenderer(com.blockdustry.building.FuseArcRegistrar.FUSE_ENTITY.get(), FuseBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(com.blockdustry.building.FuseArcRegistrar.ARC_ENTITY.get(), ArcBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(com.blockdustry.building.ElevatorBlocks.ELEVATOR_ENTITY.get(), ElevatorBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.distribution.SorterRegistrar.SORTER_ENTITY.get(), com.blockdustry.client.SorterBlockEntityRenderer::new);
+        // 批1B 存储+桥梁渲染器喵
+        event.registerBlockEntityRenderer(com.blockdustry.storage.ContainerRegistrar.CONTAINER_ENTITY.get(), com.blockdustry.client.ContainerBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.distribution.BridgeRegistrar.BRIDGE_ENTITY.get(), com.blockdustry.client.ItemBridgeBlockEntityRenderer::new);
+        // 批1C/1D 钻机与生产渲染器喵
+        event.registerBlockEntityRenderer(com.blockdustry.building.PneumaticDrillRegistrar.PNEUMATIC_DRILL_ENTITY.get(), com.blockdustry.client.PneumaticDrillBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.building.LaserDrillRegistrar.LASER_DRILL_ENTITY.get(), com.blockdustry.client.LaserDrillBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.building.BlastDrillRegistrar.BLAST_DRILL_ENTITY.get(), com.blockdustry.client.BlastDrillBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.building.SiliconSmelterRegistrar.SILICON_SMELTER_ENTITY.get(), com.blockdustry.client.SiliconSmelterBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.production.KilnRegistrar.KILN_ENTITY.get(), com.blockdustry.client.KilnBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.building.PlastaniumCompressorRegistrar.PLASTANIUM_COMPRESSOR_ENTITY.get(), com.blockdustry.client.PlastaniumCompressorBlockEntityRenderer::new);
+        // 批1E 电力渲染器喵
+        event.registerBlockEntityRenderer(com.blockdustry.power.PowerNodeLargeRegistrar.POWER_NODE_LARGE_ENTITY.get(), com.blockdustry.client.PowerNodeLargeBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.power.BatteryLargeRegistrar.BATTERY_LARGE_ENTITY.get(), com.blockdustry.client.BatteryLargeBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.building.DiodeSurgeTowerRegistrar.DIODE_ENTITY.get(), com.blockdustry.client.DiodeBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.building.DiodeSurgeTowerRegistrar.SURGE_TOWER_ENTITY.get(), com.blockdustry.client.SurgeTowerBlockEntityRenderer::new);
+        // 批1F 门渲染器喵
+        event.registerBlockEntityRenderer(com.blockdustry.defense.DefenseRegistrar.DOOR_ENTITY.get(), com.blockdustry.client.DoorBlockEntityRenderer::new);
+        // 批1C 生产渲染器喵
+        event.registerBlockEntityRenderer(com.blockdustry.production.PulverizerRegistrar.PULVERIZER_ENTITY.get(), com.blockdustry.client.PulverizerBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.production.IncineratorRegistrar.INCINERATOR_ENTITY.get(), com.blockdustry.client.IncineratorBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.building.PhaseWeaverRegistrar.PHASE_WEAVER_ENTITY.get(), com.blockdustry.client.PhaseWeaverBlockEntityRenderer::new);
+        // 批2B 防御场渲染器喵
+        event.registerBlockEntityRenderer(com.blockdustry.building.MenderRegistrar.MENDER_ENTITY.get(), com.blockdustry.client.MenderBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(com.blockdustry.building.ForceProjectorRegistrar.FORCE_PROJECTOR_ENTITY.get(), com.blockdustry.client.ForceProjectorBlockEntityRenderer::new);
+        // 批2A surge 受击放电闪电实体渲染器喵
+        event.registerEntityRenderer(com.blockdustry.defense.AdvancedWallRegistrar.WALL_LIGHTNING.get(), com.blockdustry.client.WallLightningRenderer::new);
         event.registerEntityRenderer(com.blockdustry.building.FuseArcRegistrar.FIRE_BULLET.get(), FireBulletRenderer::new);
         event.registerEntityRenderer(com.blockdustry.building.FuseArcRegistrar.ARC_BEAM.get(), ArcBeamRenderer::new);
     }

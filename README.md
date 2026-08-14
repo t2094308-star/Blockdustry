@@ -37,9 +37,9 @@ Blockdustry 是一个 Minecraft 模组，受经典工厂塔防游戏 Mindustry �
 - [x] 队伍系统（Mindustry 原作队伍 + 队伍色 + 调试棒 UI）
 - [x] 建筑系统（机械钻头 2×2 挖矿、多炮塔、多格高亮框、内置库存、3×3 跨格贴图）
 - [x] 物流系统（传送带 + Router 物品传递 + 垂直提升机，物品平躺/缩放）
-- [x] 加工工厂（石墨压缩机：2 煤 → 1 石墨）
-- [x] 电力系统（PowerNode 节点 + 电网 + 发电机 + 电池 + 电力源 + 激光光效）
-- [x] 炮塔：duo 双管、scatter 分裂（对空）、fuse 熔毁（火）、arc 电弧（闪电链，用电）
+- [x] 加工工厂（石墨压缩机/硅冶炼厂/窑炉/塑钢压缩机/硫化物混合器/粉碎机/焚化炉/相织布编织器）
+- [x] 电力系统（PowerNode 节点 + 电网 + 发电机 + 电池 + 电力源 + 激光光效；太阳能/大型节点/大型电池/二极管/涌电塔）
+- [x] 炮塔：duo 双管、scatter 分裂（对空）、fuse 雷光（金属碎片霰弹，非火焰）、arc 电弧（闪电链，用电）
 - [x] 目标标签（炮台对地/对空，单位陆/空/海）
 - [x] 炮塔动画（转盘 + 炮管旋转/后坐力）+ 附身操控 + 穿透视野
 - [x] 炮弹平滑 + 装甲机制（固定减伤）
@@ -53,7 +53,27 @@ Blockdustry 是一个 Minecraft 模组，受经典工厂塔防游戏 Mindustry �
 - [x] 灵魂出窍（F4 freecam）
 - [ ] 更多单位与单位 AI（dagger 仅 MVP）
 - [ ] 敌人波次
-- [ ] 科技树内容扩充
+- [ ] 科技树内容扩充（大量建筑已迁，研究节点随迁移持续补充）
+
+---
+
+## 大规模迁移进度
+
+按 P1 计划大规模并行迁移 Mindustry 赛普罗内容（机制/数据优先，贴图一律拷 Mindustry 原版 PNG 不重绘，动画特效同步迁移）。**总地图见 [`docs/核心数据库.md`](docs/核心数据库.md)**（含目录锚点跳转、已迁移/未迁移逐项备注、物品→产出建筑映射、横切阻塞清单）。
+
+截至 2026-08-14 已迁移 **78 / 205** 项（建筑 61 + 物品 16 + 单位 1），未迁移 127：
+
+- 批1A 物流：junction / distributor / sorter / inverted-sorter / overflow-gate / underflow-gate
+- 批1B 存储+桥梁：container（2×2/容量300）、bridge-conveyor（传送带桥）
+- 批1C 生产：silicon-smelter、kiln（窑炉）、plastanium-compressor、pyratite-mixer、pulverizer、incinerator、phase-weaver（相织布编织器）
+- 批1D 钻机：pneumatic-drill（气动钻头）、laser-drill（激光钻头 3×3）、blast-drill（爆破钻头 4×4）
+- 批1E 电力：solar-panel(+large)、power-node-large、battery-large、diode、surge-tower（巨浪电力塔）
+- 批1F 墙体：copper/scrap/titanium-wall(+large)、door(+large)
+- 批2A 高级墙：plastanium/thorium/surge-wall(+large)（surge 合金墙受击放电）
+- 批2B 防御场：mender（修理器）、force-projector（力墙投影）
+- 雷光（fuse）特效重做：金属碎片霰弹（纠正"火焰炮"误判）、炮口闪光/命中白闪/线光点光/热区/正确后坐
+
+横切阻塞（后续批次需先做前置）：液体系统（P2，波及 30+ 块）、size 4-5 扩 Corner（Frame-0）、payload（永延）、逻辑 VM（P3）。
 
 ---
 

@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/force_projector_nw"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/force_projector_n"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/force_projector_ne"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/force_projector_w"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/force_projector_c"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/force_projector_e"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/force_projector_sw"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/force_projector_s"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/force_projector_se"
+    }
+  }
+}

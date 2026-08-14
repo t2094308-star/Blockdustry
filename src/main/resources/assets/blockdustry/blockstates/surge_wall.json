@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/surge_wall"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/surge_wall"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/surge_wall"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/surge_wall"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/surge_wall"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/surge_wall"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/surge_wall"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/surge_wall"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/surge_wall"
+    }
+  }
+}

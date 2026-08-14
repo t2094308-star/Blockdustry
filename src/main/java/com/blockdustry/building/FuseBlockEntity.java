@@ -4,6 +4,8 @@ import com.blockdustry.entities.FireBulletEntity;
 import com.blockdustry.entities.TargetType;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,6 +18,12 @@ public class FuseBlockEntity extends TurretBlockEntity {
     // 扇形霰弹参数（Mindustry ShootSpread(3, 20f)：3 发，弹间 20°）喵
     private static final int SHOTS = 3;
     private static final float SHOT_SPREAD_DEG = 20f;
+    // 炮口闪光（Fx.lightningShoot 等效）寿命 12 tick；热区（fuse-heat）20 tick 衰减喵
+    private static final int MUZZLE_FLASH_LIFE = 12;
+
+    // 炮塔动画状态（Mindustry TurretBuild）：热区 heat 1→0（1/20 每 tick）、炮口闪光计数 12→0 喵
+    private float heat;
+    private int muzzleFlashTicks;
 
     // 方块实体注册用的 (BlockPos, BlockState) 构造器，委托给带类型的完整构造器喵
     public FuseBlockEntity(BlockPos pos, BlockState state) {
@@ -76,6 +84,41 @@ public class FuseBlockEntity extends TurretBlockEntity {
             bullet.setOwnerTeam(getTeam());
             level.addFreshEntity(bullet);
         }
+        // 开火动画（Mindustry TurretBuild curRecoil=1/heat=1，recoilTop 每轮一次非每发；炮口闪光 12 tick）喵
+        this.recoilTop = 1f;
+        this.heat = 1f;
+        this.muzzleFlashTicks = MUZZLE_FLASH_LIFE;
+    }
+
+    // 锚点每 tick：基类 AI 之后衰减热区（Mindustry heat 1/cooldownTime=1/20）与炮口闪光（1 tick）喵
+    @Override
+    protected void tickAnchor() {
+        super.tickAnchor();
+        if (heat > 0f) heat = Math.max(0f, heat - 1f / 20f);
+        if (muzzleFlashTicks > 0) muzzleFlashTicks--;
+    }
+
+    // 渲染用 getter：热区 alpha 与炮口闪光剩余 tick 喵
+    public float getHeat() {
+        return heat;
+    }
+
+    public int getMuzzleFlashTicks() {
+        return muzzleFlashTicks;
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        tag.putFloat("bd_fuse_heat", heat);
+        tag.putInt("bd_fuse_muzzle", muzzleFlashTicks);
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        heat = tag.getFloat("bd_fuse_heat");
+        muzzleFlashTicks = tag.getInt("bd_fuse_muzzle");
     }
 
     // 绕 Y 轴旋转向量（度）：把瞄准方向水平展开成扇形喵

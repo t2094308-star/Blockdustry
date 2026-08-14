@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "corner=nw": { "model": "blockdustry:block/titanium_wall" },
+    "corner=n": { "model": "blockdustry:block/titanium_wall" },
+    "corner=ne": { "model": "blockdustry:block/titanium_wall" },
+    "corner=w": { "model": "blockdustry:block/titanium_wall" },
+    "corner=c": { "model": "blockdustry:block/titanium_wall" },
+    "corner=e": { "model": "blockdustry:block/titanium_wall" },
+    "corner=sw": { "model": "blockdustry:block/titanium_wall" },
+    "corner=s": { "model": "blockdustry:block/titanium_wall" },
+    "corner=se": { "model": "blockdustry:block/titanium_wall" }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "corner=nw": { "model": "blockdustry:block/blast_drill" },
+    "corner=n": { "model": "blockdustry:block/blast_drill" },
+    "corner=ne": { "model": "blockdustry:block/blast_drill" },
+    "corner=w": { "model": "blockdustry:block/blast_drill" },
+    "corner=c": { "model": "blockdustry:block/blast_drill" },
+    "corner=e": { "model": "blockdustry:block/blast_drill" },
+    "corner=sw": { "model": "blockdustry:block/blast_drill" },
+    "corner=s": { "model": "blockdustry:block/blast_drill" },
+    "corner=se": { "model": "blockdustry:block/blast_drill" }
+  }
+}

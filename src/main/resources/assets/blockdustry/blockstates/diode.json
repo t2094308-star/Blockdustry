@@ -1,0 +1,112 @@
+{
+  "variants": {
+    "corner=nw,facing=north": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=nw,facing=east": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=nw,facing=south": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=nw,facing=west": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=n,facing=north": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=n,facing=east": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=n,facing=south": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=n,facing=west": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=ne,facing=north": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=ne,facing=east": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=ne,facing=south": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=ne,facing=west": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=w,facing=north": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=w,facing=east": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=w,facing=south": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=w,facing=west": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=c,facing=north": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=c,facing=east": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=c,facing=south": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=c,facing=west": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=e,facing=north": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=e,facing=east": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=e,facing=south": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=e,facing=west": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=sw,facing=north": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=sw,facing=east": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=sw,facing=south": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=sw,facing=west": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=s,facing=north": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=s,facing=east": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=s,facing=south": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=s,facing=west": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=se,facing=north": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=se,facing=east": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=se,facing=south": {
+      "model": "blockdustry:block/diode"
+    },
+    "corner=se,facing=west": {
+      "model": "blockdustry:block/diode"
+    }
+  }
+}

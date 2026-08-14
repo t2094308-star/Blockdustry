@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/incinerator"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/incinerator"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/incinerator"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/incinerator"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/incinerator"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/incinerator"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/incinerator"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/incinerator"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/incinerator"
+    }
+  }
+}

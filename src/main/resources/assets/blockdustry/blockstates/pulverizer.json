@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/pulverizer"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/pulverizer"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/pulverizer"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/pulverizer"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/pulverizer"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/pulverizer"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/pulverizer"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/pulverizer"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/pulverizer"
+    }
+  }
+}

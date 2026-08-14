@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "corner=nw": {
+      "model": "blockdustry:block/scrap_wall"
+    },
+    "corner=n": {
+      "model": "blockdustry:block/scrap_wall"
+    },
+    "corner=ne": {
+      "model": "blockdustry:block/scrap_wall"
+    },
+    "corner=w": {
+      "model": "blockdustry:block/scrap_wall"
+    },
+    "corner=c": {
+      "model": "blockdustry:block/scrap_wall"
+    },
+    "corner=e": {
+      "model": "blockdustry:block/scrap_wall"
+    },
+    "corner=sw": {
+      "model": "blockdustry:block/scrap_wall"
+    },
+    "corner=s": {
+      "model": "blockdustry:block/scrap_wall"
+    },
+    "corner=se": {
+      "model": "blockdustry:block/scrap_wall"
+    }
+  }
+}

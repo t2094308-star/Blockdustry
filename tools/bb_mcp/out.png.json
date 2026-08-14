@@ -1,0 +1,12 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABcUlEQVR4AeyWsQ3CMBBFTxmCBsagQEDBRNAiBmAIpkCUSCAaEAUtG0DDEkEprrEw5MgdOOeP9OXE2Bff/09RiulsXv5D68221BT3UK7G5Svx/+FYUOY/dwbMrmN6pVjO7gyINRqbhwExZ3KZBwGxpBedI71TbF/b5kFALLHlY0TvFNtXd36/25Om6j43XAcCQkdyuwcBuSUe9gsCLpczaYidvd1vJFHTfby/7hiuAwGhI7ndg4DcEg/7BQGhI7ndF6fjgTTUVuOK4WhCGmqtAf3+gDTEBvS6PZKo6T7e/+2Il6DGZ3BVgxOorjXE9axHEGDtcOr1QUDqCVmfzz0BnwyEARofQVUNdrq61hDXsx5BgLXDqdcHAaknZH0+EGDtcOr1QUDqCVmfDwRYO5x6fRCQekLW5wMB1g7/ur70eSBA6pi39SDAW6LSfkCA1DFv60GAt0Sl/YAAqWPe1oMAb4lK+wEBUse8rQcBbU+06fmfAAAA//+g9RwzAAAABklEQVQDAB9kFZ+mwyeaAAAAAElFTkSuQmCC\""
+      }
+    ]
+  },
+  "jsonrpc": "2.0",
+  "id": 3
+}
