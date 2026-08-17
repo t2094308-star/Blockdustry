@@ -418,3 +418,8 @@ WARN StatusConsoleListener Advanced terminal features are not available in this 
 [17:29:26] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
 [17:29:26] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
 [17:29:26] [Server thread/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Unloading configs type SERVER
+[20:00:06] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+
+BUILD SUCCESSFUL in 26h 34m 45s
+28 actionable tasks: 3 executed, 1 from cache, 24 up-to-date
+Configuration cache entry reused.
