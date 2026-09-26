@@ -63,7 +63,7 @@ Blockdustry 是一个 Minecraft 模组，受经典工厂塔防游戏 Mindustry �
 
 按 P1 计划大规模并行迁移 Mindustry 赛普罗内容（机制/数据优先，贴图一律拷 Mindustry 原版 PNG 不重绘，动画特效同步迁移）。（含目录锚点跳转、已迁移/未迁移逐项备注、物品→产出建筑映射、横切阻塞清单）。
 
-截至 2026-08-14 已迁移 **78 / 205** 项（建筑 61 + 物品 16 + 单位 1），未迁移 127：
+截至 2026-08-17 已迁移 **72 / 205** 项（建筑 55 + 物品 16 + 单位 1），未迁移 133：
 
 - 批1A 物流：junction / distributor / sorter / inverted-sorter / overflow-gate / underflow-gate
 - 批1B 存储+桥梁：container（2×2/容量300）、bridge-conveyor（传送带桥）
