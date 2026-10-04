@@ -1,6 +1,10 @@
 name: Build
 
-on: [push, pull_request]
+# 2026-10-04：关闭自动构建（原来这里写的是 `on: [push, pull_request]`）。
+# 原因：gradlew 在仓库里没有可执行位（100644）⇒ GitHub 的 Linux runner 上执行 ./gradlew 报 exit 126，
+# 于是每次 push 都会失败并给你发通知。需要构建时，去仓库的 Actions 页面手动 Run workflow 即可。
+# 想恢复自动构建：把下面的 on 改回 [push, pull_request]。
+on: [workflow_dispatch]
 
 jobs:
   build:
@@ -20,6 +24,10 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
+
+      # 手动触发时也保证能跑通（补上仓库里缺的可执行位）
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
       - name: Build with Gradle
         run: ./gradlew build
