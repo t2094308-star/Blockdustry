@@ -59,7 +59,7 @@ Blockdustry 是一个 Minecraft 模组，受经典工厂塔防游戏 Mindustry �
 
 ## 大规模迁移进度
 
-详见 [核心数据库](./docs/核心数据库.md)
+详见 [核心数据库](./docs/核心数据库/核心数据库.md)
 
 按 P1 计划大规模并行迁移 Mindustry 赛普罗内容（机制/数据优先，贴图一律拷 Mindustry 原版 PNG 不重绘，动画特效同步迁移）。（含目录锚点跳转、已迁移/未迁移逐项备注、物品→产出建筑映射、横切阻塞清单）。
 
@@ -97,7 +97,7 @@ Blockdustry 是一个 Minecraft 模组，受经典工厂塔防游戏 Mindustry �
 
 - `docs/` 存放 Mindustry 机制探索笔记（已完成项加 `^` 前缀）
 - `docs/坑/` 按主题分类的坑记录（处理任务前按主题查阅，出错后更新）
-- `docs/子agent/` 各子 agent 阶段产出
+- `docs/产出/` 各子 agent 阶段产出
 
 ---
 

@@ -11,7 +11,7 @@
   new SavedData.Factory<MyData>(MyData::new, MyData::load) // load(CompoundTag, HolderLookup.Provider) 喵
   ```
 - `save`/`load` 签名也要带 `HolderLookup.Provider`：`save(CompoundTag, HolderLookup.Provider)`、`load(CompoundTag, HolderLookup.Provider)` 喵。
-- 反例：`docs/子agent/T16_科技树深入实现.md` 里的旧写法 `Factory<>(load, new)` 是错的，勿照抄喵。
+- 反例：`docs/产出/D:\Blockdustry\仓库\docs\产出\T16_科技树深入实现.md` 里的旧写法 `Factory<>(load, new)` 是错的，勿照抄喵。
 
 ## 2. 全量重编译才会暴露既有错误（UP-TO-DATE 缓存掩盖）喵
 
@@ -29,7 +29,7 @@
 - NeoForge 1.21.1 的 `BlockEvent.EntityPlaceEvent.getLevel()` 返回 `LevelReader`，**没有 `isClientSide()`**（那是 Level 的方法）喵。
 - 坑：直接写 `event.getLevel().isClientSide()` 编译报错「找不到符号」喵。
 - 正确写法：`if (!(event.getLevel() instanceof ServerLevel level)) return;`，后面用 `level` 做服务端逻辑喵。
-- 参考：`ResearchGateHandler.onPlace`（docs/子agent/T18_科技树实现A.md）喵。
+- 参考：`ResearchGateHandler.onPlace`（docs/产出/T18_科技树实现A.md）喵。
 
 ## 5. `BuiltInRegistries.X.getValue(RL)` 不存在（1.21.1 改名 get）喵
 
